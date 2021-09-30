@@ -22,7 +22,7 @@ jobs:
         
     - name: Install requirements
       run: |
-        pip install --upgrade --upgrade-strategy eager -r requirements.txt -e .
+        pip install --upgrade --upgrade-strategy eager -r requirements.txt
 
     - name: Checkout submodules
       run: git submodule update --init .
