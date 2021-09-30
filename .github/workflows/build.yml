@@ -33,7 +33,7 @@ jobs:
         python3 tools/gen_vcmailbox_headers.py
 
     - name: Commit artifacts
-      if: ${{ github.event_name == "push" }}
+      if: ${{ github.event_name == 'push' }}
       run: |
         git add .
         git commit -m "Artifacts for ${GITHUB_REF}@${GITHUB_SHA}"
