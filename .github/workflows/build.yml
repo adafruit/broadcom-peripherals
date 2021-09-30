@@ -49,4 +49,4 @@ jobs:
         git config user.name "GitHub Actions"
         git add broadcom/gen svd/gen
         git commit -m "Artifacts for ${GITHUB_REF}@${GITHUB_SHA}"
-        git push origin ${GITHUB_REF}-build
+        git push origin HEAD:${GITHUB_REF}-build
