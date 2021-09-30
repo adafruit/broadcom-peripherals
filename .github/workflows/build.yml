@@ -34,8 +34,9 @@ jobs:
 
     - name: Build SVD files
       run: |
+        mkdir svd/gen
         python3 gen_svd.py
-        ./SVDConv svd/chips/bcm2711_lpa.svd -o broadcom/gen/ --generate=header --fields=struct --fields=macro --fields=enum --debug-headerfile -x INFO
+        ./SVDConv svd/gen/bcm2711_lpa.svd -o broadcom/gen/ --generate=header --fields=struct --fields=macro --fields=enum --debug-headerfile -x INFO
         
     - name: Build headers
       run: |
@@ -46,6 +47,6 @@ jobs:
       run: |
         git config user.email "github-actions@adafruit.com"
         git config user.name "GitHub Actions"
-        git add .
+        git add broadcom/gen svd/gen
         git commit -m "Artifacts for ${GITHUB_REF}@${GITHUB_SHA}"
         git push origin ${GITHUB_REF}-build

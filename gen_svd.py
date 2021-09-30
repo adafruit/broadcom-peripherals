@@ -7,7 +7,8 @@ env = Environment(
 
 bcm2711 = env.get_template("chips/bcm2711.svd.jinja")
 
-p = pathlib.Path("svd/chips")
+chips = pathlib.Path("svd/chips")
+gen = pathlib.Path("svd/gen")
 
 bcm2711_altfunc = [[None] * 6 for i in range(58)]
 
@@ -115,4 +116,4 @@ uart(40, 5, 1)
 for i, row in enumerate(bcm2711_altfunc):
     print(i, repr(row))
 
-(p / "bcm2711_lpa.svd").write_text(bcm2711.render(peripheral_base=0xFE000000, altfunc=bcm2711_altfunc, name="bcm2711_lpa"))
+(gen / "bcm2711_lpa.svd").write_text(bcm2711.render(peripheral_base=0xFE000000, altfunc=bcm2711_altfunc, name="bcm2711_lpa"))
