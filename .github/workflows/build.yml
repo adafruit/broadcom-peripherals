@@ -48,5 +48,5 @@ jobs:
         git config user.email "github-actions@adafruit.com"
         git config user.name "GitHub Actions"
         git add broadcom/gen svd/gen
-        git commit -m "Artifacts for ${GITHUB_REF}@${GITHUB_SHA}"
-        git push origin HEAD:${GITHUB_REF}-build
+        git commit -m "Artifacts for ${GITHUB_REF} at ${GITHUB_SHA}"
+        git push --force-with-lease origin HEAD:${GITHUB_REF}-build

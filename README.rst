@@ -18,7 +18,7 @@ Branches
 This repo has two primary branches:
 
 * `main` - Maintained source files.
-* `built` - auto-updated branch with generated files. Useful for submoduling the generated files into your own repo.
+* `main-build` - auto-updated branch with generated files. Useful for submoduling the generated files into your own repo.
 
 Using
 ======
@@ -35,9 +35,8 @@ or updated from before people will need to:
 
     git submodule update --init --recursive
 
-The header files in `samd` define the common API between the two series. Logic with most code shared
-lives in a corresponding .c file. Functions with mostly different implementations are in a .c file
-of the same name under the series specific directory, such as `samd21`. Includes are relative to the
+The header files in `broadcom` define the common API between the two series. Logic with most code shared
+lives in a corresponding .c file. Includes are relative to the
 top of the repo so make sure to add the location of the library to your includes path with something
 like:
 
@@ -64,7 +63,11 @@ source files depending on it. For example:
 Building
 =========
 
-To build the generated svd files you'll need some Python dependencies.
+To build the generated svd files you'll need some Python dependencies. To install them do:
+
+.. code-block::
+
+    pip install -r requirements.txt
 
 Contributing
 ============
