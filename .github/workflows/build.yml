@@ -1,0 +1,40 @@
+name: Build artifacts
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  build-artifacts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup Python
+      uses: actions/setup-python@v2
+
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Checkout submodules
+      run: git submodule update --init .
+
+    - name: Download SVDConv
+      run: |
+        wget https://github.com/ARM-software/CMSIS_5/raw/develop/CMSIS/Utilities/Linux64/SVDConv
+        chmod +x SVDConv
+
+    - name: Build SVD files
+      run: |
+        python3 tools/gen_svd.py
+        ./SVDConv svd/chips/bcm2711_lpa.svd -o broadcom/gen/ --generate=header --fields=struct --fields=macro --fields=enum --debug-headerfile -x INFO
+        
+    - name: Build headers
+      run: |
+        python3 tools/gen_vcmailbox_headers.py
+
+    - name: Commit artifacts
+      if: ${{ github.event_name == "push" }}
+      run: |
+        git add .
+        git commit -m "Artifacts for ${GITHUB_REF}@${GITHUB_SHA}"
+        git push origin ${GITHUB_REF}-build

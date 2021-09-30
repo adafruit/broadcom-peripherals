@@ -33,39 +33,38 @@
                     <name>GPFSEL0</name>
                     <description>GPIO Function Select 0</description>
                     <addressOffset>0x00</addressOffset>
+                    {% macro fsel_fields(pin_offset, pin_count=10) -%}
                     <fields>
-                        {% for i in range(0, 10) %}
-                        <field derivedFrom="GPIO.GPFSEL0.FSEL0">
-                            <name>FSEL{{ i }}</name>
-                            <description>Function Select {{ i }}</description>
+                        {% for i in range(0, pin_count) %}
+                        <field>
+                            <name>FSEL{{ pin_offset + i }}</name>
+                            <description>Function Select {{ pin_offset + i }}</description>
                             <bitRange>[{{ 3 * i + 2 }}:{{ 3 * i }}]</bitRange>
                             <access>read-write</access>
                             <enumeratedValues>
-                                <name>FSEL</name>
                                 <usage>read-write</usage>
                                 <enumeratedValue>
-                                    <name>Input</name>
+                                    <name>INPUT</name>
                                     <description>Pin is an input</description>
                                     <value>0</value>
-                                    <isDefault>true</isDefault>
                                 </enumeratedValue>
                                 <enumeratedValue>
-                                    <name>Output</name>
+                                    <name>OUTPUT</name>
                                     <description>Pin is an output</description>
                                     <value>1</value>
                                 </enumeratedValue>
                                 {% for bits in (4, 5, 6, 7, 3, 2) %}
-                                {% if altfunc[i][loop.index0] %}
+                                {% if altfunc[pin_offset + i][loop.index0] %}
                                 <enumeratedValue>
-                                    <name>{{ altfunc[i][loop.index0] }}</name>
-                                    <description>Pin is connected to {{ altfunc[i][loop.index0] }}</description>
-                                    <value>bits</value>
+                                    <name>{{ altfunc[pin_offset + i][loop.index0] }}</name>
+                                    <description>Pin is connected to {{ altfunc[pin_offset + i][loop.index0] }}</description>
+                                    <value>{{ bits }}</value>
                                 </enumeratedValue>
                                 {% else %}
                                 <enumeratedValue>
                                     <name>RESERVED{{ loop.index0 }}</name>
                                     <description>Alt function {{ loop.index0 }} reserved</description>
-                                    <value>bits</value>
+                                    <value>{{ bits }}</value>
                                 </enumeratedValue>
                                 {% endif %}
                                 {% endfor %}
@@ -73,76 +72,38 @@
                         </field>
                         {% endfor %}
                     </fields>
+                    {% endmacro %}
+                    {{ fsel_fields(0) }}
                 </register>
                 <register>
                     <name>GPFSEL1</name>
                     <description>GPIO Function Select 1</description>
                     <addressOffset>0x04</addressOffset>
-                    <fields>
-                        {% for i in range(0, 10) %}
-                        <field derivedFrom="GPIO.GPFSEL0.FSEL0">
-                            <name>FSEL{{ 10 + i }}</name>
-                            <description>Function Select {{ 10 + i }}</description>
-                            <bitRange>[{{ 3 * i + 2 }}:{{ 3 * i }}]</bitRange>
-                        </field>
-                        {% endfor %}
-                    </fields>
+                    {{ fsel_fields(10) }}
                 </register>
                 <register>
                     <name>GPFSEL2</name>
                     <description>GPIO Function Select 2</description>
                     <addressOffset>0x08</addressOffset>
-                    <fields>
-                        {% for i in range(0, 10) %}
-                        <field derivedFrom="GPIO.GPFSEL0.FSEL0">
-                            <name>FSEL{{ 20 + i }}</name>
-                            <description>Function Select {{ 20 + i }}</description>
-                            <bitRange>[{{ 3 * i + 2 }}:{{ 3 * i }}]</bitRange>
-                        </field>
-                        {% endfor %}
-                    </fields>
+                    {{ fsel_fields(20) }}
                 </register>
                 <register>
                     <name>GPFSEL3</name>
                     <description>GPIO Function Select 3</description>
                     <addressOffset>0x0c</addressOffset>
-                    <fields>
-                        {% for i in range(0, 10) %}
-                        <field derivedFrom="GPIO.GPFSEL0.FSEL0">
-                            <name>FSEL{{ 30 + i }}</name>
-                            <description>Function Select {{ 30 + i }}</description>
-                            <bitRange>[{{ 3 * i + 2 }}:{{ 3 * i }}]</bitRange>
-                        </field>
-                        {% endfor %}
-                    </fields>
+                    {{ fsel_fields(30) }}
                 </register>
                 <register>
                     <name>GPFSEL4</name>
                     <description>GPIO Function Select 4</description>
                     <addressOffset>0x10</addressOffset>
-                    <fields>
-                        {% for i in range(0, 10) %}
-                        <field derivedFrom="GPIO.GPFSEL0.FSEL0">
-                            <name>FSEL{{ 40 + i }}</name>
-                            <description>Function Select {{ 40 + i }}</description>
-                            <bitRange>[{{ 3 * i + 2 }}:{{ 3 * i }}]</bitRange>
-                        </field>
-                        {% endfor %}
-                    </fields>
+                    {{ fsel_fields(40) }}
                 </register>
                 <register>
                     <name>GPFSEL5</name>
                     <description>GPIO Function Select 5</description>
                     <addressOffset>0x14</addressOffset>
-                    <fields>
-                        {% for i in range(0, 8) %}
-                        <field derivedFrom="GPIO.GPFSEL0.FSEL0">
-                            <name>FSEL{{ 50 + i }}</name>
-                            <description>Function Select {{ 50 + i }}</description>
-                            <bitRange>[{{ 3 * i + 2 }}:{{ 3 * i }}]</bitRange>
-                        </field>
-                        {% endfor %}
-                    </fields>
+                    {{ fsel_fields(50, 8) }}
                 </register>
                 <register>
                     <name>GPSET0</name>

@@ -18,7 +18,7 @@
     <size>32</size>
     <peripherals>
         {%- import "peripherals/vcmailbox.svd.jinja" as vcmailbox %}
-        {{ vcmailbox.peripheral("vcmailbox", peripheral_base + 0xB880) }}
+        {{ vcmailbox.peripheral("VCMAILBOX", peripheral_base + 0xB880) }}
 
         {%- import "peripherals/gpio.svd.jinja" as gpio %}
         {{ gpio.peripheral("GPIO", peripheral_base + 0x20000, altfunc)}}
