@@ -44,6 +44,8 @@ jobs:
     - name: Commit artifacts
       if: ${{ github.event_name == 'push' }}
       run: |
+        git config user.email "github-actions@adafruit.com"
+        git config user.name "GitHub Actions"
         git add .
         git commit -m "Artifacts for ${GITHUB_REF}@${GITHUB_SHA}"
         git push origin ${GITHUB_REF}-build
