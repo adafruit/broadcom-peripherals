@@ -25,12 +25,12 @@ jobs:
 
     - name: Build SVD files
       run: |
-        python3 tools/gen_svd.py
+        python3 gen_svd.py
         ./SVDConv svd/chips/bcm2711_lpa.svd -o broadcom/gen/ --generate=header --fields=struct --fields=macro --fields=enum --debug-headerfile -x INFO
         
     - name: Build headers
       run: |
-        python3 tools/gen_vcmailbox_headers.py
+        python3 gen_vcmailbox_headers.py
 
     - name: Commit artifacts
       if: ${{ github.event_name == 'push' }}
