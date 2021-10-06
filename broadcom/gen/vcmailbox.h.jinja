@@ -1,5 +1,8 @@
 #pragma once
 
+#include <stdbool.h>
+#include <stdint.h>
+
 // Request and response buffer. The request will be overwritten by the response.
 typedef struct {
     uint32_t buffer_size;
@@ -7,6 +10,8 @@ typedef struct {
     // Series of tagged data where the final tag is 0x0.
     uint8_t data[];
 } vcmailbox_buffer_t;
+
+#define VCMAILBOX_HEADER_SIZE (2 * sizeof(uint32_t))
 
 #define VCMAILBOX_CODE_PROCESS_REQUEST    0x00000000
 #define VCMAILBOX_CODE_REQUEST_SUCCESSFUL 0x80000000
@@ -48,28 +53,33 @@ typedef enum {
 // {{ line }}
 {% endfor -%}
 #define VCMAILBOX_TAG_{{ property.lower | upper() }} {{ "0x{:08x}".format(property.tag) }}
-typedef struct {
-    uint32_t tag;
-    uint32_t value_size; // in bytes
-    bool response : 1;
-    uint32_t reserved : 31;
 {% if property.request.length != '0' %}
-    // request values
-{% for t, name, array, comment in property.request.fields %}
-    {{ t }} {{ name }}{% if array %}[]{% endif %}; // {{ comment }}
+typedef struct {
+{% for t, name, array, array_size, comment in property.request.fields %}
+    {{ t }} {{ name }}{% if array %}[{{ array_size }}]{% endif %}; // {{ comment }}
 {% endfor %}
-{% endif %}
 } vcmailbox_{{ property.lower }}_request_t;
+
+{% endif %}
+typedef struct {
+{% for t, name, array, array_size, comment in property.response.fields %}
+    {{ t }} {{ name }}{% if array %}[{{ array_size }}]{% endif %}; // {{ comment }}
+{% endfor %}
+} vcmailbox_{{ property.lower }}_response_t;
 
 typedef struct {
     uint32_t tag;
     uint32_t value_size; // in bytes
-    bool response : 1;
+    bool is_response : 1;
     uint32_t response_value_size : 31;
-    // response values
-{% for t, name, array, comment in property.response.fields %}
-    {{ t }} {{ name }}{% if array %}[]{% endif %}; // {{ comment }}
-{% endfor %}
-} vcmailbox_{{ property.lower }}_response_t;
+{% if property.request.length != '0' %}
+    union {
+        vcmailbox_{{ property.lower }}_request_t request;
+        vcmailbox_{{ property.lower }}_response_t response;
+    };
+{% else %}
+    vcmailbox_{{ property.lower }}_response_t response;
+{% endif %}
+} vcmailbox_{{ property.lower }}_t;
 
 {% endfor %}

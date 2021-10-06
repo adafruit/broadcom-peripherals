@@ -75,6 +75,12 @@ OVERRIDE_NAME = {
     "(unused)": "unused",
     "enable (1=visible, 0=invisible)": "enable",
 }
+ARRAY_SIZES = {
+    "mac_address": 6,
+    "ascii_command_line_string": 128,
+    "edid_block": 128,
+    "rgba_palette_values": 256
+}
 for p in properties:
     lower = (
         p["name"]
@@ -96,6 +102,7 @@ for p in properties:
             continue
         for i, field in enumerate(p[struct]["fields"]):
             # print(field)
+            array_size = ""
             t = field[0]
             array = t.endswith("...")
             t = t.strip(".")
@@ -109,7 +116,9 @@ for p in properties:
             elif "in" in name.split():
                 name = name.split("in")[0].strip()
             name = name.lower().replace(" ", "_")
-            p[struct]["fields"][i] = (t, name, array, comment)
+            if name in ARRAY_SIZES:
+                array_size = ARRAY_SIZES[name]
+            p[struct]["fields"][i] = (t, name, array, array_size, comment)
 
 power_device_ids = [
     "SD_CARD",
