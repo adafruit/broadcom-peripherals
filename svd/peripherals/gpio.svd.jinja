@@ -1,4 +1,4 @@
-{% macro peripheral(name, base_address, altfunc) -%}
+{% macro peripheral(name, base_address, altfunc, interrupt_offset=96) -%}
         <peripheral>
             <name>{{ name }}</name>
             <description>Pin level and mux control</description>
@@ -8,26 +8,26 @@
                 <size>0xF4</size>
                 <usage>registers</usage>
             </addressBlock>
-<!--             <interrupt>
+            <interrupt>
                 <name>GPIO0</name>
                 <description>Interrupt from bank 0</description>
-                <value>49</value>
+                <value>{{ interrupt_offset + 49 }}</value>
             </interrupt>
             <interrupt>
                 <name>GPIO1</name>
                 <description>Interrupt from bank 1</description>
-                <value>50</value>
+                <value>{{ interrupt_offset + 50 }}</value>
             </interrupt>
             <interrupt>
                 <name>GPIO2</name>
                 <description>Interrupt from bank 2</description>
-                <value>51</value>
+                <value>{{ interrupt_offset + 51 }}</value>
             </interrupt>
             <interrupt>
                 <name>GPIO</name>
                 <description>OR of all GPIO interrupts</description>
-                <value>52</value>
-            </interrupt> -->
+                <value>{{ interrupt_offset + 52 }}</value>
+            </interrupt>
             <registers>
                 <register>
                     <name>GPFSEL0</name>
@@ -483,10 +483,12 @@
                     <addressOffset>0xe8</addressOffset>
                     <fields>
                         {% for i in range(0, 16) %}
-                        <field derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0">
+                        <field>
                             <name>GPIO_PUP_PDN_CNTRL{{ 16 + i }}</name>
                             <description>Resistor select for {{ 16 + i }}</description>
                             <bitOffset>{{ 2 * i }}</bitOffset>
+                            <bitWidth>2</bitWidth>
+                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.PULL"/>
                         </field>
                         {% endfor %}
                     </fields>
@@ -497,10 +499,12 @@
                     <addressOffset>0xec</addressOffset>
                     <fields>
                         {% for i in range(0, 16) %}
-                        <field derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0">
+                        <field>
                             <name>GPIO_PUP_PDN_CNTRL{{ 16 * 2 + i }}</name>
                             <description>Resistor select for {{ 16 * 2 + i }}</description>
                             <bitOffset>{{ 2 * i }}</bitOffset>
+                            <bitWidth>2</bitWidth>
+                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.PULL"/>
                         </field>
                         {% endfor %}
                     </fields>
@@ -511,10 +515,12 @@
                     <addressOffset>0xf0</addressOffset>
                     <fields>
                         {% for i in range(0, 10) %}
-                        <field derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0">
+                        <field>
                             <name>GPIO_PUP_PDN_CNTRL{{ 16 * 3 + i }}</name>
                             <description>Resistor select for {{ 16 * 3 + i }}</description>
                             <bitOffset>{{ 2 * i }}</bitOffset>
+                            <bitWidth>2</bitWidth>
+                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.PULL"/>
                         </field>
                         {% endfor %}
                     </fields>

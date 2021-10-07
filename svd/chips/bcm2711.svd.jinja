@@ -26,6 +26,15 @@
         {%- import "peripherals/arm_uart_pl011.svd.jinja" as arm_uart_pl011 %}
         {{ arm_uart_pl011.peripheral("UART0", peripheral_base + 0x201000)}}
 
+        {%- import "peripherals/bcm_legacy_interrupt.svd.jinja" as bcm_legacy_interrupt %}
+        {{ bcm_legacy_interrupt.peripheral("LIC", arm_local_base + 0x00000)}}
+
+        {%- import "peripherals/arm_gic400.svd.jinja" as arm_gic400 %}
+        {{ arm_gic400.peripheral("GIC", arm_local_base + 0x40000, interrupt_names=interrupt_names)}}
+
+        {%- import "peripherals/synopsis_usb_dwc2.svd.jinja" as synopsis_usb_dwc2 %}
+        {{ synopsis_usb_dwc2.peripheral("USB_OTG", peripheral_base + 0x980000)}}
+
         {%- import "svd.jinja" as svd %}
         {{ svd.derived_peripheral("UART2", peripheral_base + 0x201400, "UART0") }}
         {{ svd.derived_peripheral("UART3", peripheral_base + 0x201600, "UART0") }}

@@ -1,0 +1,54 @@
+{% macro peripheral(name, base_address) -%}
+    <peripheral>
+      <name>{{ name }}</name>
+      <description>Broadcom Legacy Interrupt Controller</description>
+      <baseAddress>{{ "0x{:x}".format(base_address) }}</baseAddress>
+      <headerStructName>BCM_LIC</headerStructName>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x80</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+          <name>HPTIMER</name>
+          <description>Core HP timer IRQ</description>
+          <value>26</value>
+      </interrupt>
+      <interrupt>
+          <name>VTIMER</name>
+          <description>Core V timer IRQ</description>
+          <value>27</value>
+      </interrupt>
+      <interrupt>
+          <name>LEGACY_FIQ</name>
+          <description>Legacy FIQ</description>
+          <value>28</value>
+      </interrupt>
+      <interrupt>
+          <name>PSTIMER</name>
+          <description>Core PS timer IRQ</description>
+          <value>29</value>
+      </interrupt>
+      <interrupt>
+          <name>PNSTIMER</name>
+          <description>Core PNS timer IRQ</description>
+          <value>30</value>
+      </interrupt>
+      <interrupt>
+          <name>LEGACY_IRQ</name>
+          <description>Legacy IRQ</description>
+          <value>31</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>ARM_CONTROL</name>
+          <description>ARM Timer and AXI Error IRQ control</description>
+          <addressOffset>0x00</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <!-- TODO: Add fields -->
+        </register>
+      </registers>
+    </peripheral>
+{% endmacro %}
