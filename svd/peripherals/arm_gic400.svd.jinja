@@ -16,6 +16,11 @@
           <value>{{ i }}</value>
       </interrupt>
       {% endfor %}
+      {# <interrupt>
+          <name>SPURIOUS</name>
+          <description>Spurious interrupt that is no longer pending</description>
+          <value>1023</value>
+      </interrupt> #}
       <!-- Source: https://developer.arm.com/documentation/ddi0471/b -->
       <registers>
         <!-- 0x0000 - 0x0fff Reserved -->
@@ -509,7 +514,7 @@
               <bitWidth>1</bitWidth>
             </field>
             <field>
-              <name>EOIMODES</name>
+              <name>EOIMODENS</name>
               <description>Non-Secure EOIR does priority drop. DIR does deactivate.</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
