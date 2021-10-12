@@ -1,4 +1,3 @@
-
 #include <stdint.h>
 #include <string.h>
 
@@ -31,7 +30,7 @@ uint32_t compute_size(uint32_t tag_size) {
 bool vcmailbox_get_power_state(vcmailbox_device_t device) {
     int size = compute_size(sizeof(vcmailbox_get_power_state_t));
     vcmailbox_buffer_t* buf = (vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
-    memset(buf, size, 0);
+    memset(buf, 0, size);
     buf->buffer_size = size;
     vcmailbox_get_power_state_t* tag = (vcmailbox_get_power_state_t*) &buf->data;
     tag->tag = VCMAILBOX_TAG_GET_POWER_STATE;
@@ -45,7 +44,7 @@ bool vcmailbox_get_power_state(vcmailbox_device_t device) {
 bool vcmailbox_set_power_state(vcmailbox_device_t device, bool on) {
     int size = compute_size(sizeof(vcmailbox_set_power_state_t));
     vcmailbox_buffer_t* buf = (vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
-    memset(buf, size, 0);
+    memset(buf, 0, size);
     buf->buffer_size = size;
     vcmailbox_set_power_state_t* tag = (vcmailbox_set_power_state_t*) &buf->data;
     tag->tag = VCMAILBOX_TAG_SET_POWER_STATE;

@@ -1047,6 +1047,187 @@
           </fields>
         </register>
         <register>
+          <name>VID</name>
+          <displayName>Vendor</displayName>
+          <description>OTG_HS vendor ID register</description>
+          <addressOffset>0x40</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+        </register>
+        <register>
+          <name>HW_DIRECTION</name>
+          <description>Direction</description>
+          <addressOffset>0x44</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <fields>
+            <field>
+              <name>DIRECTION%s</name>
+              <description>Direction %s</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>2</bitWidth>
+              <dim>16</dim>
+              <dimIncrement>2</dimIncrement>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>HW_CONFIG0</name>
+          <description>Hardware Config 0</description>
+          <addressOffset>0x48</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <fields>
+            <field>
+              <name>OPERATING_MODE</name>
+              <description>Operating Mode</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue><name>HNP_SRP_CAPABLE</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>SRP_ONLY_CAPABLE</name><value>1</value></enumeratedValue>
+                <enumeratedValue><name>NO_HNP_SRP_CAPABLE</name><value>2</value></enumeratedValue>
+                <enumeratedValue><name>SRP_CAPABLE_DEVICE</name><value>3</value></enumeratedValue>
+                <enumeratedValue><name>NO_SRP_CAPABLE_DEVICE</name><value>4</value></enumeratedValue>
+                <enumeratedValue><name>SRP_CAPABLE_HOST</name><value>5</value></enumeratedValue>
+                <enumeratedValue><name>NO_SRP_CAPABLE_HOST</name><value>6</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ARCHITECTURE</name>
+              <description>Architecture</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue><name>SLAVE_ONLY</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>EXTERNAL_DMA</name><value>1</value></enumeratedValue>
+                <enumeratedValue><name>INTERNAL_DMA</name><value>2</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>POINT_TO_POINT</name>
+              <description>Point to Point</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>HIGH_SPEED_PHY</name>
+              <description>High Speed Physical</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue><name>NOT_SUPPORTED</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>UTMI</name><value>1</value></enumeratedValue>
+                <enumeratedValue><name>ULPI</name><value>2</value></enumeratedValue>
+                <enumeratedValue><name>UTMI_ULPI</name><value>3</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>FULL_SPEED_PHY</name>
+              <description>Full Speed Physical</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue><name>PHY0</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>DEDICATED</name><value>1</value></enumeratedValue>
+                <enumeratedValue><name>PHY2</name><value>2</value></enumeratedValue>
+                <enumeratedValue><name>PHY3</name><value>3</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>DEVICE_END_POINT_COUNT</name>
+              <description>Device end point count</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>4</bitWidth>
+            </field>
+            <field>
+              <name>HOST_CHANNEL_COUNT</name>
+              <description>Host channel count</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+            </field>
+            <field>
+              <name>SUPPORTS_PERIODIC_ENDPOINTS</name>
+              <description>Supports periodic endpoints</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DYNAMIC_FIFO</name>
+              <description>Dynamic FIFO</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>MULTI_PROC_INT</name>
+              <description>Multi proc int</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>NON_PERIODIC_QUEUE_DEPTH</name>
+              <description>Non periodic queue depth</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
+              <name>HOST_PERIODIC_QUEUE_DEPTH</name>
+              <description>Host periodic queue depth</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
+              <name>DEVICE_TOKEN_QUEUE_DEPTH</name>
+              <description>Device token queue depth</description>
+              <bitOffset>26</bitOffset>
+              <bitWidth>5</bitWidth>
+            </field>
+            <field>
+              <name>ENABLE_IC_USB</name>
+              <description>Enable IC USB</description>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+
+<!--    // 0x4c
+    volatile const unsigned TransferSizeControlWidth : 4; // @64
+    volatile const unsigned PacketSizeControlWidth : 3; // @68
+    volatile const bool otg_func:1; // @71
+    volatile const bool I2c : 1; // @72
+    volatile const bool VendorControlInterface : 1; // @73
+    volatile const bool OptionalFeatures : 1; // @74
+    volatile const bool SynchronousResetType : 1; // @75
+    volatile const bool AdpSupport : 1; // @76
+    volatile const bool otg_enable_hsic:1; // @77
+    volatile const bool bc_support:1; // @78
+    volatile const bool LowPowerModeEnabled : 1; // @79
+    volatile const unsigned FifoDepth : 16;  // @80
+
+     // 0x50
+    volatile const unsigned PeriodicInEndpointCount : 4; // @96
+    volatile const bool PowerOptimisation : 1; // @100
+    volatile const bool MinimumAhbFrequency : 1; // @101
+    volatile const bool PartialPowerOff : 1; // @102
+    volatile const unsigned _reserved103_109 : 7;  // @103
+    volatile const enum {
+      Width8bit,
+      Width16bit,
+      Width8or16bit,
+    } UtmiPhysicalDataWidth : 2; // @110
+    volatile const unsigned ModeControlEndpointCount : 4; // @112
+    volatile const bool ValidFilterIddigEnabled : 1; // @116
+    volatile const bool VbusValidFilterEnabled : 1; // @117
+    volatile const bool ValidFilterAEnabled : 1; // @118
+    volatile const bool ValidFilterBEnabled : 1; // @119
+    volatile const bool SessionEndFilterEnabled : 1; // @120
+    volatile const bool ded_fifo_en:1; // @121
+    volatile const unsigned InEndpointCount : 4; // @122
+    volatile const bool DmaDescription : 1; // @126
+    volatile const bool DmaDynamicDescription : 1; // @127
+  } __attribute__ ((__packed__)) Hardware; // All read only +0x44 -->
+        <register>
           <name>HPTXFSIZ</name>
           <displayName>HPTXFSIZ</displayName>
           <description>OTG_HS Host periodic transmit FIFO size
