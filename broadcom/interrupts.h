@@ -1,8 +1,20 @@
 #pragma once
 
-void disable_async_interrupts(void);
-void enable_async_interrupts(void);
+#include "broadcom/gen/bcm2711_lpa.h"
 
-#define GIC_BASE 0x4c0040000
-#define NUM_CPUS 4
-#define NUM_SPIS 192
+void BP_EnableIRQs(void);
+void BP_DisableIRQs(void);
+
+// Minimum priority is the highest priority value. (0 is highest priority)
+void BP_SetMinPriority(uint8_t priority);
+
+// We mimic the NVIC used in Cortex M SoCs.
+void BP_EnableIRQ(IRQn_Type IRQn);
+bool BP_GetEnableIRQ(IRQn_Type IRQn);
+void BP_DisableIRQ(IRQn_Type IRQn);
+bool BP_GetPendingIRQ(IRQn_Type IRQn);
+void BP_SetPendingIRQ(IRQn_Type IRQn);
+void BP_ClearPendingIRQ(IRQn_Type IRQn);
+bool BP_GetActive(IRQn_Type IRQn);
+void BP_SetPriority(IRQn_Type IRQn, uint8_t priority);
+uint8_t BP_GetPriority(IRQn_Type IRQn);

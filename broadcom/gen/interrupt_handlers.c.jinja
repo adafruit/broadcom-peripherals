@@ -1,0 +1,27 @@
+#include <stdbool.h>
+#include <stddef.h>
+
+// TODO: Route I2C, SPI and UART based on AUX_IRQ and PACTL_CS
+
+{% for i in range(interrupt_count) %}
+{% if i in interrupt_names %}
+{% set name, description = interrupt_names[i] %}
+// {{ i }}: {{ description }}
+__attribute__((weak)) void {{ name }}_IRQHandler(void) {
+    while(true) {}
+}
+
+{% endif %}
+{% endfor %}
+
+
+void* interrupt_handlers[{{ interrupt_count }}] = {
+{% for i in range(interrupt_count) %}
+{% if i in interrupt_names %}
+{% set name, description = interrupt_names[i] %}
+  {{ name }}_IRQHandler,
+{%- else %}
+  NULL,
+{%- endif %} // {{ i }}
+{% endfor %}  
+};
