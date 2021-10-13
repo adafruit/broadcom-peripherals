@@ -161,11 +161,32 @@
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
+            <!-- This is as-is from synopsis
             <field>
               <name>HBSTLEN</name>
               <description>Burst length/type</description>
               <bitOffset>1</bitOffset>
               <bitWidth>4</bitWidth>
+            </field> -->
+            <!-- This is according to the BCM2835 peripheral doc -->
+            <field>
+              <name>AXI_WAIT</name>
+              <description>Wait for all AXI writes before signaling DMA</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>AXI_BURST</name>
+              <description>Maximum AXI burst length</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <name>BURST</name>
+                <enumeratedValue><name>4</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>3</name><value>1</value></enumeratedValue>
+                <enumeratedValue><name>2</name><value>2</value></enumeratedValue>
+                <enumeratedValue><name>1</name><value>3</value></enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DMAEN</name>
@@ -205,12 +226,59 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>PHYIF</name>
+              <description>PHY Interface width</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue><name>8BIT</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>16BIT</name><value>1</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>PHYTYPE</name>
+              <description>PHY Type</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue><name>UTMI+</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>ULPI</name><value>1</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>FSIF</name>
+              <description>Full speed interface</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue><name>6PIN</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>3PIN</name><value>1</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
               <name>PHYSEL</name>
-              <description>USB 2.0 high-speed ULPI PHY or USB 1.1
-              full-speed serial transceiver select</description>
+              <description>Transceiver select</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>write-only</access>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue><name>USB20</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>USB11</name><value>1</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>DDRSEL</name>
+              <description>ULPI data rate</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue><name>SINGLE</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>DOUBLE</name><value>1</value></enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SRPCAP</name>
@@ -1068,6 +1136,11 @@
               <bitWidth>2</bitWidth>
               <dim>16</dim>
               <dimIncrement>2</dimIncrement>
+              <enumeratedValues>
+                <enumeratedValue><name>BIDIR</name><value>0</value></enumeratedValue>
+                <enumeratedValue><name>IN</name><value>1</value></enumeratedValue>
+                <enumeratedValue><name>OUT</name><value>2</value></enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -3214,6 +3287,120 @@
             </fields>
           </register>
         </cluster>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>{{ name }}_PWRCLK</name>
+      <description>USB on the go high speed power control</description>
+      <groupName>USB_OTG_HS</groupName>
+      <baseAddress>{{ "0x{:08x}".format(base_address + 0xe00) }}</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x400</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>PCGCCTL</name>
+          <displayName>PCGCCTL</displayName>
+          <description>power and clock gating control</description>
+          <addressOffset>0x0</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x200b8000</resetValue>
+          <fields>
+            <field>
+              <name>STPPCLK</name>
+              <description>Stop PHY clock</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>GATEHCLK</name>
+              <description>Gate HCLK</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>PWRCLMP</name>
+              <description>Power clamp</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RSTPDWNMODULE</name>
+              <description>Power down modules</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>PHYSUSP</name>
+              <description>PHY Suspended</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ENABLE_L1GATING</name>
+              <description>Enable sleep clock gating</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>PHYSLEEP</name>
+              <description>PHY is in sleep mode</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DEEPSLEEP</name>
+              <description>PHY is in deep sleep</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RESETAFTERSUSP</name>
+              <description>Reset after suspend</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RESTOREMODE</name>
+              <description>Restore mode</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ENEXTNDEDHIBER</name>
+              <description>Enable extended hibernation</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>EXTNDEDHIBERNATIONCLAMP</name>
+              <description>Extended hibernation clamp</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>EXTNDEDHIBERNATIONSWITCH</name>
+              <description>Extended hibernation switch</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ESSREGRESTORED</name>
+              <description>Essential register values restored</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RESTORE_VALUE</name>
+              <description>Restore value</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>18</bitWidth>
+            </field>
+          </fields>
+        </register>
       </registers>
     </peripheral>
 {% endmacro %}
