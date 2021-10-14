@@ -21,7 +21,26 @@
                   <size>32</size>
                   <access>read-write</access>
                   <resetValue>0x00000000</resetValue>
-                  <!-- TODO: Add fields -->
+                  <fields>
+                    <field>
+                        <name>SPI_2</name>
+                        <description>SPI2 interrupt active</description>
+                        <bitOffset>2</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    <field>
+                        <name>SPI_1</name>
+                        <description>SPI1 interrupt active</description>
+                        <bitOffset>1</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    <field>
+                        <name>UART_1</name>
+                        <description>UART1 interrupt active</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                </fields>
                 </register>
                 <register>
                   <name>ENABLES</name>
@@ -30,7 +49,26 @@
                   <size>32</size>
                   <access>read-write</access>
                   <resetValue>0x00000000</resetValue>
-                  <!-- TODO: Add fields -->
+                  <fields>
+                    <field>
+                        <name>SPI_2</name>
+                        <description>SPI2 enabled</description>
+                        <bitOffset>2</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    <field>
+                        <name>SPI_1</name>
+                        <description>SPI1 enabled</description>
+                        <bitOffset>1</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    <field>
+                        <name>UART_1</name>
+                        <description>UART1 enabled</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                </fields>
                 </register>
             </registers>
         </peripheral>
