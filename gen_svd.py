@@ -119,8 +119,8 @@ for i, name in enumerate(("CTS", "RTS", "TXD", "RXD")):
 uart(36, 2, 0)
 uart(40, 5, 1)
 
-for i, row in enumerate(bcm2711_altfunc):
-    print(i, repr(row))
+# for i, row in enumerate(bcm2711_altfunc):
+#     print(i, repr(row))
 
 videocore_interrupts = [
     "Timer 0",

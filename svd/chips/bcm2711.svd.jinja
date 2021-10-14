@@ -23,6 +23,9 @@
         {%- import "peripherals/gpio.svd.jinja" as gpio %}
         {{ gpio.peripheral("GPIO", peripheral_base + 0x20000, altfunc)}}
 
+        {%- import "peripherals/bcm_system_timer.svd.jinja" as bcm_system_timer %}
+        {{ bcm_system_timer.peripheral("SYSTMR", peripheral_base + 0x3000)}}
+
         {%- import "peripherals/arm_uart_pl011.svd.jinja" as arm_uart_pl011 %}
         {{ arm_uart_pl011.peripheral("UART0", peripheral_base + 0x201000)}}
 

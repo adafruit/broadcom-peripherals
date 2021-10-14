@@ -446,9 +446,9 @@
                             <bitOffset>0</bitOffset>
                             <bitWidth>2</bitWidth>
                             <enumeratedValues>
-                                <name>PULL</name>
+                                <name>BP_PULL</name>
                                 <usage>read-write</usage>
-                                <headerEnumName>PULL</headerEnumName>
+                                <headerEnumName>BP_PULL</headerEnumName>
                                 <enumeratedValue>
                                     <name>NONE</name>
                                     <description>No pull</description>
@@ -472,7 +472,7 @@
                             <description>Resistor select for {{ i }}</description>
                             <bitOffset>{{ 2 * i }}</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.PULL"/>
+                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
                         </field>
                         {% endfor %}
                     </fields>
@@ -488,7 +488,7 @@
                             <description>Resistor select for {{ 16 + i }}</description>
                             <bitOffset>{{ 2 * i }}</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.PULL"/>
+                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
                         </field>
                         {% endfor %}
                     </fields>
@@ -504,7 +504,7 @@
                             <description>Resistor select for {{ 16 * 2 + i }}</description>
                             <bitOffset>{{ 2 * i }}</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.PULL"/>
+                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
                         </field>
                         {% endfor %}
                     </fields>
@@ -520,7 +520,7 @@
                             <description>Resistor select for {{ 16 * 3 + i }}</description>
                             <bitOffset>{{ 2 * i }}</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.PULL"/>
+                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
                         </field>
                         {% endfor %}
                     </fields>
