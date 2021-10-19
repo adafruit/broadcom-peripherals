@@ -1,14 +1,40 @@
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
+
+#include "broadcom/gen/bcm2711_lpa.h"
+
+// This catches non-interrupt exceptions that are similar to Cortex-M hard faults.
+__attribute__((weak)) void HardFault_IRQHandler(void) {
+    while (true) {}
+}
 
 // TODO: Route I2C, SPI and UART based on AUX_IRQ and PACTL_CS
+
+{% for aux in ("UART1", "SPI1", "SPI2") %}
+__attribute__((weak)) void {{ aux }}_IRQHandler(void) {
+    while(true) {}
+}
+{% endfor %}
 
 {% for i in range(interrupt_count) %}
 {% if i in interrupt_names %}
 {% set name, description = interrupt_names[i] %}
 // {{ i }}: {{ description }}
 __attribute__((weak)) void {{ name }}_IRQHandler(void) {
+{% if name == "AUX" %}
+    while (AUX->IRQ != 0) {
+        if (AUX->IRQ_b.UART_1) {
+            UART1_IRQHandler();
+        } else if (AUX->IRQ_b.SPI_1) {
+            SPI1_IRQHandler();
+        } else if (AUX->IRQ_b.SPI_2) {
+            SPI2_IRQHandler();
+        }
+    }
+{% else %}
     while(true) {}
+{% endif %}
 }
 
 {% endif %}

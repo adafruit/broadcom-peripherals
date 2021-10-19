@@ -11,7 +11,7 @@
             <interrupt>
                 <name>AUX</name>
                 <description>Interrupt from AUX</description>
-                <value>{{ interrupt_offset + 45 }}</value>
+                <value>{{ interrupt_offset + 29 }}</value>
             </interrupt>
             <registers>
                 <register>
@@ -115,15 +115,16 @@
                     <access>read-write</access>
                     <resetValue>0x00000000</resetValue>
                     <fields>
+                        <!-- These bits are incorrect in the datasheets. -->
                         <field>
-                            <name>RXREADY</name>
-                            <description>Receive FIFO has at least 1 byte</description>
+                            <name>TX_READY</name>
+                            <description>Transmit FIFO is empty</description>
                             <bitOffset>1</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
                         <field>
-                            <name>TXEMPTY</name>
-                            <description>Transmit FIFO is empty</description>
+                            <name>DATA_READY</name>
+                            <description>Receive FIFO has at least 1 byte</description>
                             <bitOffset>0</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
@@ -147,13 +148,13 @@
                   <resetValue>0x0000b001</resetValue>
                   <fields>
                         <field>
-                            <name>RXREADY</name>
+                            <name>DATA_READY</name>
                             <description>Receive FIFO has at least 1 byte</description>
                             <bitOffset>2</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
                         <field>
-                            <name>TXEMPTY</name>
+                            <name>TX_READY</name>
                             <description>Transmit FIFO is empty</description>
                             <bitOffset>1</bitOffset>
                             <bitWidth>1</bitWidth>
@@ -190,7 +191,7 @@
                             <name>DATA_SIZE</name>
                             <description>UART word size</description>
                             <bitOffset>0</bitOffset>
-                            <bitWidth>1</bitWidth>
+                            <bitWidth>2</bitWidth>
                             <enumeratedValues>
                                 <name>MODE</name>
                                 <enumeratedValue>
@@ -201,7 +202,7 @@
                                 <enumeratedValue>
                                     <name>8BIT</name>
                                     <description>8 bit</description>
-                                    <value>1</value>
+                                    <value>3</value>
                                 </enumeratedValue>
                             </enumeratedValues>
                         </field>

@@ -21,7 +21,7 @@
         {{ vcmailbox.peripheral("VCMAILBOX", peripheral_base + 0xB880) }}
 
         {%- import "peripherals/gpio.svd.jinja" as gpio %}
-        {{ gpio.peripheral("GPIO", peripheral_base + 0x20000, altfunc)}}
+        {{ gpio.peripheral("GPIO", peripheral_base + 0x200000, altfunc)}}
 
         {%- import "peripherals/bcm_system_timer.svd.jinja" as bcm_system_timer %}
         {{ bcm_system_timer.peripheral("SYSTMR", peripheral_base + 0x3000)}}
