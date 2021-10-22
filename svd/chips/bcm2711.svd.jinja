@@ -46,5 +46,8 @@
 
         {%- import "peripherals/synopsis_usb_dwc2.svd.jinja" as synopsis_usb_dwc2 %}
         {{ synopsis_usb_dwc2.peripheral("USB_OTG", peripheral_base + 0x980000)}}
+
+        {%- import "peripherals/arasan_emmc.svd.jinja" as arasan_emmc %}
+        {{ arasan_emmc.peripheral("EMMC", peripheral_base + 0x300000)}}
     </peripherals>
 </device>
