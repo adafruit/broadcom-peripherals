@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdbool.h>
+
 #include "broadcom/gen/bcm2711_lpa.h"
 
 void BP_EnableIRQs(void);
