@@ -46,7 +46,7 @@ void BP_DisableIRQs(void) {
 }
 
 __attribute__((weak)) void handle_irq(void) {
-    while (GIC_CPU->GICC_HPPIR_b.INTERRUPT_ID < 1023) {
+    while (GIC_CPU->GICC_HPPIR_b.INTERRUPT_ID < INTERRUPT_COUNT) {
         // This register changes state after being read so make sure to read it
         // all at once. We need the full value to pass back to EOIR later.
         uint32_t current_interrupt = GIC_CPU->GICC_IAR;
@@ -55,6 +55,9 @@ __attribute__((weak)) void handle_irq(void) {
         BP_EnableIRQs();
 
         uint32_t interrupt_id = current_interrupt & GIC_CPU_GICC_IAR_INTERRUPT_ID_Msk;
+        if (interrupt_id >= INTERRUPT_COUNT) {
+            break;
+        }
 
         void(* handler)(void) = interrupt_handlers[interrupt_id];
         if (handler == NULL) {

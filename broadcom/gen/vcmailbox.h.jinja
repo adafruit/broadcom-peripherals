@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#define _VC_MAX(x, y) (((x) > (y)) ? (x) : (y))
+
 // Request and response buffer. The request will be overwritten by the response.
 typedef struct {
     uint32_t buffer_size;
@@ -53,25 +55,33 @@ typedef enum {
 // {{ line }}
 {% endfor -%}
 #define VCMAILBOX_TAG_{{ property.lower | upper() }} {{ "0x{:08x}".format(property.tag) }}
+#define VCMAILBOX_{{ property.lower | upper() }}_VALUE_SIZE _VC_MAX({% if property.request.length != '0' %}sizeof(vcmailbox_{{ property.lower }}_request_t){% else %}0{% endif %}, sizeof(vcmailbox_{{ property.lower }}_response_t))
+#define VCMAILBOX_{{ property.lower | upper() }}_DEFAULTS (vcmailbox_{{ property.lower }}_t) { \
+    .tag = VCMAILBOX_TAG_{{ property.lower | upper() }}, \
+    .is_response = false, \
+    .value_size = VCMAILBOX_{{ property.lower | upper() }}_VALUE_SIZE, \
+    .response_value_size = VCMAILBOX_{{ property.lower | upper() }}_VALUE_SIZE \
+}
+
 {% if property.request.length != '0' %}
-typedef struct {
+typedef struct __attribute__((packed)) {
 {% for t, name, array, array_size, comment in property.request.fields %}
     {{ t }} {{ name }}{% if array %}[{{ array_size }}]{% endif %}; // {{ comment }}
 {% endfor %}
 } vcmailbox_{{ property.lower }}_request_t;
 
 {% endif %}
-typedef struct {
+typedef struct __attribute__((packed)) {
 {% for t, name, array, array_size, comment in property.response.fields %}
     {{ t }} {{ name }}{% if array %}[{{ array_size }}]{% endif %}; // {{ comment }}
 {% endfor %}
 } vcmailbox_{{ property.lower }}_response_t;
 
-typedef struct {
+typedef struct __attribute__((packed)) {
     uint32_t tag;
     uint32_t value_size; // in bytes
-    bool is_response : 1;
     uint32_t response_value_size : 31;
+    bool is_response : 1;
 {% if property.request.length != '0' %}
     union {
         vcmailbox_{{ property.lower }}_request_t request;
