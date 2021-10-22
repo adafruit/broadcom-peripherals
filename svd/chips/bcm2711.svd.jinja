@@ -49,5 +49,6 @@
 
         {%- import "peripherals/arasan_emmc.svd.jinja" as arasan_emmc %}
         {{ arasan_emmc.peripheral("EMMC", peripheral_base + 0x300000)}}
+        {{ arasan_emmc.peripheral("EMMC2", peripheral_base + 0x340000)}}
     </peripherals>
 </device>
