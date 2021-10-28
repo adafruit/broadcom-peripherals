@@ -1,12 +1,14 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "broadcom/caches.h"
 #include "broadcom/gen/bcm2711_lpa.h"
 #include "broadcom/gen/vcmailbox.h"
 
 
 bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     uint32_t original_buffer[buffer->buffer_size];
+    size_t buffer_size = buffer->buffer_size;
     memcpy(original_buffer, (uint32_t*) buffer, buffer->buffer_size);
     buffer->code = VCMAILBOX_CODE_PROCESS_REQUEST;
     while (VCMAILBOX->STATUS0_b.FULL) {}
@@ -14,10 +16,10 @@ bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     #pragma GCC diagnostic ignored "-Wpointer-to-int-cast"
     uint32_t buffer_address = 0x00000000 | (uint32_t) buffer | 8;
     #pragma GCC diagnostic pop
-    __asm__("dmb sy");
+    data_clean(buffer, buffer_size);
     VCMAILBOX->WRITE = buffer_address;
     while (VCMAILBOX->STATUS0_b.EMPTY || VCMAILBOX->READ != buffer_address) {}
-    __asm__("dsb sy");
+    data_invalidate(buffer, buffer_size);
     return buffer->code == VCMAILBOX_CODE_REQUEST_SUCCESSFUL;
 }
 

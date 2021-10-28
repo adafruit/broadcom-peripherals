@@ -25,19 +25,6 @@ void BP_EnableIRQs(void) {
     // We only turn on the distributor. Turning it off later may break other CPUs.
     // GIC_DIST->GICD_CTLR_b.ENABLE_GROUP0 = true;
     GIC_CPU->GICC_CTLR_b.ENABLE_GROUP_0 = true;
-
-    uint64_t hcr_el2 = 0;
-    __asm__ volatile (
-        // Read Hypervisor Control Register configuration data
-        "MRS %[hcr_el2], HCR_EL2\n\t"
-        // Write Hypervisor Control Register configuration data
-        "ORR %[hcr_el2], %[hcr_el2], #0x8000000\n\t"
-        // Set [M] bit and enable the MMU.
-        "MSR HCR_EL2, %[hcr_el2]\n\t"
-        // The ISB forces these changes to be seen by the next instruction
-        "ISB\n\t"
-        : /* No outputs. */
-        : [hcr_el2] "r" (hcr_el2));
     __asm__("msr    daifclr, #2");
 }
 

@@ -3,6 +3,8 @@
 .global _start  // Execution starts here
 
 _start:
+    // The Raspberry Pi arm stub starts us in non-secure EL2
+
     // Check processor ID is zero (executing on main core), else hang
     mrs     x1, mpidr_el1
     and     x1, x1, #3
@@ -12,15 +14,43 @@ _start:
     b       1b
 2:  // We're on the main core!
 
+    adr    x0, vectors        // load VBAR_EL1 with virtual
+    // Also set vbar for el2 so we can catch any sys traps
+    msr    vbar_el2, x0        // vector table address
+    msr    vbar_el1, x0        // vector table address
+    isb
+
+    // Sets res1 bits, nothing is enabled
+    ldr    x0, =0x30d00800
+    msr    sctlr_el1, x0        
+
+    // Set HCR RW bit so that EL1 is aarch64 (not 32)
+    ldr    x0, =0x80000000
+    msr    hcr_el2, x0
+
+    // Sets the saved program status that will be restored with eret below
+    ldr    x0, =0x000001C5
+    msr    spsr_el2, x0
+
+    // Enable performance counters in lower levels
+    ldr    x0, =0x00000006
+    msr    mdcr_el2, x0
+
+    // Set the link return address to _in_el1 so we jump there on return
+    adr    x0, _in_el1
+    msr    elr_el2, x0
+
+    // Switch to EL1 via elr set above
+    eret
+
+_in_el1:
     // Set stack to start below our code
     ldr     x1, =_start
     mov     sp, x1
 
-    adr    x0, vectors        // load VBAR_EL1 with virtual
-    // msr    vbar_el3, x0        // vector table address
-    msr    vbar_el1, x0        // vector table address
-    msr    vbar_el2, x0        // vector table address
-    isb
+    // Enable SIMD and floating point in EL1
+    ldr     x1, =0x00100000
+    msr     cpacr_el1, x1
 
     // Clean the BSS section
     ldr     x1, =__bss_start     // Start address
@@ -44,8 +74,8 @@ b   \label
 // Make a new stack frame
 stp x29, x30, [sp, #-16]!       /* save x29, x30 onto stack */
 
-mrs x29, elr_el2            /* save elr_el1, spsr_el1 onto stack */
-mrs x30, spsr_el2
+mrs x29, elr_el1            /* save elr_el1, spsr_el1 onto stack */
+mrs x30, spsr_el1
 stp x29, x30, [sp, #-16]!
 
 // Save all registers
@@ -84,8 +114,8 @@ ldp x3, x2, [sp], #16
 ldp x1, x0, [sp], #16
 
 ldp x29, x30, [sp], #16     /* restore elr_el1, spsr_el1 from stack */
-msr elr_el2, x29
-msr spsr_el2, x30
+msr elr_el1, x29
+msr spsr_el1, x30
 
 ldp x29, x30, [sp], #16     /* restore x29, x30 from stack */
 

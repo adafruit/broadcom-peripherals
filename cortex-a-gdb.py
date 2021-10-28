@@ -18,7 +18,7 @@ class Armv8AException(gdb.Command):
         wnr = (iss >> 5) & 0x1
         dfsc = iss & 0x1f
         try:
-            value = int(frame.read_register("FAR_EL2"))
+            value = int(frame.read_register("FAR_EL1"))
             print("FAR", hex(value))
         except ValueError:
             print("FAR unreadable")
@@ -32,7 +32,7 @@ class Armv8AException(gdb.Command):
         if dfsc == 0b010000:
             print("Not on translation table walk")
             if not fnv:
-                value = int(frame.read_register("FAR_EL2"))
+                value = int(frame.read_register("FAR_EL1"))
                 print("FAR", hex(value))
         elif dfsc == 0b000101:
             print("translation fault level 1")
@@ -53,7 +53,7 @@ class Armv8AException(gdb.Command):
         if ifsc == 0b010000:
             print("Not on translation table walk")
             if not fnv:
-                value = int(frame.read_register("FAR_EL2"))
+                value = int(frame.read_register("FAR_EL1"))
                 print("FAR", hex(value))
         elif ifsc == 0b00101:
             print("translation fault level 1")
@@ -66,7 +66,7 @@ class Armv8AException(gdb.Command):
 
     def invoke (self, arg, from_tty):
         frame = gdb.selected_frame()
-        value = int(frame.read_register("ESR_EL2"))
+        value = int(frame.read_register("ESR_EL1"))
         if value == 0:
             return None
         iss2 = (value >> 32) & 0x1ff
@@ -184,7 +184,7 @@ class ExceptionUnwinder(Unwinder):
         sp = pending_frame.read_register("sp")
         unwind_info = pending_frame.create_unwind_info(FrameId(sp, pc))
 
-        regs = ["x" + str(i) for i in range(28, -1, -1)] + ["pc", "spsr_el2", "x29", "x30"]
+        regs = ["x" + str(i) for i in range(28, -1, -1)] + ["pc", "spsr_el1", "x29", "x30"]
 
         i = gdb.selected_inferior()
         for j, reg in enumerate(regs):
@@ -194,7 +194,7 @@ class ExceptionUnwinder(Unwinder):
 
         # Find the values of the registers in the caller's frame and 
         # save them in the result:
-            if not reg.endswith("el2"):
+            if not reg.endswith("el1"):
                 unwind_info.add_saved_register(reg, gdb.Value(v))
         #....
         sp = int(sp) + (len(regs) + 1) * 8
