@@ -53,7 +53,7 @@ jobs:
         git config user.name "GitHub Actions"
         git add broadcom/gen svd/gen
         git stash
-        git fetch origin
+        git fetch --unshallow origin
         git checkout origin/main-build
         git merge --no-commit --no-ff origin/main
         git checkout stash -- .
