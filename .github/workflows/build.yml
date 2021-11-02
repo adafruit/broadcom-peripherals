@@ -52,5 +52,11 @@ jobs:
         git config user.email "github-actions@adafruit.com"
         git config user.name "GitHub Actions"
         git add broadcom/gen svd/gen
+        git stash
+        git fetch --unshallow origin
+        git checkout origin/main-build
+        git merge --no-commit --no-ff origin/main
+        git checkout stash -- .
+        git add .
         git commit -m "Artifacts for ${GITHUB_REF} at ${GITHUB_SHA}"
-        git push --force origin HEAD:${GITHUB_REF}-build
+        git push origin HEAD:${GITHUB_REF}-build
