@@ -3543,8 +3543,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>SD1_CLK</name>
+                                    <description>Pin is connected to SD1_CLK</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3612,8 +3612,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>SD1_CMD</name>
+                                    <description>Pin is connected to SD1_CMD</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3690,8 +3690,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>SD1_DAT0</name>
+                                    <description>Pin is connected to SD1_DAT0</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3759,8 +3759,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>SD1_DAT1</name>
+                                    <description>Pin is connected to SD1_DAT1</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3828,8 +3828,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>SD1_DAT2</name>
+                                    <description>Pin is connected to SD1_DAT2</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3897,8 +3897,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>SD1_DAT3</name>
+                                    <description>Pin is connected to SD1_DAT3</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 

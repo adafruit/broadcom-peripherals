@@ -54,9 +54,10 @@ jobs:
         git add broadcom/gen svd/gen
         git stash
         git fetch --unshallow origin
+        rm SVDConv
         git checkout origin/main-build
         git merge --no-commit --no-ff origin/main
         git checkout stash -- .
-        git add .
+        git add broadcom/gen svd/gen
         git commit -m "Artifacts for ${GITHUB_REF} at ${GITHUB_SHA}"
         git push origin HEAD:${GITHUB_REF}-build
