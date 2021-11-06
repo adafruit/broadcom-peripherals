@@ -2,7 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "broadcom/gen/bcm2711_lpa.h"
+#include "broadcom/defines.h"
 
 // This catches non-interrupt exceptions that are similar to Cortex-M hard faults.
 __attribute__((weak)) void HardFault_IRQHandler(void) {

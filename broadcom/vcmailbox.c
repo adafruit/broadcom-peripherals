@@ -2,7 +2,7 @@
 #include <string.h>
 
 #include "broadcom/caches.h"
-#include "broadcom/gen/bcm2711_lpa.h"
+#include "broadcom/defines.h"
 #include "broadcom/gen/vcmailbox.h"
 
 

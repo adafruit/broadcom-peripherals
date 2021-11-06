@@ -10446,48 +10446,261 @@
       <headerStructName>BCM_LIC</headerStructName>
       <addressBlock>
         <offset>0x0</offset>
-        <size>0x80</size>
+        <size>0x1000</size>
         <usage>registers</usage>
       </addressBlock>
-      <interrupt>
-          <name>HPTIMER</name>
-          <description>Core HP timer IRQ</description>
-          <value>26</value>
-      </interrupt>
-      <interrupt>
-          <name>VTIMER</name>
-          <description>Core V timer IRQ</description>
-          <value>27</value>
-      </interrupt>
-      <interrupt>
-          <name>LEGACY_FIQ</name>
-          <description>Legacy FIQ</description>
-          <value>28</value>
-      </interrupt>
-      <interrupt>
-          <name>PSTIMER</name>
-          <description>Core PS timer IRQ</description>
-          <value>29</value>
-      </interrupt>
-      <interrupt>
-          <name>PNSTIMER</name>
-          <description>Core PNS timer IRQ</description>
-          <value>30</value>
-      </interrupt>
-      <interrupt>
-          <name>LEGACY_IRQ</name>
-          <description>Legacy IRQ</description>
-          <value>31</value>
-      </interrupt>
+
       <registers>
         <register>
-          <name>ARM_CONTROL</name>
-          <description>ARM Timer and AXI Error IRQ control</description>
-          <addressOffset>0x00</addressOffset>
+          <name>BASIC_PENDING</name>
+          <description>Basic pending info</description>
+          <addressOffset>0x200</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <!-- TODO: Add fields -->
+          <fields>
+              
+              <field>
+                <name>TIMER</name>
+                <description>ARMC Timer</description>
+                <bitOffset>0</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>MAILBOX</name>
+                <description>Mailbox</description>
+                <bitOffset>1</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>DOORBELL0</name>
+                <description>Doorbell 0</description>
+                <bitOffset>2</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>DOORBELL1</name>
+                <description>Doorbell 1</description>
+                <bitOffset>3</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>VPU0_HALTED</name>
+                <description>VPU0 halted</description>
+                <bitOffset>4</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>VPU1_HALTED</name>
+                <description>VPU1 halted</description>
+                <bitOffset>5</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>ARM_ADDRESS_ERROR</name>
+                <description>ARM address error</description>
+                <bitOffset>6</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>ARM_AXI_ERROR</name>
+                <description>ARM AXI error</description>
+                <bitOffset>7</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                <name>PENDING_1</name>
+                <description>One or more bits are set in PENDING_1 (ignores 7, 9, 10, 18, 19)</description>
+                <bitOffset>8</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              <field>
+                <name>PENDING_2</name>
+                <description>One or more bits are set in PENDING_2 (ignores 53 - 57, 62)</description>
+                <bitOffset>9</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT7</name>
+                <description>Interrupt 7</description>
+                
+                <bitOffset>10</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT9</name>
+                <description>Interrupt 9</description>
+                
+                <bitOffset>11</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT10</name>
+                <description>Interrupt 10</description>
+                
+                <bitOffset>12</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT18</name>
+                <description>Interrupt 18</description>
+                
+                <bitOffset>13</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT19</name>
+                <description>Interrupt 19</description>
+                
+                <bitOffset>14</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT53</name>
+                <description>Interrupt 53</description>
+                
+                <bitOffset>15</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT54</name>
+                <description>Interrupt 54</description>
+                
+                <bitOffset>16</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT55</name>
+                <description>Interrupt 55</description>
+                
+                <bitOffset>17</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT56</name>
+                <description>Interrupt 56</description>
+                
+                <bitOffset>18</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT57</name>
+                <description>Interrupt 57</description>
+                
+                <bitOffset>19</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+              <field>
+                
+                <name>INT62</name>
+                <description>Interrupt 62</description>
+                
+                <bitOffset>20</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              
+          </fields>
+        </register>
+        <register>
+          <name>PENDING_1</name>
+          <description>Pending state for interrupts 1 - 31</description>
+          <addressOffset>0x204</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>PENDING_2</name>
+          <description>Pending state for interrupts 32 - 63</description>
+          <addressOffset>0x208</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>FIQ_CONTROL</name>
+          <description>FIQ control</description>
+          <addressOffset>0x20C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>ENABLE_1</name>
+          <description>Enable interrupts 1 - 31</description>
+          <addressOffset>0x210</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>ENABLE_2</name>
+          <description>Enable interrupts 32 - 63</description>
+          <addressOffset>0x214</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>ENABLE_BASIC</name>
+          <description>Enable basic interrupts</description>
+          <addressOffset>0x218</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>DISABLE_1</name>
+          <description>Disable interrupts 1 - 31</description>
+          <addressOffset>0x21C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>DISABLE_2</name>
+          <description>Disable interrupts 32 - 63</description>
+          <addressOffset>0x220</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>DISABLE_BASIC</name>
+          <description>Disable basic interrupts</description>
+          <addressOffset>0x224</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
         </register>
       </registers>
     </peripheral>
@@ -41749,7 +41962,7 @@
       <interrupt>
           <name>EMMC</name>
           <description>OR of EMMC and EMMC2</description>
-          <value>158</value>
+          <value>62</value>
       </interrupt>
       <!-- Source: BCM2835 peripherals datasheet -->
       <registers>

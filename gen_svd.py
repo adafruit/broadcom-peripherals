@@ -4,6 +4,7 @@ import pathlib
 env = Environment(loader=FileSystemLoader(searchpath=["svd"]))
 
 bcm2711 = env.get_template("chips/bcm2711.svd.jinja")
+bcm2837 = env.get_template("chips/bcm2837.svd.jinja")
 
 chips = pathlib.Path("svd/chips")
 gen = pathlib.Path("svd/gen")
@@ -204,14 +205,20 @@ armc_interrupts = [
 for i in range(8):
     armc_interrupts.append((f"SWI{i}", f"Software interrupt {i}"))
 
-interrupt_names = {}
+bcm2711_interrupt_names = {}
+bcm2837_interrupt_names = {}
 for i, irq in enumerate(armc_interrupts):
-    interrupt_names[64 + i] = irq
+    bcm2711_interrupt_names[64 + i] = irq
+    bcm2837_interrupt_names[64 + i] = irq
 for i, irq in enumerate(videocore_interrupts):
     if isinstance(irq, str):
         name = irq.replace(" ", "_").replace("/", "_").upper()
         irq = (name, irq)
-    interrupt_names[96 + i] = irq
+    bcm2711_interrupt_names[96 + i] = irq
+    bcm2837_interrupt_names[i] = irq
+
+# Map the bits in the "basic" registers to their interrupt number
+legacy_basic_irqs = [(i, 64 + i) for i in range(8)] + list(enumerate((7, 9, 10, 18, 19, 53, 54, 55, 56, 57, 62), start=10))
 
 (gen / "bcm2711_lpa.svd").write_text(
     bcm2711.render(
@@ -219,6 +226,18 @@ for i, irq in enumerate(videocore_interrupts):
         arm_local_base=0xFF800000,
         altfunc=bcm2711_altfunc,
         name="bcm2711_lpa",
-        interrupt_names=interrupt_names,
+        interrupt_names=bcm2711_interrupt_names,
+        basic_irq=legacy_basic_irqs
+    )
+)
+
+(gen / "bcm2837_lpa.svd").write_text(
+    bcm2837.render(
+        peripheral_base=0x3F000000,
+        arm_local_base=0x3F800000,
+        altfunc=bcm2711_altfunc,
+        name="bcm2837_lpa",
+        interrupt_names=bcm2837_interrupt_names,
+        basic_irq=legacy_basic_irqs
     )
 )

@@ -2,7 +2,7 @@
 
 #include <stdbool.h>
 
-#include "broadcom/gen/bcm2711_lpa.h"
+#include "broadcom/defines.h"
 
 void BP_EnableIRQs(void);
 void BP_DisableIRQs(void);
