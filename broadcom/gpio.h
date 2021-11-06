@@ -1,6 +1,6 @@
 #pragma once
 
-#include "broadcom/gen/bcm2711_lpa.h"
+#include "broadcom/defines.h"
 
 typedef enum {
     GPIO_FUNCTION_INPUT,

@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 
-#include "broadcom/gen/bcm2711_lpa.h"
+#include "broadcom/defines.h"
 #include "broadcom/gen/interrupt_handlers.h"
 
 extern void print(const char* str);
@@ -33,6 +33,7 @@ void BP_DisableIRQs(void) {
 }
 
 __attribute__((weak)) void handle_irq(void) {
+    #if BCM_VERSION != 2711
     while (GIC_CPU->GICC_HPPIR_b.INTERRUPT_ID < INTERRUPT_COUNT) {
         // This register changes state after being read so make sure to read it
         // all at once. We need the full value to pass back to EOIR later.
@@ -58,6 +59,33 @@ __attribute__((weak)) void handle_irq(void) {
 
         GIC_CPU->GICC_EOIR = current_interrupt;
     }
+    #else
+    while (GIC_CPU->GICC_HPPIR_b.INTERRUPT_ID < INTERRUPT_COUNT) {
+        // This register changes state after being read so make sure to read it
+        // all at once. We need the full value to pass back to EOIR later.
+        uint32_t current_interrupt = GIC_CPU->GICC_IAR;
+
+        // Turn on interrupts to allow for preemption.
+        BP_EnableIRQs();
+
+        uint32_t interrupt_id = current_interrupt & GIC_CPU_GICC_IAR_INTERRUPT_ID_Msk;
+        if (interrupt_id >= INTERRUPT_COUNT) {
+            break;
+        }
+
+        void(* handler)(void) = interrupt_handlers[interrupt_id];
+        if (handler == NULL) {
+            // Unhandled interrupt. Read interrupt_id from GDB to find out the mistake.
+            while(true) {}
+        }
+        handler();
+
+        // Turn off interrupts while we do housekeeping.
+        BP_DisableIRQs();
+
+        GIC_CPU->GICC_EOIR = current_interrupt;
+    }
+    #endif
 }
 
 // Minimum priority is the highest priority value. (0 is highest priority)

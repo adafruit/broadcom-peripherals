@@ -2,7 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "broadcom/gen/bcm2711_lpa.h"
+#include "broadcom/defines.h"
 
 
 void gpio_set_pull(uint8_t pin_number, BP_PULL_Enum pull) {

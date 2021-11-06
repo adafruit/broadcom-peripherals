@@ -1,4 +1,4 @@
-{% macro peripheral(name, base_address) -%}
+{% macro peripheral(name, base_address, basic_irq, interrupt_offset=0, interrupt_names={}) -%}
     <peripheral>
       <name>{{ name }}</name>
       <description>Broadcom Legacy Interrupt Controller</description>
@@ -6,10 +6,10 @@
       <headerStructName>BCM_LIC</headerStructName>
       <addressBlock>
         <offset>0x0</offset>
-        <size>0x80</size>
+        <size>0x1000</size>
         <usage>registers</usage>
       </addressBlock>
-      <interrupt>
+{#       <interrupt>
           <name>HPTIMER</name>
           <description>Core HP timer IRQ</description>
           <value>26</value>
@@ -38,16 +38,122 @@
           <name>LEGACY_IRQ</name>
           <description>Legacy IRQ</description>
           <value>31</value>
-      </interrupt>
+      </interrupt> #}
       <registers>
         <register>
-          <name>ARM_CONTROL</name>
-          <description>ARM Timer and AXI Error IRQ control</description>
-          <addressOffset>0x00</addressOffset>
+          <name>BASIC_PENDING</name>
+          <description>Basic pending info</description>
+          <addressOffset>0x200</addressOffset>
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <!-- TODO: Add fields -->
+          <fields>
+              {% for bit in range(8) %}
+              <field>
+                <name>{{ interrupt_names[64 + bit][0] }}</name>
+                <description>{{ interrupt_names[64 + bit][1] }}</description>
+                <bitOffset>{{ bit }}</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              {% endfor %}
+              <field>
+                <name>PENDING_1</name>
+                <description>One or more bits are set in PENDING_1 (ignores 7, 9, 10, 18, 19)</description>
+                <bitOffset>8</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              <field>
+                <name>PENDING_2</name>
+                <description>One or more bits are set in PENDING_2 (ignores 53 - 57, 62)</description>
+                <bitOffset>9</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              {% for bit, irq in ((10, 7), (11, 9), (12, 10), (13, 18), (14, 19), (15, 53), (16, 54), (17, 55), (18, 56), (19, 57), (20, 62)) %}
+              <field>
+                {% if irq in interrupt_names %}
+                <name>{{ interrupt_names[interrupt_offset + irq][0] }}</name>
+                <description>{{ interrupt_names[interrupt_offset + irq][1] }}</description>
+                {% else %}
+                <name>INT{{ interrupt_offset + irq }}</name>
+                <description>Interrupt {{ interrupt_offset + irq }}</description>
+                {% endif %}
+                <bitOffset>{{ bit }}</bitOffset>
+                <bitWidth>1</bitWidth>
+              </field>
+              {% endfor %}
+          </fields>
+        </register>
+        <register>
+          <name>PENDING_1</name>
+          <description>Pending state for interrupts 1 - 31</description>
+          <addressOffset>0x204</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>PENDING_2</name>
+          <description>Pending state for interrupts 32 - 63</description>
+          <addressOffset>0x208</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>FIQ_CONTROL</name>
+          <description>FIQ control</description>
+          <addressOffset>0x20C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>ENABLE_1</name>
+          <description>Enable interrupts 1 - 31</description>
+          <addressOffset>0x210</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>ENABLE_2</name>
+          <description>Enable interrupts 32 - 63</description>
+          <addressOffset>0x214</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>ENABLE_BASIC</name>
+          <description>Enable basic interrupts</description>
+          <addressOffset>0x218</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>DISABLE_1</name>
+          <description>Disable interrupts 1 - 31</description>
+          <addressOffset>0x21C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>DISABLE_2</name>
+          <description>Disable interrupts 32 - 63</description>
+          <addressOffset>0x220</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+        <register>
+          <name>DISABLE_BASIC</name>
+          <description>Disable basic interrupts</description>
+          <addressOffset>0x224</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
         </register>
       </registers>
     </peripheral>
