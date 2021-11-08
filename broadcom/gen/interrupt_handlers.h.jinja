@@ -2,4 +2,8 @@
 
 extern void* interrupt_handlers[];
 
-#define INTERRUPT_COUNT ({{ interrupt_count }})
+#if BCM_VERSION != 2711
+#define INTERRUPT_COUNT ({{ bcm283x_interrupt_count }})
+#else
+#define INTERRUPT_COUNT ({{ bcm2711_interrupt_count }})
+#endif

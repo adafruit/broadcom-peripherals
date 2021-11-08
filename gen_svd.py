@@ -234,7 +234,7 @@ legacy_basic_irqs = [(i, 64 + i) for i in range(8)] + list(enumerate((7, 9, 10, 
 (gen / "bcm2837_lpa.svd").write_text(
     bcm2837.render(
         peripheral_base=0x3F000000,
-        arm_local_base=0x3F800000,
+        arm_local_base=0x3F000000,
         altfunc=bcm2711_altfunc,
         name="bcm2837_lpa",
         interrupt_names=bcm2837_interrupt_names,

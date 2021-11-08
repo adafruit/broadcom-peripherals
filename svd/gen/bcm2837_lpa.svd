@@ -10426,11 +10426,11 @@
         <peripheral>
       <name>LIC</name>
       <description>Broadcom Legacy Interrupt Controller</description>
-      <baseAddress>0x3f800000</baseAddress>
+      <baseAddress>0x3f00b000</baseAddress>
       <headerStructName>BCM_LIC</headerStructName>
       <addressBlock>
         <offset>0x0</offset>
-        <size>0x1000</size>
+        <size>0x400</size>
         <usage>registers</usage>
       </addressBlock>
 
@@ -10440,7 +10440,7 @@
           <description>Basic pending info</description>
           <addressOffset>0x200</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x00000000</resetValue>
           <fields>
               
@@ -10619,16 +10619,662 @@
           <description>Pending state for interrupts 1 - 31</description>
           <addressOffset>0x204</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            
+            
+            <field>
+              
+              <name>TIMER_0</name>
+              <description>Timer 0</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_1</name>
+              <description>Timer 1</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_2</name>
+              <description>Timer 2</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_3</name>
+              <description>Timer 3</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_0</name>
+              <description>H264 0</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_1</name>
+              <description>H264 1</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_2</name>
+              <description>H264 2</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>JPEG</name>
+              <description>JPEG</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ISP</name>
+              <description>ISP</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>USB</name>
+              <description>USB</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>V3D</name>
+              <description>V3D</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TRANSPOSER</name>
+              <description>Transposer</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_0</name>
+              <description>Multicore Sync 0</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_1</name>
+              <description>Multicore Sync 1</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_2</name>
+              <description>Multicore Sync 2</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_3</name>
+              <description>Multicore Sync 3</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_0</name>
+              <description>DMA 0</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_1</name>
+              <description>DMA 1</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_2</name>
+              <description>DMA 2</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_3</name>
+              <description>DMA 3</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_4</name>
+              <description>DMA 4</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_5</name>
+              <description>DMA 5</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_6</name>
+              <description>DMA 6</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_7_8</name>
+              <description>OR of DMA 7 and 8</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_9_10</name>
+              <description>OR of DMA 9 and 10</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_11</name>
+              <description>DMA 11</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_12</name>
+              <description>DMA 12</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_13</name>
+              <description>DMA 13</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_14</name>
+              <description>DMA 14</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>AUX</name>
+              <description>OR of UART1, SPI1 and SPI2</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ARM</name>
+              <description>ARM</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_15</name>
+              <description>DMA 15</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>PENDING_2</name>
           <description>Pending state for interrupts 32 - 63</description>
           <addressOffset>0x208</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            
+            
+            <field>
+              
+              <name>HDMI_CEC</name>
+              <description>HDMI CEC</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HVS</name>
+              <description>HVS</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>RPIVID</name>
+              <description>RPIVID</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SDC</name>
+              <description>SDC</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DSI_0</name>
+              <description>DSI 0</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_2</name>
+              <description>Pixel Valve 2</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CAMERA_0</name>
+              <description>Camera 0</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CAMERA_1</name>
+              <description>Camera 1</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HDMI_0</name>
+              <description>HDMI 0</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HDMI_1</name>
+              <description>HDMI 1</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_3</name>
+              <description>Pixel Valve 3</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SPI_BSC_SLAVE</name>
+              <description>SPI/BSC Slave</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DSI_1</name>
+              <description>DSI 1</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_0</name>
+              <description>Pixel Valve 0</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_1_2</name>
+              <description>OR of Pixel Valve 1 and 2</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CPR</name>
+              <description>CPR</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SMI</name>
+              <description>SMI</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_0</name>
+              <description>GPIO 0</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_1</name>
+              <description>GPIO 1</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_2</name>
+              <description>GPIO 2</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_3</name>
+              <description>GPIO 3</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>I2C</name>
+              <description>OR of all I2C</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SPI</name>
+              <description>OR of all SPI</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PCM_I2S</name>
+              <description>PCM/I2S</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SDHOST</name>
+              <description>SDHOST</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>UART</name>
+              <description>OR of all PL011 UARTs</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ETH_PCIE</name>
+              <description>OR of all ETH_PCIe L2</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>VEC</name>
+              <description>VEC</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CPG</name>
+              <description>CPG</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>RNG</name>
+              <description>RNG</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>EMMC</name>
+              <description>OR of EMMC and EMMC2</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ETH_PCIE_SECURE</name>
+              <description>ETH_PCIe secure</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>FIQ_CONTROL</name>
@@ -10637,6 +11283,671 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>ENABLE</name>
+              <description>FIQ Enable</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>SOURCE</name>
+              <description>FIQ Source</description>
+              <enumeratedValues>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>TIMER_0</name>
+                  <description>Timer 0</description>
+                  
+                  <value>0</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>TIMER_1</name>
+                  <description>Timer 1</description>
+                  
+                  <value>1</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>TIMER_2</name>
+                  <description>Timer 2</description>
+                  
+                  <value>2</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>TIMER_3</name>
+                  <description>Timer 3</description>
+                  
+                  <value>3</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>H264_0</name>
+                  <description>H264 0</description>
+                  
+                  <value>4</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>H264_1</name>
+                  <description>H264 1</description>
+                  
+                  <value>5</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>H264_2</name>
+                  <description>H264 2</description>
+                  
+                  <value>6</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>JPEG</name>
+                  <description>JPEG</description>
+                  
+                  <value>7</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ISP</name>
+                  <description>ISP</description>
+                  
+                  <value>8</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>USB</name>
+                  <description>USB</description>
+                  
+                  <value>9</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>V3D</name>
+                  <description>V3D</description>
+                  
+                  <value>10</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>TRANSPOSER</name>
+                  <description>Transposer</description>
+                  
+                  <value>11</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>MULTICORE_SYNC_0</name>
+                  <description>Multicore Sync 0</description>
+                  
+                  <value>12</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>MULTICORE_SYNC_1</name>
+                  <description>Multicore Sync 1</description>
+                  
+                  <value>13</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>MULTICORE_SYNC_2</name>
+                  <description>Multicore Sync 2</description>
+                  
+                  <value>14</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>MULTICORE_SYNC_3</name>
+                  <description>Multicore Sync 3</description>
+                  
+                  <value>15</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_0</name>
+                  <description>DMA 0</description>
+                  
+                  <value>16</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_1</name>
+                  <description>DMA 1</description>
+                  
+                  <value>17</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_2</name>
+                  <description>DMA 2</description>
+                  
+                  <value>18</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_3</name>
+                  <description>DMA 3</description>
+                  
+                  <value>19</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_4</name>
+                  <description>DMA 4</description>
+                  
+                  <value>20</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_5</name>
+                  <description>DMA 5</description>
+                  
+                  <value>21</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_6</name>
+                  <description>DMA 6</description>
+                  
+                  <value>22</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_7_8</name>
+                  <description>OR of DMA 7 and 8</description>
+                  
+                  <value>23</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_9_10</name>
+                  <description>OR of DMA 9 and 10</description>
+                  
+                  <value>24</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_11</name>
+                  <description>DMA 11</description>
+                  
+                  <value>25</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_12</name>
+                  <description>DMA 12</description>
+                  
+                  <value>26</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_13</name>
+                  <description>DMA 13</description>
+                  
+                  <value>27</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_14</name>
+                  <description>DMA 14</description>
+                  
+                  <value>28</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>AUX</name>
+                  <description>OR of UART1, SPI1 and SPI2</description>
+                  
+                  <value>29</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ARM</name>
+                  <description>ARM</description>
+                  
+                  <value>30</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DMA_15</name>
+                  <description>DMA 15</description>
+                  
+                  <value>31</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>HDMI_CEC</name>
+                  <description>HDMI CEC</description>
+                  
+                  <value>32</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>HVS</name>
+                  <description>HVS</description>
+                  
+                  <value>33</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>RPIVID</name>
+                  <description>RPIVID</description>
+                  
+                  <value>34</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>SDC</name>
+                  <description>SDC</description>
+                  
+                  <value>35</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DSI_0</name>
+                  <description>DSI 0</description>
+                  
+                  <value>36</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>PIXEL_VALVE_2</name>
+                  <description>Pixel Valve 2</description>
+                  
+                  <value>37</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>CAMERA_0</name>
+                  <description>Camera 0</description>
+                  
+                  <value>38</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>CAMERA_1</name>
+                  <description>Camera 1</description>
+                  
+                  <value>39</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>HDMI_0</name>
+                  <description>HDMI 0</description>
+                  
+                  <value>40</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>HDMI_1</name>
+                  <description>HDMI 1</description>
+                  
+                  <value>41</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>PIXEL_VALVE_3</name>
+                  <description>Pixel Valve 3</description>
+                  
+                  <value>42</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>SPI_BSC_SLAVE</name>
+                  <description>SPI/BSC Slave</description>
+                  
+                  <value>43</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DSI_1</name>
+                  <description>DSI 1</description>
+                  
+                  <value>44</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>PIXEL_VALVE_0</name>
+                  <description>Pixel Valve 0</description>
+                  
+                  <value>45</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>PIXEL_VALVE_1_2</name>
+                  <description>OR of Pixel Valve 1 and 2</description>
+                  
+                  <value>46</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>CPR</name>
+                  <description>CPR</description>
+                  
+                  <value>47</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>SMI</name>
+                  <description>SMI</description>
+                  
+                  <value>48</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>GPIO_0</name>
+                  <description>GPIO 0</description>
+                  
+                  <value>49</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>GPIO_1</name>
+                  <description>GPIO 1</description>
+                  
+                  <value>50</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>GPIO_2</name>
+                  <description>GPIO 2</description>
+                  
+                  <value>51</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>GPIO_3</name>
+                  <description>GPIO 3</description>
+                  
+                  <value>52</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>I2C</name>
+                  <description>OR of all I2C</description>
+                  
+                  <value>53</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>SPI</name>
+                  <description>OR of all SPI</description>
+                  
+                  <value>54</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>PCM_I2S</name>
+                  <description>PCM/I2S</description>
+                  
+                  <value>55</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>SDHOST</name>
+                  <description>SDHOST</description>
+                  
+                  <value>56</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>UART</name>
+                  <description>OR of all PL011 UARTs</description>
+                  
+                  <value>57</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ETH_PCIE</name>
+                  <description>OR of all ETH_PCIe L2</description>
+                  
+                  <value>58</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>VEC</name>
+                  <description>VEC</description>
+                  
+                  <value>59</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>CPG</name>
+                  <description>CPG</description>
+                  
+                  <value>60</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>RNG</name>
+                  <description>RNG</description>
+                  
+                  <value>61</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>EMMC</name>
+                  <description>OR of EMMC and EMMC2</description>
+                  
+                  <value>62</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ETH_PCIE_SECURE</name>
+                  <description>ETH_PCIe secure</description>
+                  
+                  <value>63</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>TIMER</name>
+                  <description>ARMC Timer</description>
+                  
+                  <value>64</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>MAILBOX</name>
+                  <description>Mailbox</description>
+                  
+                  <value>65</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DOORBELL0</name>
+                  <description>Doorbell 0</description>
+                  
+                  <value>66</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DOORBELL1</name>
+                  <description>Doorbell 1</description>
+                  
+                  <value>67</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>VPU0_HALTED</name>
+                  <description>VPU0 halted</description>
+                  
+                  <value>68</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>VPU1_HALTED</name>
+                  <description>VPU1 halted</description>
+                  
+                  <value>69</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ARM_ADDRESS_ERROR</name>
+                  <description>ARM address error</description>
+                  
+                  <value>70</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ARM_AXI_ERROR</name>
+                  <description>ARM AXI error</description>
+                  
+                  <value>71</value>
+                </enumeratedValue>
+              
+              </enumeratedValues>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>ENABLE_1</name>
@@ -10645,6 +11956,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToSet</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>TIMER_0</name>
+              <description>Timer 0</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_1</name>
+              <description>Timer 1</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_2</name>
+              <description>Timer 2</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_3</name>
+              <description>Timer 3</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_0</name>
+              <description>H264 0</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_1</name>
+              <description>H264 1</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_2</name>
+              <description>H264 2</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>JPEG</name>
+              <description>JPEG</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ISP</name>
+              <description>ISP</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>USB</name>
+              <description>USB</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>V3D</name>
+              <description>V3D</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TRANSPOSER</name>
+              <description>Transposer</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_0</name>
+              <description>Multicore Sync 0</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_1</name>
+              <description>Multicore Sync 1</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_2</name>
+              <description>Multicore Sync 2</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_3</name>
+              <description>Multicore Sync 3</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_0</name>
+              <description>DMA 0</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_1</name>
+              <description>DMA 1</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_2</name>
+              <description>DMA 2</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_3</name>
+              <description>DMA 3</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_4</name>
+              <description>DMA 4</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_5</name>
+              <description>DMA 5</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_6</name>
+              <description>DMA 6</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_7_8</name>
+              <description>OR of DMA 7 and 8</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_9_10</name>
+              <description>OR of DMA 9 and 10</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_11</name>
+              <description>DMA 11</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_12</name>
+              <description>DMA 12</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_13</name>
+              <description>DMA 13</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_14</name>
+              <description>DMA 14</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>AUX</name>
+              <description>OR of UART1, SPI1 and SPI2</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ARM</name>
+              <description>ARM</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_15</name>
+              <description>DMA 15</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>ENABLE_2</name>
@@ -10653,6 +12288,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToSet</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>HDMI_CEC</name>
+              <description>HDMI CEC</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HVS</name>
+              <description>HVS</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>RPIVID</name>
+              <description>RPIVID</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SDC</name>
+              <description>SDC</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DSI_0</name>
+              <description>DSI 0</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_2</name>
+              <description>Pixel Valve 2</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CAMERA_0</name>
+              <description>Camera 0</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CAMERA_1</name>
+              <description>Camera 1</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HDMI_0</name>
+              <description>HDMI 0</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HDMI_1</name>
+              <description>HDMI 1</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_3</name>
+              <description>Pixel Valve 3</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SPI_BSC_SLAVE</name>
+              <description>SPI/BSC Slave</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DSI_1</name>
+              <description>DSI 1</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_0</name>
+              <description>Pixel Valve 0</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_1_2</name>
+              <description>OR of Pixel Valve 1 and 2</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CPR</name>
+              <description>CPR</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SMI</name>
+              <description>SMI</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_0</name>
+              <description>GPIO 0</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_1</name>
+              <description>GPIO 1</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_2</name>
+              <description>GPIO 2</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_3</name>
+              <description>GPIO 3</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>I2C</name>
+              <description>OR of all I2C</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SPI</name>
+              <description>OR of all SPI</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PCM_I2S</name>
+              <description>PCM/I2S</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SDHOST</name>
+              <description>SDHOST</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>UART</name>
+              <description>OR of all PL011 UARTs</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ETH_PCIE</name>
+              <description>OR of all ETH_PCIe L2</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>VEC</name>
+              <description>VEC</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CPG</name>
+              <description>CPG</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>RNG</name>
+              <description>RNG</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>EMMC</name>
+              <description>OR of EMMC and EMMC2</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ETH_PCIE_SECURE</name>
+              <description>ETH_PCIe secure</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>ENABLE_BASIC</name>
@@ -10661,6 +12620,66 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToSet</modifiedWriteValues>
+          <fields>
+            
+            <field>
+              <name>TIMER</name>
+              <description>ARMC Timer</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>MAILBOX</name>
+              <description>Mailbox</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL0</name>
+              <description>Doorbell 0</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL1</name>
+              <description>Doorbell 1</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU0_HALTED</name>
+              <description>VPU0 halted</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU1_HALTED</name>
+              <description>VPU1 halted</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_ADDRESS_ERROR</name>
+              <description>ARM address error</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_AXI_ERROR</name>
+              <description>ARM AXI error</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>DISABLE_1</name>
@@ -10669,6 +12688,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToClear</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>TIMER_0</name>
+              <description>Timer 0</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_1</name>
+              <description>Timer 1</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_2</name>
+              <description>Timer 2</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TIMER_3</name>
+              <description>Timer 3</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_0</name>
+              <description>H264 0</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_1</name>
+              <description>H264 1</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>H264_2</name>
+              <description>H264 2</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>JPEG</name>
+              <description>JPEG</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ISP</name>
+              <description>ISP</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>USB</name>
+              <description>USB</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>V3D</name>
+              <description>V3D</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>TRANSPOSER</name>
+              <description>Transposer</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_0</name>
+              <description>Multicore Sync 0</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_1</name>
+              <description>Multicore Sync 1</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_2</name>
+              <description>Multicore Sync 2</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>MULTICORE_SYNC_3</name>
+              <description>Multicore Sync 3</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_0</name>
+              <description>DMA 0</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_1</name>
+              <description>DMA 1</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_2</name>
+              <description>DMA 2</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_3</name>
+              <description>DMA 3</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_4</name>
+              <description>DMA 4</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_5</name>
+              <description>DMA 5</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_6</name>
+              <description>DMA 6</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_7_8</name>
+              <description>OR of DMA 7 and 8</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_9_10</name>
+              <description>OR of DMA 9 and 10</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_11</name>
+              <description>DMA 11</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_12</name>
+              <description>DMA 12</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_13</name>
+              <description>DMA 13</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_14</name>
+              <description>DMA 14</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>AUX</name>
+              <description>OR of UART1, SPI1 and SPI2</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ARM</name>
+              <description>ARM</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DMA_15</name>
+              <description>DMA 15</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>DISABLE_2</name>
@@ -10677,6 +13020,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToClear</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>HDMI_CEC</name>
+              <description>HDMI CEC</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HVS</name>
+              <description>HVS</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>RPIVID</name>
+              <description>RPIVID</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SDC</name>
+              <description>SDC</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DSI_0</name>
+              <description>DSI 0</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_2</name>
+              <description>Pixel Valve 2</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CAMERA_0</name>
+              <description>Camera 0</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CAMERA_1</name>
+              <description>Camera 1</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HDMI_0</name>
+              <description>HDMI 0</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>HDMI_1</name>
+              <description>HDMI 1</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_3</name>
+              <description>Pixel Valve 3</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SPI_BSC_SLAVE</name>
+              <description>SPI/BSC Slave</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>DSI_1</name>
+              <description>DSI 1</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_0</name>
+              <description>Pixel Valve 0</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PIXEL_VALVE_1_2</name>
+              <description>OR of Pixel Valve 1 and 2</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CPR</name>
+              <description>CPR</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SMI</name>
+              <description>SMI</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_0</name>
+              <description>GPIO 0</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_1</name>
+              <description>GPIO 1</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_2</name>
+              <description>GPIO 2</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>GPIO_3</name>
+              <description>GPIO 3</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>I2C</name>
+              <description>OR of all I2C</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SPI</name>
+              <description>OR of all SPI</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>PCM_I2S</name>
+              <description>PCM/I2S</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>SDHOST</name>
+              <description>SDHOST</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>UART</name>
+              <description>OR of all PL011 UARTs</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ETH_PCIE</name>
+              <description>OR of all ETH_PCIe L2</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>VEC</name>
+              <description>VEC</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>CPG</name>
+              <description>CPG</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>RNG</name>
+              <description>RNG</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>EMMC</name>
+              <description>OR of EMMC and EMMC2</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>ETH_PCIE_SECURE</name>
+              <description>ETH_PCIe secure</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>DISABLE_BASIC</name>
@@ -10685,6 +13352,66 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToClear</modifiedWriteValues>
+          <fields>
+            
+            <field>
+              <name>TIMER</name>
+              <description>ARMC Timer</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>MAILBOX</name>
+              <description>Mailbox</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL0</name>
+              <description>Doorbell 0</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL1</name>
+              <description>Doorbell 1</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU0_HALTED</name>
+              <description>VPU0 halted</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU1_HALTED</name>
+              <description>VPU1 halted</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_ADDRESS_ERROR</name>
+              <description>ARM address error</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_AXI_ERROR</name>
+              <description>ARM AXI error</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
       </registers>
     </peripheral>

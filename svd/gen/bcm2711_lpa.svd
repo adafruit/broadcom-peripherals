@@ -10446,7 +10446,7 @@
       <headerStructName>BCM_LIC</headerStructName>
       <addressBlock>
         <offset>0x0</offset>
-        <size>0x1000</size>
+        <size>0x400</size>
         <usage>registers</usage>
       </addressBlock>
 
@@ -10456,7 +10456,7 @@
           <description>Basic pending info</description>
           <addressOffset>0x200</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x00000000</resetValue>
           <fields>
               
@@ -10635,16 +10635,662 @@
           <description>Pending state for interrupts 1 - 31</description>
           <addressOffset>0x204</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            
+            
+            <field>
+              
+              <name>INT0</name>
+              <description>Interrupt 0</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT1</name>
+              <description>Interrupt 1</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT2</name>
+              <description>Interrupt 2</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT3</name>
+              <description>Interrupt 3</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT4</name>
+              <description>Interrupt 4</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT5</name>
+              <description>Interrupt 5</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT6</name>
+              <description>Interrupt 6</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT7</name>
+              <description>Interrupt 7</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT8</name>
+              <description>Interrupt 8</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT9</name>
+              <description>Interrupt 9</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT10</name>
+              <description>Interrupt 10</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT11</name>
+              <description>Interrupt 11</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT12</name>
+              <description>Interrupt 12</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT13</name>
+              <description>Interrupt 13</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT14</name>
+              <description>Interrupt 14</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT15</name>
+              <description>Interrupt 15</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT16</name>
+              <description>Interrupt 16</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT17</name>
+              <description>Interrupt 17</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT18</name>
+              <description>Interrupt 18</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT19</name>
+              <description>Interrupt 19</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT20</name>
+              <description>Interrupt 20</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT21</name>
+              <description>Interrupt 21</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT22</name>
+              <description>Interrupt 22</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT23</name>
+              <description>Interrupt 23</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT24</name>
+              <description>Interrupt 24</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT25</name>
+              <description>Interrupt 25</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT26</name>
+              <description>Interrupt 26</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT27</name>
+              <description>Interrupt 27</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT28</name>
+              <description>Interrupt 28</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT29</name>
+              <description>Interrupt 29</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT30</name>
+              <description>Interrupt 30</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT31</name>
+              <description>Interrupt 31</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>PENDING_2</name>
           <description>Pending state for interrupts 32 - 63</description>
           <addressOffset>0x208</addressOffset>
           <size>32</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            
+            
+            <field>
+              
+              <name>INT32</name>
+              <description>Interrupt 32</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT33</name>
+              <description>Interrupt 33</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT34</name>
+              <description>Interrupt 34</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT35</name>
+              <description>Interrupt 35</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT36</name>
+              <description>Interrupt 36</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT37</name>
+              <description>Interrupt 37</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT38</name>
+              <description>Interrupt 38</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT39</name>
+              <description>Interrupt 39</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT40</name>
+              <description>Interrupt 40</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT41</name>
+              <description>Interrupt 41</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT42</name>
+              <description>Interrupt 42</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT43</name>
+              <description>Interrupt 43</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT44</name>
+              <description>Interrupt 44</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT45</name>
+              <description>Interrupt 45</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT46</name>
+              <description>Interrupt 46</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT47</name>
+              <description>Interrupt 47</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT48</name>
+              <description>Interrupt 48</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT49</name>
+              <description>Interrupt 49</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT50</name>
+              <description>Interrupt 50</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT51</name>
+              <description>Interrupt 51</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT52</name>
+              <description>Interrupt 52</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT53</name>
+              <description>Interrupt 53</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT54</name>
+              <description>Interrupt 54</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT55</name>
+              <description>Interrupt 55</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT56</name>
+              <description>Interrupt 56</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT57</name>
+              <description>Interrupt 57</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT58</name>
+              <description>Interrupt 58</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT59</name>
+              <description>Interrupt 59</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT60</name>
+              <description>Interrupt 60</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT61</name>
+              <description>Interrupt 61</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT62</name>
+              <description>Interrupt 62</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT63</name>
+              <description>Interrupt 63</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>FIQ_CONTROL</name>
@@ -10653,6 +11299,671 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>ENABLE</name>
+              <description>FIQ Enable</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>SOURCE</name>
+              <description>FIQ Source</description>
+              <enumeratedValues>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT0</name>
+                  <description>Interrupt 0</description>
+                  
+                  <value>0</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT1</name>
+                  <description>Interrupt 1</description>
+                  
+                  <value>1</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT2</name>
+                  <description>Interrupt 2</description>
+                  
+                  <value>2</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT3</name>
+                  <description>Interrupt 3</description>
+                  
+                  <value>3</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT4</name>
+                  <description>Interrupt 4</description>
+                  
+                  <value>4</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT5</name>
+                  <description>Interrupt 5</description>
+                  
+                  <value>5</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT6</name>
+                  <description>Interrupt 6</description>
+                  
+                  <value>6</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT7</name>
+                  <description>Interrupt 7</description>
+                  
+                  <value>7</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT8</name>
+                  <description>Interrupt 8</description>
+                  
+                  <value>8</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT9</name>
+                  <description>Interrupt 9</description>
+                  
+                  <value>9</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT10</name>
+                  <description>Interrupt 10</description>
+                  
+                  <value>10</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT11</name>
+                  <description>Interrupt 11</description>
+                  
+                  <value>11</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT12</name>
+                  <description>Interrupt 12</description>
+                  
+                  <value>12</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT13</name>
+                  <description>Interrupt 13</description>
+                  
+                  <value>13</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT14</name>
+                  <description>Interrupt 14</description>
+                  
+                  <value>14</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT15</name>
+                  <description>Interrupt 15</description>
+                  
+                  <value>15</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT16</name>
+                  <description>Interrupt 16</description>
+                  
+                  <value>16</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT17</name>
+                  <description>Interrupt 17</description>
+                  
+                  <value>17</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT18</name>
+                  <description>Interrupt 18</description>
+                  
+                  <value>18</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT19</name>
+                  <description>Interrupt 19</description>
+                  
+                  <value>19</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT20</name>
+                  <description>Interrupt 20</description>
+                  
+                  <value>20</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT21</name>
+                  <description>Interrupt 21</description>
+                  
+                  <value>21</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT22</name>
+                  <description>Interrupt 22</description>
+                  
+                  <value>22</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT23</name>
+                  <description>Interrupt 23</description>
+                  
+                  <value>23</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT24</name>
+                  <description>Interrupt 24</description>
+                  
+                  <value>24</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT25</name>
+                  <description>Interrupt 25</description>
+                  
+                  <value>25</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT26</name>
+                  <description>Interrupt 26</description>
+                  
+                  <value>26</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT27</name>
+                  <description>Interrupt 27</description>
+                  
+                  <value>27</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT28</name>
+                  <description>Interrupt 28</description>
+                  
+                  <value>28</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT29</name>
+                  <description>Interrupt 29</description>
+                  
+                  <value>29</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT30</name>
+                  <description>Interrupt 30</description>
+                  
+                  <value>30</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT31</name>
+                  <description>Interrupt 31</description>
+                  
+                  <value>31</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT32</name>
+                  <description>Interrupt 32</description>
+                  
+                  <value>32</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT33</name>
+                  <description>Interrupt 33</description>
+                  
+                  <value>33</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT34</name>
+                  <description>Interrupt 34</description>
+                  
+                  <value>34</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT35</name>
+                  <description>Interrupt 35</description>
+                  
+                  <value>35</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT36</name>
+                  <description>Interrupt 36</description>
+                  
+                  <value>36</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT37</name>
+                  <description>Interrupt 37</description>
+                  
+                  <value>37</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT38</name>
+                  <description>Interrupt 38</description>
+                  
+                  <value>38</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT39</name>
+                  <description>Interrupt 39</description>
+                  
+                  <value>39</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT40</name>
+                  <description>Interrupt 40</description>
+                  
+                  <value>40</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT41</name>
+                  <description>Interrupt 41</description>
+                  
+                  <value>41</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT42</name>
+                  <description>Interrupt 42</description>
+                  
+                  <value>42</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT43</name>
+                  <description>Interrupt 43</description>
+                  
+                  <value>43</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT44</name>
+                  <description>Interrupt 44</description>
+                  
+                  <value>44</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT45</name>
+                  <description>Interrupt 45</description>
+                  
+                  <value>45</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT46</name>
+                  <description>Interrupt 46</description>
+                  
+                  <value>46</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT47</name>
+                  <description>Interrupt 47</description>
+                  
+                  <value>47</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT48</name>
+                  <description>Interrupt 48</description>
+                  
+                  <value>48</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT49</name>
+                  <description>Interrupt 49</description>
+                  
+                  <value>49</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT50</name>
+                  <description>Interrupt 50</description>
+                  
+                  <value>50</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT51</name>
+                  <description>Interrupt 51</description>
+                  
+                  <value>51</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT52</name>
+                  <description>Interrupt 52</description>
+                  
+                  <value>52</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT53</name>
+                  <description>Interrupt 53</description>
+                  
+                  <value>53</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT54</name>
+                  <description>Interrupt 54</description>
+                  
+                  <value>54</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT55</name>
+                  <description>Interrupt 55</description>
+                  
+                  <value>55</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT56</name>
+                  <description>Interrupt 56</description>
+                  
+                  <value>56</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT57</name>
+                  <description>Interrupt 57</description>
+                  
+                  <value>57</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT58</name>
+                  <description>Interrupt 58</description>
+                  
+                  <value>58</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT59</name>
+                  <description>Interrupt 59</description>
+                  
+                  <value>59</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT60</name>
+                  <description>Interrupt 60</description>
+                  
+                  <value>60</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT61</name>
+                  <description>Interrupt 61</description>
+                  
+                  <value>61</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT62</name>
+                  <description>Interrupt 62</description>
+                  
+                  <value>62</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>INT63</name>
+                  <description>Interrupt 63</description>
+                  
+                  <value>63</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>TIMER</name>
+                  <description>ARMC Timer</description>
+                  
+                  <value>64</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>MAILBOX</name>
+                  <description>Mailbox</description>
+                  
+                  <value>65</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DOORBELL0</name>
+                  <description>Doorbell 0</description>
+                  
+                  <value>66</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>DOORBELL1</name>
+                  <description>Doorbell 1</description>
+                  
+                  <value>67</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>VPU0_HALTED</name>
+                  <description>VPU0 halted</description>
+                  
+                  <value>68</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>VPU1_HALTED</name>
+                  <description>VPU1 halted</description>
+                  
+                  <value>69</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ARM_ADDRESS_ERROR</name>
+                  <description>ARM address error</description>
+                  
+                  <value>70</value>
+                </enumeratedValue>
+              
+              
+                <enumeratedValue>
+                  
+                  <name>ARM_AXI_ERROR</name>
+                  <description>ARM AXI error</description>
+                  
+                  <value>71</value>
+                </enumeratedValue>
+              
+              </enumeratedValues>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+            </field>
+          </fields>
         </register>
         <register>
           <name>ENABLE_1</name>
@@ -10661,6 +11972,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToSet</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>INT0</name>
+              <description>Interrupt 0</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT1</name>
+              <description>Interrupt 1</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT2</name>
+              <description>Interrupt 2</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT3</name>
+              <description>Interrupt 3</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT4</name>
+              <description>Interrupt 4</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT5</name>
+              <description>Interrupt 5</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT6</name>
+              <description>Interrupt 6</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT7</name>
+              <description>Interrupt 7</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT8</name>
+              <description>Interrupt 8</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT9</name>
+              <description>Interrupt 9</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT10</name>
+              <description>Interrupt 10</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT11</name>
+              <description>Interrupt 11</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT12</name>
+              <description>Interrupt 12</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT13</name>
+              <description>Interrupt 13</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT14</name>
+              <description>Interrupt 14</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT15</name>
+              <description>Interrupt 15</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT16</name>
+              <description>Interrupt 16</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT17</name>
+              <description>Interrupt 17</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT18</name>
+              <description>Interrupt 18</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT19</name>
+              <description>Interrupt 19</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT20</name>
+              <description>Interrupt 20</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT21</name>
+              <description>Interrupt 21</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT22</name>
+              <description>Interrupt 22</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT23</name>
+              <description>Interrupt 23</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT24</name>
+              <description>Interrupt 24</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT25</name>
+              <description>Interrupt 25</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT26</name>
+              <description>Interrupt 26</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT27</name>
+              <description>Interrupt 27</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT28</name>
+              <description>Interrupt 28</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT29</name>
+              <description>Interrupt 29</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT30</name>
+              <description>Interrupt 30</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT31</name>
+              <description>Interrupt 31</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>ENABLE_2</name>
@@ -10669,6 +12304,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToSet</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>INT32</name>
+              <description>Interrupt 32</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT33</name>
+              <description>Interrupt 33</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT34</name>
+              <description>Interrupt 34</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT35</name>
+              <description>Interrupt 35</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT36</name>
+              <description>Interrupt 36</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT37</name>
+              <description>Interrupt 37</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT38</name>
+              <description>Interrupt 38</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT39</name>
+              <description>Interrupt 39</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT40</name>
+              <description>Interrupt 40</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT41</name>
+              <description>Interrupt 41</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT42</name>
+              <description>Interrupt 42</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT43</name>
+              <description>Interrupt 43</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT44</name>
+              <description>Interrupt 44</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT45</name>
+              <description>Interrupt 45</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT46</name>
+              <description>Interrupt 46</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT47</name>
+              <description>Interrupt 47</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT48</name>
+              <description>Interrupt 48</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT49</name>
+              <description>Interrupt 49</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT50</name>
+              <description>Interrupt 50</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT51</name>
+              <description>Interrupt 51</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT52</name>
+              <description>Interrupt 52</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT53</name>
+              <description>Interrupt 53</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT54</name>
+              <description>Interrupt 54</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT55</name>
+              <description>Interrupt 55</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT56</name>
+              <description>Interrupt 56</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT57</name>
+              <description>Interrupt 57</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT58</name>
+              <description>Interrupt 58</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT59</name>
+              <description>Interrupt 59</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT60</name>
+              <description>Interrupt 60</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT61</name>
+              <description>Interrupt 61</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT62</name>
+              <description>Interrupt 62</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT63</name>
+              <description>Interrupt 63</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>ENABLE_BASIC</name>
@@ -10677,6 +12636,66 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToSet</modifiedWriteValues>
+          <fields>
+            
+            <field>
+              <name>TIMER</name>
+              <description>ARMC Timer</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>MAILBOX</name>
+              <description>Mailbox</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL0</name>
+              <description>Doorbell 0</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL1</name>
+              <description>Doorbell 1</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU0_HALTED</name>
+              <description>VPU0 halted</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU1_HALTED</name>
+              <description>VPU1 halted</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_ADDRESS_ERROR</name>
+              <description>ARM address error</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_AXI_ERROR</name>
+              <description>ARM AXI error</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>DISABLE_1</name>
@@ -10685,6 +12704,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToClear</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>INT0</name>
+              <description>Interrupt 0</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT1</name>
+              <description>Interrupt 1</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT2</name>
+              <description>Interrupt 2</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT3</name>
+              <description>Interrupt 3</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT4</name>
+              <description>Interrupt 4</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT5</name>
+              <description>Interrupt 5</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT6</name>
+              <description>Interrupt 6</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT7</name>
+              <description>Interrupt 7</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT8</name>
+              <description>Interrupt 8</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT9</name>
+              <description>Interrupt 9</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT10</name>
+              <description>Interrupt 10</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT11</name>
+              <description>Interrupt 11</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT12</name>
+              <description>Interrupt 12</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT13</name>
+              <description>Interrupt 13</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT14</name>
+              <description>Interrupt 14</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT15</name>
+              <description>Interrupt 15</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT16</name>
+              <description>Interrupt 16</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT17</name>
+              <description>Interrupt 17</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT18</name>
+              <description>Interrupt 18</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT19</name>
+              <description>Interrupt 19</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT20</name>
+              <description>Interrupt 20</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT21</name>
+              <description>Interrupt 21</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT22</name>
+              <description>Interrupt 22</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT23</name>
+              <description>Interrupt 23</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT24</name>
+              <description>Interrupt 24</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT25</name>
+              <description>Interrupt 25</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT26</name>
+              <description>Interrupt 26</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT27</name>
+              <description>Interrupt 27</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT28</name>
+              <description>Interrupt 28</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT29</name>
+              <description>Interrupt 29</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT30</name>
+              <description>Interrupt 30</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT31</name>
+              <description>Interrupt 31</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>DISABLE_2</name>
@@ -10693,6 +13036,330 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToClear</modifiedWriteValues>
+          <fields>
+            
+            
+            <field>
+              
+              <name>INT32</name>
+              <description>Interrupt 32</description>
+              
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT33</name>
+              <description>Interrupt 33</description>
+              
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT34</name>
+              <description>Interrupt 34</description>
+              
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT35</name>
+              <description>Interrupt 35</description>
+              
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT36</name>
+              <description>Interrupt 36</description>
+              
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT37</name>
+              <description>Interrupt 37</description>
+              
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT38</name>
+              <description>Interrupt 38</description>
+              
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT39</name>
+              <description>Interrupt 39</description>
+              
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT40</name>
+              <description>Interrupt 40</description>
+              
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT41</name>
+              <description>Interrupt 41</description>
+              
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT42</name>
+              <description>Interrupt 42</description>
+              
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT43</name>
+              <description>Interrupt 43</description>
+              
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT44</name>
+              <description>Interrupt 44</description>
+              
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT45</name>
+              <description>Interrupt 45</description>
+              
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT46</name>
+              <description>Interrupt 46</description>
+              
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT47</name>
+              <description>Interrupt 47</description>
+              
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT48</name>
+              <description>Interrupt 48</description>
+              
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT49</name>
+              <description>Interrupt 49</description>
+              
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT50</name>
+              <description>Interrupt 50</description>
+              
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT51</name>
+              <description>Interrupt 51</description>
+              
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT52</name>
+              <description>Interrupt 52</description>
+              
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT53</name>
+              <description>Interrupt 53</description>
+              
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT54</name>
+              <description>Interrupt 54</description>
+              
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT55</name>
+              <description>Interrupt 55</description>
+              
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT56</name>
+              <description>Interrupt 56</description>
+              
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT57</name>
+              <description>Interrupt 57</description>
+              
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT58</name>
+              <description>Interrupt 58</description>
+              
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT59</name>
+              <description>Interrupt 59</description>
+              
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT60</name>
+              <description>Interrupt 60</description>
+              
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT61</name>
+              <description>Interrupt 61</description>
+              
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT62</name>
+              <description>Interrupt 62</description>
+              
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            
+            <field>
+              
+              <name>INT63</name>
+              <description>Interrupt 63</description>
+              
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
         <register>
           <name>DISABLE_BASIC</name>
@@ -10701,6 +13368,66 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
+          <modifiedWriteValues>oneToClear</modifiedWriteValues>
+          <fields>
+            
+            <field>
+              <name>TIMER</name>
+              <description>ARMC Timer</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>MAILBOX</name>
+              <description>Mailbox</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL0</name>
+              <description>Doorbell 0</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>DOORBELL1</name>
+              <description>Doorbell 1</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU0_HALTED</name>
+              <description>VPU0 halted</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>VPU1_HALTED</name>
+              <description>VPU1 halted</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_ADDRESS_ERROR</name>
+              <description>ARM address error</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+            <field>
+              <name>ARM_AXI_ERROR</name>
+              <description>ARM AXI error</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            
+          </fields>
         </register>
       </registers>
     </peripheral>

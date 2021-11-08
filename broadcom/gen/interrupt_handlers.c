@@ -61,45 +61,61 @@ __attribute__((weak)) void ARM_AXI_ERROR_IRQHandler(void) {
     while(true) {}
 }
 
+#if BCM_VERSION == 2711
 // 72: Software interrupt 0
 __attribute__((weak)) void SWI0_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
+#if BCM_VERSION == 2711
 // 73: Software interrupt 1
 __attribute__((weak)) void SWI1_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
+#if BCM_VERSION == 2711
 // 74: Software interrupt 2
 __attribute__((weak)) void SWI2_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
+#if BCM_VERSION == 2711
 // 75: Software interrupt 3
 __attribute__((weak)) void SWI3_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
+#if BCM_VERSION == 2711
 // 76: Software interrupt 4
 __attribute__((weak)) void SWI4_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
+#if BCM_VERSION == 2711
 // 77: Software interrupt 5
 __attribute__((weak)) void SWI5_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
+#if BCM_VERSION == 2711
 // 78: Software interrupt 6
 __attribute__((weak)) void SWI6_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
+#if BCM_VERSION == 2711
 // 79: Software interrupt 7
 __attribute__((weak)) void SWI7_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
 // 96: Timer 0
 __attribute__((weak)) void TIMER_0_IRQHandler(void) {
@@ -430,7 +446,82 @@ __attribute__((weak)) void ETH_PCIE_SECURE_IRQHandler(void) {
 }
 
 
-
+#if BCM_VERSION != 2711
+void* interrupt_handlers[72] = {
+  TIMER_0_IRQHandler, // 0
+  TIMER_1_IRQHandler, // 1
+  TIMER_2_IRQHandler, // 2
+  TIMER_3_IRQHandler, // 3
+  H264_0_IRQHandler, // 4
+  H264_1_IRQHandler, // 5
+  H264_2_IRQHandler, // 6
+  JPEG_IRQHandler, // 7
+  ISP_IRQHandler, // 8
+  USB_IRQHandler, // 9
+  V3D_IRQHandler, // 10
+  TRANSPOSER_IRQHandler, // 11
+  MULTICORE_SYNC_0_IRQHandler, // 12
+  MULTICORE_SYNC_1_IRQHandler, // 13
+  MULTICORE_SYNC_2_IRQHandler, // 14
+  MULTICORE_SYNC_3_IRQHandler, // 15
+  DMA_0_IRQHandler, // 16
+  DMA_1_IRQHandler, // 17
+  DMA_2_IRQHandler, // 18
+  DMA_3_IRQHandler, // 19
+  DMA_4_IRQHandler, // 20
+  DMA_5_IRQHandler, // 21
+  DMA_6_IRQHandler, // 22
+  DMA_7_8_IRQHandler, // 23
+  DMA_9_10_IRQHandler, // 24
+  DMA_11_IRQHandler, // 25
+  DMA_12_IRQHandler, // 26
+  DMA_13_IRQHandler, // 27
+  DMA_14_IRQHandler, // 28
+  AUX_IRQHandler, // 29
+  ARM_IRQHandler, // 30
+  DMA_15_IRQHandler, // 31
+  HDMI_CEC_IRQHandler, // 32
+  HVS_IRQHandler, // 33
+  RPIVID_IRQHandler, // 34
+  SDC_IRQHandler, // 35
+  DSI_0_IRQHandler, // 36
+  PIXEL_VALVE_2_IRQHandler, // 37
+  CAMERA_0_IRQHandler, // 38
+  CAMERA_1_IRQHandler, // 39
+  HDMI_0_IRQHandler, // 40
+  HDMI_1_IRQHandler, // 41
+  PIXEL_VALVE_3_IRQHandler, // 42
+  SPI_BSC_SLAVE_IRQHandler, // 43
+  DSI_1_IRQHandler, // 44
+  PIXEL_VALVE_0_IRQHandler, // 45
+  PIXEL_VALVE_1_2_IRQHandler, // 46
+  CPR_IRQHandler, // 47
+  SMI_IRQHandler, // 48
+  GPIO_0_IRQHandler, // 49
+  GPIO_1_IRQHandler, // 50
+  GPIO_2_IRQHandler, // 51
+  GPIO_3_IRQHandler, // 52
+  I2C_IRQHandler, // 53
+  SPI_IRQHandler, // 54
+  PCM_I2S_IRQHandler, // 55
+  SDHOST_IRQHandler, // 56
+  UART_IRQHandler, // 57
+  ETH_PCIE_IRQHandler, // 58
+  VEC_IRQHandler, // 59
+  CPG_IRQHandler, // 60
+  RNG_IRQHandler, // 61
+  EMMC_IRQHandler, // 62
+  ETH_PCIE_SECURE_IRQHandler, // 63
+  TIMER_IRQHandler, // 64
+  MAILBOX_IRQHandler, // 65
+  DOORBELL0_IRQHandler, // 66
+  DOORBELL1_IRQHandler, // 67
+  VPU0_HALTED_IRQHandler, // 68
+  VPU1_HALTED_IRQHandler, // 69
+  ARM_ADDRESS_ERROR_IRQHandler, // 70
+  ARM_AXI_ERROR_IRQHandler, // 71
+};
+#else
 void* interrupt_handlers[160] = {
   NULL, // 0
   NULL, // 1
@@ -594,3 +685,4 @@ void* interrupt_handlers[160] = {
   ETH_PCIE_SECURE_IRQHandler, // 159
   
 };
+#endif
