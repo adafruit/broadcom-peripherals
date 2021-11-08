@@ -18,8 +18,11 @@ __attribute__((weak)) void {{ aux }}_IRQHandler(void) {
 {% endfor %}
 
 {% for i in range(interrupt_count) %}
-{% if i in interrupt_names %}
-{% set name, description = interrupt_names[i] %}
+{% if i in bcm2711_interrupt_names %}
+{% set name, description = bcm2711_interrupt_names[i] %}
+{% if i not in bcm2711_to_bcm283x %}
+#if BCM_VERSION == 2711
+{% endif %}
 // {{ i }}: {{ description }}
 __attribute__((weak)) void {{ name }}_IRQHandler(void) {
 {% if name == "AUX" %}
@@ -36,18 +39,33 @@ __attribute__((weak)) void {{ name }}_IRQHandler(void) {
     while(true) {}
 {% endif %}
 }
+{% if i not in bcm2711_to_bcm283x %}
+#endif
+{% endif %}
 
 {% endif %}
 {% endfor %}
 
-
-void* interrupt_handlers[{{ interrupt_count }}] = {
-{% for i in range(interrupt_count) %}
-{% if i in interrupt_names %}
-{% set name, description = interrupt_names[i] %}
+#if BCM_VERSION != 2711
+void* interrupt_handlers[{{ bcm283x_interrupt_count }}] = {
+{% for i in range(bcm283x_interrupt_count) %}
+{% if i in bcm283x_interrupt_names %}
+{% set name, description = bcm283x_interrupt_names[i] %}
+  {{ name }}_IRQHandler,
+{%- else %}
+  NULL,
+{%- endif %} // {{ i }}
+{% endfor %}
+};
+#else
+void* interrupt_handlers[{{ bcm2711_interrupt_count }}] = {
+{% for i in range(bcm2711_interrupt_count) %}
+{% if i in bcm2711_interrupt_names %}
+{% set name, description = bcm2711_interrupt_names[i] %}
   {{ name }}_IRQHandler,
 {%- else %}
   NULL,
 {%- endif %} // {{ i }}
 {% endfor %}  
 };
+#endif

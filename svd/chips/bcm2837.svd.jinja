@@ -33,7 +33,7 @@
         {{ bcm_aux.peripheral(peripheral_base + 0x215000)}}
 
         {%- import "peripherals/bcm_legacy_interrupt.svd.jinja" as bcm_legacy_interrupt %}
-        {{ bcm_legacy_interrupt.peripheral("LIC", arm_local_base + 0x00000, interrupt_names=interrupt_names)}}
+        {{ bcm_legacy_interrupt.peripheral("LIC", peripheral_base + 0xB000, interrupt_names=interrupt_names)}}
 
         {%- import "peripherals/synopsis_usb_dwc2.svd.jinja" as synopsis_usb_dwc2 %}
         {{ synopsis_usb_dwc2.peripheral("USB_OTG", peripheral_base + 0x980000)}}

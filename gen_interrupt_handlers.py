@@ -79,16 +79,24 @@ armc_interrupts = [
 for i in range(8):
     armc_interrupts.append((f"SWI{i}", f"Software interrupt {i}"))
 
-interrupt_names = {}
+bcm2711_interrupt_names = {}
+bcm2837_interrupt_names = {}
+bcm2711_to_bcm2837 = {}
 for i, irq in enumerate(armc_interrupts):
-    interrupt_names[64 + i] = irq
+    bcm2711_interrupt_names[64 + i] = irq
+    if i < 8:
+        bcm2837_interrupt_names[64 + i] = irq
+        bcm2711_to_bcm2837[64 + i] = 64 + i
 for i, irq in enumerate(videocore_interrupts):
     if isinstance(irq, str):
         name = irq.replace(" ", "_").replace("/", "_").upper()
         irq = (name, irq)
-    interrupt_names[96 + i] = irq
+    bcm2711_interrupt_names[96 + i] = irq
+    bcm2837_interrupt_names[i] = irq
+    bcm2711_to_bcm2837[96 + i] = i
 
-interrupt_count = max(interrupt_names.keys()) + 1
+bcm2711_interrupt_count = max(bcm2711_interrupt_names.keys()) + 1
+bcm2837_interrupt_count = max(bcm2837_interrupt_names.keys()) + 1
 
 if __name__ == "__main__":
     from jinja2 import Environment, FileSystemLoader
@@ -100,8 +108,12 @@ if __name__ == "__main__":
 
     pathlib.Path("broadcom/gen/interrupt_handlers.c").write_text(
         interrupt_handlers.render(
-            interrupt_count=interrupt_count,
-            interrupt_names=interrupt_names
+            interrupt_count = max(bcm2711_interrupt_count, bcm2837_interrupt_count),
+            bcm2711_interrupt_count=bcm2711_interrupt_count,
+            bcm2711_interrupt_names=bcm2711_interrupt_names,
+            bcm283x_interrupt_count=bcm2837_interrupt_count,
+            bcm283x_interrupt_names=bcm2837_interrupt_names,
+            bcm2711_to_bcm283x=bcm2711_to_bcm2837
         )
     )
 
@@ -109,6 +121,7 @@ if __name__ == "__main__":
 
     pathlib.Path("broadcom/gen/interrupt_handlers.h").write_text(
         interrupt_handlers.render(
-            interrupt_count=interrupt_count,
+            bcm2711_interrupt_count=bcm2711_interrupt_count,
+            bcm283x_interrupt_count=bcm2837_interrupt_count
         )
     )
