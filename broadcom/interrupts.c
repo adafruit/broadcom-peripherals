@@ -99,7 +99,9 @@ __attribute__((weak)) void handle_irq(void) {
             // Unhandled interrupt. Read interrupt_id from GDB to find out the mistake.
             while(true) {}
         }
+        _current_interrupt = interrupt_id;
         handler();
+        _current_interrupt = INTERRUPT_COUNT;
     }
     #else
     while (GIC_CPU->GICC_HPPIR_b.INTERRUPT_ID < INTERRUPT_COUNT) {
@@ -120,9 +122,7 @@ __attribute__((weak)) void handle_irq(void) {
             // Unhandled interrupt. Read interrupt_id from GDB to find out the mistake.
             while(true) {}
         }
-        _current_interrupt = interrupt_id;
         handler();
-        _current_interrupt = INTERRUPT_COUNT;
 
         // Turn off interrupts while we do housekeeping.
         BP_DisableIRQs();
