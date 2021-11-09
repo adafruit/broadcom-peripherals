@@ -84,7 +84,7 @@ void setup_mmu_flat_map(void) {
                                                     MM_DESCRIPTOR_BLOCK |
                                                     MM_DESCRIPTOR_VALID;
     }
-    level_1_table[0] = ((uint64_t) level_2_0x0_0000_0000_to_0x0_4000_0000) n|
+    level_1_table[0] = ((uint64_t) level_2_0x0_0000_0000_to_0x0_4000_0000) |
                        MM_DESCRIPTOR_TABLE |
                        MM_DESCRIPTOR_VALID;
 
