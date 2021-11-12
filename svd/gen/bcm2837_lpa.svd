@@ -8451,6 +8451,32 @@
                     </fields>
                 </register>
                 <register>
+                    <name>EXTRA_MUX</name>
+                    <description>Undocumented multiplexing bits</description>
+                    <addressOffset>0xD0</addressOffset>
+                    <access>read-write</access>
+                    <fields>
+                        <field>
+                            <name>SDIO</name>
+                            <description>Switch peripheral connection to undocumented SDIO pins used on Pi 4</description>
+                            <bitOffset>1</bitOffset>
+                            <bitWidth>1</bitWidth>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>SDHOST</name>
+                                    <description>Connect the newer SD host</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>ARASAN</name>
+                                    <description>Connect Arasan SD/EMMC host</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
+                        </field>
+                    </fields>
+                </register>
+                <register>
                     <name>GPIO_PUP_PDN_CNTRL_REG0</name>
                     <description>GPIO Pull-up / Pull-down Register 0</description>
                     <addressOffset>0xe4</addressOffset>
