@@ -15,7 +15,7 @@ uint64_t level_2_0x0_0000_0000_to_0x0_4000_0000[512] __attribute__((aligned(4096
 uint64_t level_2_0x0_c000_0000_to_0x1_0000_0000[512] __attribute__((aligned(4096)));
 #endif
 
-void setup_mmu_flat_map(void) {
+__attribute__((target("strict-align"))) void setup_mmu_flat_map(void) {
     #if BCM_VERSION == 2837
     // First two MB 0x0000_0000 to 0x0020_0000
     level_2_0x0_0000_0000_to_0x0_4000_0000[0] = 0x0000000000000000 | 
@@ -106,6 +106,8 @@ void setup_mmu_flat_map(void) {
     uint64_t ttbr0 = ((uint64_t) level_1_table) | MM_TTBR_CNP;
     uint64_t sctlr = 0;
     __asm__ volatile (
+        // The ISB forces these changes to be seen before any other registers are changed
+        "ISB\n\t"
         // Clear the TLB
         "TLBI VMALLE1\n\t"
         // Set MAIR
