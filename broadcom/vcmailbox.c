@@ -6,10 +6,8 @@
 #include "broadcom/gen/vcmailbox.h"
 
 
-bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
-    uint32_t original_buffer[buffer->buffer_size];
+__attribute__((target("strict-align"))) bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     size_t buffer_size = buffer->buffer_size;
-    memcpy(original_buffer, (uint32_t*) buffer, buffer->buffer_size);
     buffer->code = VCMAILBOX_CODE_PROCESS_REQUEST;
     while (VCMAILBOX->STATUS0_b.FULL) {}
     #pragma GCC diagnostic push
@@ -23,7 +21,7 @@ bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     return buffer->code == VCMAILBOX_CODE_REQUEST_SUCCESSFUL;
 }
 
-uint32_t compute_size(uint32_t tag_size) {
+__attribute__((target("strict-align"))) uint32_t compute_size(uint32_t tag_size) {
     uint32_t size = VCMAILBOX_HEADER_SIZE + tag_size + sizeof(uint32_t);
     if (size % 16 != 0) {
         size += 16 - (size % 16);
@@ -122,8 +120,13 @@ uint32_t* vcmailbox_get_framebuffer(uint32_t* virtual_width, uint32_t* virtual_h
 }
 
 bool vcmailbox_release_framebuffer(void) {
-// vcmailbox_release_buffer_t
-    return false;
+    int size = compute_size(sizeof(vcmailbox_release_buffer_t));
+    vcmailbox_buffer_t* buf = (vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
+    memset(buf, 0, size);
+    buf->buffer_size = size;
+    vcmailbox_release_buffer_t* tag = (vcmailbox_release_buffer_t*) &buf->data;
+    *tag = VCMAILBOX_RELEASE_BUFFER_DEFAULTS;
+    return vcmailbox_request(buf);
 }
 
 uint64_t vcmailbox_get_serial_number(void) {
@@ -137,7 +140,7 @@ uint64_t vcmailbox_get_serial_number(void) {
     return tag->response.board_serial;
 }
 
-uint32_t vcmailbox_get_model(void) {
+uint32_t vcmailbox_get_board_model(void) {
     int size = compute_size(sizeof(vcmailbox_get_board_model_t));
     vcmailbox_buffer_t* buf = (vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
     memset(buf, 0, size);
@@ -146,6 +149,17 @@ uint32_t vcmailbox_get_model(void) {
     *tag = VCMAILBOX_GET_BOARD_MODEL_DEFAULTS;
     vcmailbox_request(buf);
     return tag->response.board_model;
+}
+
+__attribute__((target("strict-align"))) uint32_t vcmailbox_get_board_revision(void) {
+    int size = compute_size(sizeof(vcmailbox_get_board_revision_t));
+    vcmailbox_buffer_t* buf = (vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
+    memset(buf, 0, size);
+    buf->buffer_size = size;
+    vcmailbox_get_board_revision_t* tag = (vcmailbox_get_board_revision_t*) &buf->data;
+    *tag = VCMAILBOX_GET_BOARD_REVISION_DEFAULTS;
+    vcmailbox_request(buf);
+    return tag->response.board_revision;
 }
 
 uint32_t vcmailbox_get_firmware_revision(void) {
@@ -157,4 +171,28 @@ uint32_t vcmailbox_get_firmware_revision(void) {
     *tag = VCMAILBOX_GET_FIRMWARE_REVISION_DEFAULTS;
     vcmailbox_request(buf);
     return tag->response.firmware_revision;
+}
+
+uint32_t vcmailbox_get_temperature(void) {
+    int size = compute_size(sizeof(vcmailbox_get_temperature_t));
+    volatile vcmailbox_buffer_t* buf = (volatile vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
+    memset((uint32_t*) buf, 0, size);
+    buf->buffer_size = size;
+    vcmailbox_get_temperature_t* tag = (vcmailbox_get_temperature_t*) &buf->data;
+    *tag = VCMAILBOX_GET_TEMPERATURE_DEFAULTS;
+    tag->request.temperature_id = 0; // always 0
+    vcmailbox_request(buf);
+    return tag->response.value;
+}
+
+uint32_t vcmailbox_get_clock_rate_measured(vcmailbox_clock_id_t clock_id) {
+    int size = compute_size(sizeof(vcmailbox_get_clock_rate_measured_t));
+    volatile vcmailbox_buffer_t* buf = (volatile vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
+    memset((uint32_t*) buf, 0, size);
+    buf->buffer_size = size;
+    vcmailbox_get_clock_rate_measured_t* tag = (vcmailbox_get_clock_rate_measured_t*) &buf->data;
+    *tag = VCMAILBOX_GET_CLOCK_RATE_MEASURED_DEFAULTS;
+    tag->request.clock_id = clock_id;
+    vcmailbox_request(buf);
+    return tag->response.rate_in_hz;
 }

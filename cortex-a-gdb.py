@@ -1,3 +1,26 @@
+class DumpStack(gdb.Command):
+    def __init__ (self):
+        super (DumpStack, self).__init__ ("dump-stack", gdb.COMMAND_USER)
+
+    def invoke (self, arg, from_tty):
+        frame = gdb.selected_frame()
+        sp = int(frame.read_register("sp"))
+        print(hex(sp))
+        i = gdb.selected_inferior()
+        for ptr in range(sp, 0x80000, 8):
+            v = struct.unpack("<Q", i.read_memory(ptr, 8))[0]
+            s = gdb.find_pc_line(v)
+            if s.symtab:
+                print("{:08x} {:016x} {}".format(ptr, v, s))
+
+DumpStack()
+
+M64 = {
+    0b0000: "EL0t",
+    0b0100: "EL1t",
+    0b0101: "EL1h"
+}
+
 class Armv8AException(gdb.Command):
     def __init__ (self):
         super (Armv8AException, self).__init__ ("armv8a-exception", gdb.COMMAND_USER)
@@ -36,6 +59,10 @@ class Armv8AException(gdb.Command):
                 print("FAR", hex(value))
         elif dfsc == 0b000101:
             print("translation fault level 1")
+        elif dfsc == 0b000000:
+            print("address size fault level 0")
+        elif dfsc == 0b000001:
+            print("address size fault level 1")
         elif dfsc == 0b010001:
             print("tag check fault")
         elif dfsc == 0b100001:
@@ -67,8 +94,21 @@ class Armv8AException(gdb.Command):
     def invoke (self, arg, from_tty):
         frame = gdb.selected_frame()
         value = int(frame.read_register("ESR_EL1"))
+        pstate = int(frame.read_register("SPSR_EL1"))
         if value == 0:
             return None
+        print("Program state:")
+        if (pstate & (1 << 4)) != 0:
+            print("aarch32")
+        else:
+            print("aarch64")
+            print(M64.get(pstate & 0xf, "undefined"))
+            print("Flags: ", end="")
+            for bit, name in zip(range(6, 10), ("F", "I", "A", "D")):
+                if (pstate & (1 << bit)) != 0:
+                    print(name, end=" ")
+            print()
+        print(hex(pstate))
         iss2 = (value >> 32) & 0x1ff
         ec = (value >> 26) & 0x3ff
         il = (value >> 25) & 0x1
