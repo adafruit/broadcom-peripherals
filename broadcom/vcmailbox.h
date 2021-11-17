@@ -12,5 +12,8 @@ uint32_t* vcmailbox_get_framebuffer(uint32_t* virtual_width, uint32_t* virtual_h
                                     uint32_t* pitch);
 bool vcmailbox_release_framebuffer(void);
 uint64_t vcmailbox_get_serial_number(void);
-uint32_t vcmailbox_get_model(void);
+uint32_t vcmailbox_get_board_model(void);
+uint32_t vcmailbox_get_board_revision(void);
 uint32_t vcmailbox_get_firmware_revision(void);
+uint32_t vcmailbox_get_temperature(void);
+uint32_t vcmailbox_get_clock_rate_measured(vcmailbox_clock_id_t clock_id);
