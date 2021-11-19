@@ -9929,6 +9929,581 @@
         </register>
       </registers>
     </peripheral>
+        <peripheral derivedFrom="UART0">
+            <name>UART2</name>
+            <baseAddress>0xfe201400</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="UART0">
+            <name>UART3</name>
+            <baseAddress>0xfe201600</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="UART0">
+            <name>UART4</name>
+            <baseAddress>0xfe201800</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="UART0">
+            <name>UART5</name>
+            <baseAddress>0xfe201a00</baseAddress>
+        </peripheral>
+        <peripheral>
+      <name>SPI0</name>
+      <description>Broadcom SPI Controller</description>
+      <baseAddress>0xfe204000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x200</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>CS</name>
+          <description>Control and Status</description>
+          <addressOffset>0x00</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00041000</resetValue>
+          <fields>
+            <field>
+              <name>LEN_LONG</name>
+              <description>Enable long data word in LoSSI mode</description>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DMA_LEN</name>
+              <description>Enable DMA in LoSSI mode</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CSPOL2</name>
+              <description>Chip select 2 polarity</description>
+              <bitOffset>23</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CSPOL1</name>
+              <description>Chip select 1 polarity</description>
+              <bitOffset>22</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CSPOL0</name>
+              <description>Chip select 0 polarity</description>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RXF</name>
+              <description>RX FIFO full</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RXR</name>
+              <description>RX FIFO has data to be read</description>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TXD</name>
+              <description>TX FIFO can accept data</description>
+              <bitOffset>18</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RXD</name>
+              <description>RX FIFO contains data</description>
+              <bitOffset>17</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>DONE</name>
+              <description>Transfer is done</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TE_EN</name>
+              <description></description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>LMONO</name>
+              <description></description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>LEN</name>
+              <description>LoSSI enable</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>REN</name>
+              <description>Read enable</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ADCS</name>
+              <description>Automatically deassert chip select</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>INTR</name>
+              <description>Interrupt on RX</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>INTD</name>
+              <description>Interrupt on done</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>DMAEN</name>
+              <description>Enable DMA</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>TA</name>
+              <description>Transfer active</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CSPOL</name>
+              <description>Chip select polarity</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CLEAR</name>
+              <description>Clear the FIFO(s)</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue><name>TX</name><value>0x1</value></enumeratedValue>
+                <enumeratedValue><name>RX</name><value>0x2</value></enumeratedValue>
+                <enumeratedValue><name>BOTH</name><value>0x3</value></enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>CPOL</name>
+              <description>Clock polarity</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CPHA</name>
+              <description>Clock phase</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CS</name>
+              <description>Chip select</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>FIFO</name>
+          <description>FIFO access</description>
+          <addressOffset>0x04</addressOffset>
+          <size>32</size>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+          <fields>
+            <field>
+              <name>DATA</name>
+              <description>Data</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CLK</name>
+          <description>Clock divider</description>
+          <addressOffset>0x08</addressOffset>
+          <size>32</size>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+          <fields>
+            <field>
+              <name>CDIV</name>
+              <description>Clock divider</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DLEN</name>
+          <description>Data length</description>
+          <addressOffset>0x0C</addressOffset>
+          <size>32</size>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+          <fields>
+            <field>
+              <name>DLEN</name>
+              <description>Data length</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LTOH</name>
+          <description>LoSSI output hold delay</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <resetValue>0x00000001</resetValue>
+          <access>read-write</access>
+          <fields>
+            <field>
+              <name>TOH</name>
+              <description>Output hold delay</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DC</name>
+          <description></description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x30201050</resetValue>
+          <fields>
+            <field>
+              <name>RPANIC</name>
+              <description>DMA read panic threshold</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+            <field>
+              <name>RDREQ</name>
+              <description>DMA read request threshold</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+            <field>
+              <name>TPANIC</name>
+              <description>DMA write panic threshold</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+            <field>
+              <name>TDREQ</name>
+              <description>DMA Write request threshold</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+
+        <peripheral derivedFrom="SPI0">
+            <name>SPI3</name>
+            <baseAddress>0xfe204600</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="SPI0">
+            <name>SPI4</name>
+            <baseAddress>0xfe204800</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="SPI0">
+            <name>SPI5</name>
+            <baseAddress>0xfe204a00</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="SPI0">
+            <name>SPI6</name>
+            <baseAddress>0xfe204c00</baseAddress>
+        </peripheral>
+        <peripheral>
+      <name>BSC0</name>
+      <description>Broadcom Serial Controller (I2C compatible)</description>
+      <baseAddress>0xfe205000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x200</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>C</name>
+          <description>Control</description>
+          <addressOffset>0x00</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>I2CEN</name>
+              <description>I2C Enable</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>INTR</name>
+              <description>Interrupt on RX</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>INTT</name>
+              <description>Interrupt on TX</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>INTD</name>
+              <description>Interrupt on done</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>ST</name>
+              <description>Start transfer</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>CLEAR</name>
+              <description>Clear the FIFO</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
+              <name>READ</name>
+              <description>Transfer is read</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>S</name>
+          <description>Status</description>
+          <addressOffset>0x04</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000050</resetValue>
+          <fields>
+            <field>
+              <name>CLKT</name>
+              <description>Clock stretch timeout</description>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+            </field>
+            <field>
+              <name>ERR</name>
+              <description>Error: No ack</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+            </field>
+            <field>
+              <name>RXF</name>
+              <description>FIFO is full. Can't receive anything else</description>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TXE</name>
+              <description>FIFO is empty. Nothing to transmit</description>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RXD</name>
+              <description>FIFO contains at least one byte</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TXD</name>
+              <description>FIFO has space for at least one byte</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RXR</name>
+              <description>FIFO needs to be read</description>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>TXW</name>
+              <description>FIFO needs to be written</description>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>DONE</name>
+              <description>Transfer done</description>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
+            </field>
+            <field>
+              <name>TA</name>
+              <description>Transfer active</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DLEN</name>
+          <description>Data length</description>
+          <addressOffset>0x08</addressOffset>
+          <size>32</size>
+          <access>read-only</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>DLEN</name>
+              <description>Data length</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>A</name>
+          <description>Slave address</description>
+          <addressOffset>0x0c</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>ADDR</name>
+              <description>Slave address</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>FIFO</name>
+          <description>Data FIFO</description>
+          <addressOffset>0x10</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>DATA</name>
+              <description>Access the FIFO</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DIV</name>
+          <description>Clock divider</description>
+          <addressOffset>0x14</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x000005DC</resetValue>
+          <fields>
+            <field>
+              <name>CDIV</name>
+              <description>Divide the source clock</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DEL</name>
+          <description>Data delay (Values must be under CDIV / 2)</description>
+          <addressOffset>0x18</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00300030</resetValue>
+          <fields>
+            <field>
+              <name>FEDL</name>
+              <description>Delay before reading after a falling edge</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+            <field>
+              <name>REDL</name>
+              <description>Delay before reading after a rising edge</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CLKT</name>
+          <description>Clock stretch timeout (broken on 283x)</description>
+          <addressOffset>0x1C</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>TOUT</name>
+              <description>Number of SCL clock cycles to wait</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+            </field>
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+
+
+        <peripheral derivedFrom="BSC0">
+            <name>BSC1</name>
+            <baseAddress>0xfe804000</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="BSC0">
+            <name>BSC3</name>
+            <baseAddress>0xfe205600</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="BSC0">
+            <name>BSC4</name>
+            <baseAddress>0xfe205800</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="BSC0">
+            <name>BSC5</name>
+            <baseAddress>0xfe205a00</baseAddress>
+        </peripheral>
+        <peripheral derivedFrom="BSC0">
+            <name>BSC6</name>
+            <baseAddress>0xfe205c00</baseAddress>
+        </peripheral>
         <peripheral>
             <name>AUX</name>
             <description>Three auxiliary peripherals</description>
@@ -10449,22 +11024,6 @@
             <baseAddress>0xfe2150c0</baseAddress>
         </peripheral>
 
-        <peripheral derivedFrom="UART0">
-            <name>UART2</name>
-            <baseAddress>0xfe201400</baseAddress>
-        </peripheral>
-        <peripheral derivedFrom="UART0">
-            <name>UART3</name>
-            <baseAddress>0xfe201600</baseAddress>
-        </peripheral>
-        <peripheral derivedFrom="UART0">
-            <name>UART4</name>
-            <baseAddress>0xfe201800</baseAddress>
-        </peripheral>
-        <peripheral derivedFrom="UART0">
-            <name>UART5</name>
-            <baseAddress>0xfe201a00</baseAddress>
-        </peripheral>
         <peripheral>
       <name>LIC</name>
       <description>Broadcom Legacy Interrupt Controller</description>
