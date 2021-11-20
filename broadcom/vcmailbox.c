@@ -5,18 +5,27 @@
 #include "broadcom/defines.h"
 #include "broadcom/gen/vcmailbox.h"
 
-
 __attribute__((target("strict-align"))) bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     size_t buffer_size = buffer->buffer_size;
     buffer->code = VCMAILBOX_CODE_PROCESS_REQUEST;
     while (VCMAILBOX->STATUS0_b.FULL) {}
+    while (!VCMAILBOX->STATUS0_b.EMPTY) {
+        VCMAILBOX->READ;
+    }
     #pragma GCC diagnostic push
     #pragma GCC diagnostic ignored "-Wpointer-to-int-cast"
     uint32_t buffer_address = 0x00000000 | (uint32_t) buffer | 8;
     #pragma GCC diagnostic pop
     data_clean(buffer, buffer_size);
+    __asm__("dsb sy");
     VCMAILBOX->WRITE = buffer_address;
-    while (VCMAILBOX->STATUS0_b.EMPTY || VCMAILBOX->READ != buffer_address) {}
+    size_t count = 0;
+    while (VCMAILBOX->STATUS0_b.EMPTY || VCMAILBOX->READ != buffer_address) {
+        count++;
+        if (count > 10000000) {
+            return false;
+        }
+    }
     data_invalidate(buffer, buffer_size);
     return buffer->code == VCMAILBOX_CODE_REQUEST_SUCCESSFUL;
 }
@@ -181,7 +190,9 @@ uint32_t vcmailbox_get_temperature(void) {
     vcmailbox_get_temperature_t* tag = (vcmailbox_get_temperature_t*) &buf->data;
     *tag = VCMAILBOX_GET_TEMPERATURE_DEFAULTS;
     tag->request.temperature_id = 0; // always 0
-    vcmailbox_request(buf);
+    if (!vcmailbox_request(buf)) {
+        return 0;
+    }
     return tag->response.value;
 }
 

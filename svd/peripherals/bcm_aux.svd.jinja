@@ -147,15 +147,16 @@
                   <access>read-write</access>
                   <resetValue>0x0000b001</resetValue>
                   <fields>
+                        <!-- These bits are incorrect in the datasheets. -->
                         <field>
-                            <name>DATA_READY</name>
-                            <description>Receive FIFO has at least 1 byte</description>
+                            <name>TX_READY</name>
+                            <description>Transmit FIFO is empty</description>
                             <bitOffset>2</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
                         <field>
-                            <name>TX_READY</name>
-                            <description>Transmit FIFO is empty</description>
+                            <name>DATA_READY</name>
+                            <description>Receive FIFO has at least 1 byte</description>
                             <bitOffset>1</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>

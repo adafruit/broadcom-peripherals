@@ -34,15 +34,18 @@ void BP_EnableIRQs(void) {
     _current_interrupt = INTERRUPT_COUNT;
     #endif
     __asm__("msr    daifclr, #2");
+    __asm__("isb");
 }
 
 void BP_DisableIRQs(void) {
     __asm__("msr    daifset, #2");
+    __asm__("isb");
 }
 
 __attribute__((weak)) void handle_irq(void) {
     #if BCM_VERSION != 2711
     static const uint8_t basic_to_id[] = {7, 9, 10, 18, 19, 53, 54, 55, 56, 57, 62};
+    __asm__("dsb sy");
     while (LIC->BASIC_PENDING != 0) {
         uint32_t current_pending = LIC->BASIC_PENDING;
         // We don't allow for nested interrupts so look through the pending bits in
@@ -100,35 +103,43 @@ __attribute__((weak)) void handle_irq(void) {
             while(true) {}
         }
         _current_interrupt = interrupt_id;
+        // Put aggressive data access barriers around the interrupt handler
+        __asm__ volatile("dsb sy" : : : "memory");
         handler();
+        __asm__ volatile("dsb sy" : : : "memory");
         _current_interrupt = INTERRUPT_COUNT;
     }
     #else
+
+    __asm__ volatile("dsb sy" : : : "memory");
     while (GIC_CPU->GICC_HPPIR_b.INTERRUPT_ID < INTERRUPT_COUNT) {
         // This register changes state after being read so make sure to read it
         // all at once. We need the full value to pass back to EOIR later.
         uint32_t current_interrupt = GIC_CPU->GICC_IAR;
-
-        // Turn on interrupts to allow for preemption.
-        BP_EnableIRQs();
 
         uint32_t interrupt_id = current_interrupt & GIC_CPU_GICC_IAR_INTERRUPT_ID_Msk;
         if (interrupt_id >= INTERRUPT_COUNT) {
             break;
         }
 
+        // Turn on interrupts to allow for preemption.
+        BP_EnableIRQs();
+
         void(* handler)(void) = interrupt_handlers[interrupt_id];
         if (handler == NULL) {
             // Unhandled interrupt. Read interrupt_id from GDB to find out the mistake.
             while(true) {}
         }
+        __asm__ volatile("dsb sy" : : : "memory");
         handler();
+        __asm__ volatile("dsb sy" : : : "memory");
 
         // Turn off interrupts while we do housekeeping.
         BP_DisableIRQs();
 
         GIC_CPU->GICC_EOIR = current_interrupt;
     }
+    __asm__ volatile("dsb sy" : : : "memory");
     #endif
 }
 
@@ -141,6 +152,7 @@ void BP_SetMinPriority(uint8_t priority) {
 
 // We mimic the NVIC used in Cortex M SoCs.
 void BP_EnableIRQ(IRQn_Type IRQn) {
+    __asm__("dsb sy");
     #if BCM_VERSION != 2711
     if (IRQn < 32) {
         LIC->ENABLE_1 = 1 << IRQn;
@@ -155,9 +167,11 @@ void BP_EnableIRQ(IRQn_Type IRQn) {
     volatile uint32_t* enabled = (volatile uint32_t*) &GIC_DIST->GICD_ISENABLER;
     enabled[IRQn / 32] = 1 << (IRQn % 32);
     #endif
+    __asm__("dsb sy");
 }
 
 bool BP_GetEnableIRQ(IRQn_Type IRQn) {
+    __asm__("dsb sy");
     #if BCM_VERSION != 2711
     if (IRQn < 32) {
         return (LIC->ENABLE_1 & (1 << IRQn)) != 0;
@@ -170,9 +184,11 @@ bool BP_GetEnableIRQ(IRQn_Type IRQn) {
     volatile uint8_t* targets = (volatile uint8_t*) &GIC_DIST->GICD_ITARGETSR;
     return (targets[IRQn] & (1 << CPU_Index())) != 0;
     #endif
+    __asm__("dsb sy");
 }
 
 void BP_DisableIRQ(IRQn_Type IRQn) {
+    __asm__("dsb sy");
     #if BCM_VERSION != 2711
     if (IRQn < 32) {
         LIC->DISABLE_1 = 1 << IRQn;
@@ -185,9 +201,11 @@ void BP_DisableIRQ(IRQn_Type IRQn) {
     volatile uint8_t* targets = (volatile uint8_t*) &GIC_DIST->GICD_ITARGETSR;
     targets[IRQn] &= ~(1 << CPU_Index());
     #endif
+    __asm__("dsb sy");
 }
 
 bool BP_GetPendingIRQ(IRQn_Type IRQn) {
+    __asm__("dsb sy");
     #if BCM_VERSION == 2711
     volatile uint32_t* pending = (volatile uint32_t*) &GIC_DIST->GICD_ISPENDR;
     return (pending[IRQn / 32] & (1 << (IRQn % 32))) != 0;
@@ -200,12 +218,15 @@ bool BP_GetPendingIRQ(IRQn_Type IRQn) {
         return (LIC->BASIC_PENDING & (1 << (IRQn - 64))) != 0;
     }
     #endif
+    __asm__("dsb sy");
 }
 
 void BP_SetPendingIRQ(IRQn_Type IRQn) {
     #if BCM_VERSION == 2711
+    __asm__("dsb sy");
     volatile uint32_t* set_pending = (volatile uint32_t*) &GIC_DIST->GICD_ISPENDR;
     set_pending[IRQn / 32] = 1 << (IRQn % 32);
+    __asm__("dsb sy");
     #endif
     // The legacy interrupt controller cannot set interrupts pending. The interrupt
     // state is directly tied to the source peripheral.
@@ -213,8 +234,10 @@ void BP_SetPendingIRQ(IRQn_Type IRQn) {
 
 void BP_ClearPendingIRQ(IRQn_Type IRQn)  {
     #if BCM_VERSION == 2711
+    __asm__("dsb sy");
     volatile uint32_t* clear_pending = (volatile uint32_t*) &GIC_DIST->GICD_ICPENDR;
     clear_pending[IRQn / 32] = 1 << (IRQn % 32);
+    __asm__("dsb sy");
     #endif
     // The legacy interrupt controller cannot clear interrupts. They must be done
     // on the peripheral.
@@ -222,7 +245,9 @@ void BP_ClearPendingIRQ(IRQn_Type IRQn)  {
 
 bool BP_GetActive(IRQn_Type IRQn) {
     #if BCM_VERSION == 2711
+    __asm__("dsb sy");
     volatile uint32_t* active = (volatile uint32_t*) &GIC_DIST->GICD_ISACTIVER;
+    __asm__("dsb sy");
     return (active[IRQn / 32] & (1 << (IRQn % 32))) != 0;
     #else
     return _current_interrupt == IRQn;
@@ -231,8 +256,10 @@ bool BP_GetActive(IRQn_Type IRQn) {
 
 void BP_SetPriority(IRQn_Type IRQn, uint8_t priority) {
     #if BCM_VERSION == 2711
+    __asm__("dsb sy");
     volatile uint8_t* irq_priority = (volatile uint8_t*) &GIC_DIST->GICD_IPRIORITYR;
     irq_priority[IRQn] = priority;
+    __asm__("dsb sy");
     #else
     (void) IRQn;
     (void) priority;
