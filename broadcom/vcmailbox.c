@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "broadcom/caches.h"
+#include "broadcom/cpu.h"
 #include "broadcom/defines.h"
 #include "broadcom/gen/vcmailbox.h"
 
@@ -17,7 +18,8 @@ __attribute__((target("strict-align"))) bool vcmailbox_request(volatile vcmailbo
     uint32_t buffer_address = 0x00000000 | (uint32_t) buffer | 8;
     #pragma GCC diagnostic pop
     data_clean(buffer, buffer_size);
-    __asm__("dsb sy");
+    
+    COMPLETE_MEMORY_READS;
     VCMAILBOX->WRITE = buffer_address;
     size_t count = 0;
     while (VCMAILBOX->STATUS0_b.EMPTY || VCMAILBOX->READ != buffer_address) {
@@ -26,6 +28,7 @@ __attribute__((target("strict-align"))) bool vcmailbox_request(volatile vcmailbo
             return false;
         }
     }
+    COMPLETE_MEMORY_READS;
     data_invalidate(buffer, buffer_size);
     return buffer->code == VCMAILBOX_CODE_REQUEST_SUCCESSFUL;
 }
