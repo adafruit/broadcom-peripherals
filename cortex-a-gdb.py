@@ -5,9 +5,17 @@ class DumpStack(gdb.Command):
     def invoke (self, arg, from_tty):
         frame = gdb.selected_frame()
         sp = int(frame.read_register("sp"))
-        print(hex(sp))
         i = gdb.selected_inferior()
-        for ptr in range(sp, 0x80000, 8):
+        print("current stack @", hex(sp))
+        for ptr in range(0x80000 - 8, sp, -8):
+            v = struct.unpack("<Q", i.read_memory(ptr, 8))[0]
+            s = gdb.find_pc_line(v)
+            if s.symtab:
+                print("{:08x} {:016x} {}".format(ptr, v, s))
+            else:
+                print("{:08x} {:016x}".format(ptr, v))
+        print("old stack")
+        for ptr in range(sp, sp - 0x400, -8):
             v = struct.unpack("<Q", i.read_memory(ptr, 8))[0]
             s = gdb.find_pc_line(v)
             if s.symtab:
