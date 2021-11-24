@@ -10351,7 +10351,7 @@
           <description>Data length</description>
           <addressOffset>0x08</addressOffset>
           <size>32</size>
-          <access>read-only</access>
+          <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
             <field>
