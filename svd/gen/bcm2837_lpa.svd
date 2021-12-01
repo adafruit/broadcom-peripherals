@@ -187,32 +187,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>PCLK</name>
-                                    <description>Pin is connected to PCLK</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI3_CE0_N</name>
-                                    <description>Pin is connected to SPI3_CE0_N</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>TXD2</name>
-                                    <description>Pin is connected to TXD2</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA6</name>
-                                    <description>Pin is connected to SDA6</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -256,32 +256,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DE</name>
-                                    <description>Pin is connected to DE</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI3_MISO</name>
-                                    <description>Pin is connected to SPI3_MISO</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RXD2</name>
-                                    <description>Pin is connected to RXD2</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL6</name>
-                                    <description>Pin is connected to SCL6</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -325,32 +325,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>LCD_VSYNC</name>
-                                    <description>Pin is connected to LCD_VSYNC</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI3_MOSI</name>
-                                    <description>Pin is connected to SPI3_MOSI</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>CTS2</name>
-                                    <description>Pin is connected to CTS2</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA3</name>
-                                    <description>Pin is connected to SDA3</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -394,32 +394,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>LCD_HSYNC</name>
-                                    <description>Pin is connected to LCD_HSYNC</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI3_SCLK</name>
-                                    <description>Pin is connected to SPI3_SCLK</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RTS2</name>
-                                    <description>Pin is connected to RTS2</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL3</name>
-                                    <description>Pin is connected to SCL3</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -463,32 +463,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D0</name>
-                                    <description>Pin is connected to DPI_D0</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI4_CE0_N</name>
-                                    <description>Pin is connected to SPI4_CE0_N</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>TXD3</name>
-                                    <description>Pin is connected to TXD3</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA3</name>
-                                    <description>Pin is connected to SDA3</description>
+                                    <name>ARM_TDI</name>
+                                    <description>Pin is connected to ARM_TDI</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -532,32 +532,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D1</name>
-                                    <description>Pin is connected to DPI_D1</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI4_MISO</name>
-                                    <description>Pin is connected to SPI4_MISO</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RXD3</name>
-                                    <description>Pin is connected to RXD3</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL3</name>
-                                    <description>Pin is connected to SCL3</description>
+                                    <name>ARM_TDO</name>
+                                    <description>Pin is connected to ARM_TDO</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -601,32 +601,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D2</name>
-                                    <description>Pin is connected to DPI_D2</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI4_MOSI</name>
-                                    <description>Pin is connected to SPI4_MOSI</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>CTS3</name>
-                                    <description>Pin is connected to CTS3</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA4</name>
-                                    <description>Pin is connected to SDA4</description>
+                                    <name>ARM_RTCK</name>
+                                    <description>Pin is connected to ARM_RTCK</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -654,8 +654,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE1_N</name>
-                                    <description>Pin is connected to SPI0_CE1_N</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -670,32 +670,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D3</name>
-                                    <description>Pin is connected to DPI_D3</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI4_SCLK</name>
-                                    <description>Pin is connected to SPI4_SCLK</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RTS3</name>
-                                    <description>Pin is connected to RTS3</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL4</name>
-                                    <description>Pin is connected to SCL4</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -723,8 +723,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE0_N</name>
-                                    <description>Pin is connected to SPI0_CE0_N</description>
+                                    <name>SPI0_CE1_N</name>
+                                    <description>Pin is connected to SPI0_CE1_N</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -739,32 +739,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D4</name>
-                                    <description>Pin is connected to DPI_D4</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>BSCSL_CE_N</name>
-                                    <description>Pin is connected to BSCSL_CE_N</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>TXD4</name>
-                                    <description>Pin is connected to TXD4</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA4</name>
-                                    <description>Pin is connected to SDA4</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -792,8 +792,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MISO</name>
-                                    <description>Pin is connected to SPI0_MISO</description>
+                                    <name>SPI0_CE0_N</name>
+                                    <description>Pin is connected to SPI0_CE0_N</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -808,32 +808,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D5</name>
-                                    <description>Pin is connected to DPI_D5</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>BSCSL_MISO</name>
-                                    <description>Pin is connected to BSCSL_MISO</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RXD4</name>
-                                    <description>Pin is connected to RXD4</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL4</name>
-                                    <description>Pin is connected to SCL4</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -870,8 +870,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MOSI</name>
-                                    <description>Pin is connected to SPI0_MOSI</description>
+                                    <name>SPI0_MISO</name>
+                                    <description>Pin is connected to SPI0_MISO</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -886,32 +886,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D6</name>
-                                    <description>Pin is connected to DPI_D6</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>BSCSL_MOSI</name>
-                                    <description>Pin is connected to BSCSL_MOSI</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>CTS4</name>
-                                    <description>Pin is connected to CTS4</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA5</name>
-                                    <description>Pin is connected to SDA5</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -939,8 +939,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_SCLK</name>
-                                    <description>Pin is connected to SPI0_SCLK</description>
+                                    <name>SPI0_MOSI</name>
+                                    <description>Pin is connected to SPI0_MOSI</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -955,32 +955,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D7</name>
-                                    <description>Pin is connected to DPI_D7</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>BSCSL_SCLK</name>
-                                    <description>Pin is connected to BSCSL_SCLK</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RTS4</name>
-                                    <description>Pin is connected to RTS4</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL5</name>
-                                    <description>Pin is connected to SCL5</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -1024,32 +1024,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D8</name>
-                                    <description>Pin is connected to DPI_D8</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI5_CE0_N</name>
-                                    <description>Pin is connected to SPI5_CE0_N</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>TXD5</name>
-                                    <description>Pin is connected to TXD5</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA5</name>
-                                    <description>Pin is connected to SDA5</description>
+                                    <name>ARM_TMS</name>
+                                    <description>Pin is connected to ARM_TMS</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -1093,32 +1093,32 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D9</name>
-                                    <description>Pin is connected to DPI_D9</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI5_MISO</name>
-                                    <description>Pin is connected to SPI5_MISO</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RXD5</name>
-                                    <description>Pin is connected to RXD5</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL5</name>
-                                    <description>Pin is connected to SCL5</description>
+                                    <name>ARM_TCK</name>
+                                    <description>Pin is connected to ARM_TCK</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -1162,24 +1162,24 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D10</name>
-                                    <description>Pin is connected to DPI_D10</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI5_MOSI</name>
-                                    <description>Pin is connected to SPI5_MOSI</description>
+                                    <name>CTS0</name>
+                                    <description>Pin is connected to CTS0</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>CTS5</name>
-                                    <description>Pin is connected to CTS5</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -1231,24 +1231,24 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D11</name>
-                                    <description>Pin is connected to DPI_D11</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI5_SCLK</name>
-                                    <description>Pin is connected to SPI5_SCLK</description>
+                                    <name>RTS0</name>
+                                    <description>Pin is connected to RTS0</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RTS5</name>
-                                    <description>Pin is connected to RTS5</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -1300,16 +1300,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D12</name>
-                                    <description>Pin is connected to DPI_D12</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>CTS0</name>
-                                    <description>Pin is connected to CTS0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1369,16 +1369,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D13</name>
-                                    <description>Pin is connected to DPI_D13</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RTS0</name>
-                                    <description>Pin is connected to RTS0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1438,16 +1438,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D14</name>
-                                    <description>Pin is connected to DPI_D14</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI6_CE0_N</name>
-                                    <description>Pin is connected to SPI6_CE0_N</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1507,16 +1507,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D15</name>
-                                    <description>Pin is connected to DPI_D15</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI6_MISO</name>
-                                    <description>Pin is connected to SPI6_MISO</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1585,16 +1585,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D16</name>
-                                    <description>Pin is connected to DPI_D16</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI6_MOSI</name>
-                                    <description>Pin is connected to SPI6_MOSI</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1654,16 +1654,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D17</name>
-                                    <description>Pin is connected to DPI_D17</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI6_SCLK</name>
-                                    <description>Pin is connected to SPI6_SCLK</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1707,8 +1707,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD0_CLK</name>
-                                    <description>Pin is connected to SD0_CLK</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -1723,8 +1723,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D18</name>
-                                    <description>Pin is connected to DPI_D18</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
@@ -1747,8 +1747,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SDA6</name>
-                                    <description>Pin is connected to SDA6</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -1776,8 +1776,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD0_CMD</name>
-                                    <description>Pin is connected to SD0_CMD</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -1792,8 +1792,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D19</name>
-                                    <description>Pin is connected to DPI_D19</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
@@ -1816,8 +1816,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SCL6</name>
-                                    <description>Pin is connected to SCL6</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -1845,8 +1845,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD0_DAT0</name>
-                                    <description>Pin is connected to SD0_DAT0</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -1861,8 +1861,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D20</name>
-                                    <description>Pin is connected to DPI_D20</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
@@ -1885,8 +1885,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI3_CE1_N</name>
-                                    <description>Pin is connected to SPI3_CE1_N</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -1914,8 +1914,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD0_DAT1</name>
-                                    <description>Pin is connected to SD0_DAT1</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -1930,8 +1930,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D21</name>
-                                    <description>Pin is connected to DPI_D21</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
@@ -1954,8 +1954,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI4_CE1_N</name>
-                                    <description>Pin is connected to SPI4_CE1_N</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -1983,8 +1983,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD0_DAT2</name>
-                                    <description>Pin is connected to SD0_DAT2</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -1999,8 +1999,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D22</name>
-                                    <description>Pin is connected to DPI_D22</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
@@ -2023,8 +2023,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI5_CE1_N</name>
-                                    <description>Pin is connected to SPI5_CE1_N</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2052,8 +2052,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD0_DAT3</name>
-                                    <description>Pin is connected to SD0_DAT3</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -2068,8 +2068,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>DPI_D23</name>
-                                    <description>Pin is connected to DPI_D23</description>
+                                    <name>RESERVED2</name>
+                                    <description>Alt function 2 reserved</description>
                                     <value>6</value>
                                 </enumeratedValue>
                                 
@@ -2092,8 +2092,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI6_CE1_N</name>
-                                    <description>Pin is connected to SPI6_CE1_N</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2153,16 +2153,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_RX_ERR</name>
-                                    <description>Pin is connected to MII_A_RX_ERR</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_MDIO</name>
-                                    <description>Pin is connected to RGMII_MDIO</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2222,16 +2222,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_TX_ERR</name>
-                                    <description>Pin is connected to MII_A_TX_ERR</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_MDC</name>
-                                    <description>Pin is connected to RGMII_MDC</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2300,8 +2300,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_CRS</name>
-                                    <description>Pin is connected to MII_A_CRS</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -2369,8 +2369,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_COL</name>
-                                    <description>Pin is connected to MII_A_COL</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -2438,8 +2438,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD_CARD_PRES</name>
-                                    <description>Pin is connected to SD_CARD_PRES</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -2507,8 +2507,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD_CARD_WRPROT</name>
-                                    <description>Pin is connected to SD_CARD_WRPROT</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -2568,24 +2568,24 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_CLK</name>
-                                    <description>Pin is connected to SD1_CLK</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD_CARD_LED</name>
-                                    <description>Pin is connected to SD_CARD_LED</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_IRQ</name>
-                                    <description>Pin is connected to RGMII_IRQ</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2637,16 +2637,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_CMD</name>
-                                    <description>Pin is connected to SD1_CMD</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_START_STOP</name>
-                                    <description>Pin is connected to RGMII_START_STOP</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -2706,24 +2706,24 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT0</name>
-                                    <description>Pin is connected to SD1_DAT0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_RX_OK</name>
-                                    <description>Pin is connected to RGMII_RX_OK</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_RX_ERR</name>
-                                    <description>Pin is connected to MII_A_RX_ERR</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2775,24 +2775,24 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT1</name>
-                                    <description>Pin is connected to SD1_DAT1</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_MDIO</name>
-                                    <description>Pin is connected to RGMII_MDIO</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_TX_ERR</name>
-                                    <description>Pin is connected to MII_A_TX_ERR</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2844,24 +2844,24 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT2</name>
-                                    <description>Pin is connected to SD1_DAT2</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_MDC</name>
-                                    <description>Pin is connected to RGMII_MDC</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_CRS</name>
-                                    <description>Pin is connected to MII_A_CRS</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2913,24 +2913,24 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT3</name>
-                                    <description>Pin is connected to SD1_DAT3</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RGMII_IRQ</name>
-                                    <description>Pin is connected to RGMII_IRQ</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>MII_A_COL</name>
-                                    <description>Pin is connected to MII_A_COL</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -2991,16 +2991,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT4</name>
-                                    <description>Pin is connected to SD1_DAT4</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MISO</name>
-                                    <description>Pin is connected to SPI0_MISO</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3060,16 +3060,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT5</name>
-                                    <description>Pin is connected to SD1_DAT5</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MOSI</name>
-                                    <description>Pin is connected to SPI0_MOSI</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3129,16 +3129,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT6</name>
-                                    <description>Pin is connected to SD1_DAT6</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_SCLK</name>
-                                    <description>Pin is connected to SPI0_SCLK</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3198,16 +3198,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT7</name>
-                                    <description>Pin is connected to SD1_DAT7</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE0_N</name>
-                                    <description>Pin is connected to SPI0_CE0_N</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3275,16 +3275,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE1_N</name>
-                                    <description>Pin is connected to SPI0_CE1_N</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD_CARD_VOLT</name>
-                                    <description>Pin is connected to SD_CARD_VOLT</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -3344,16 +3344,16 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE2_N</name>
-                                    <description>Pin is connected to SPI0_CE2_N</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD_CARD_PWR0</name>
-                                    <description>Pin is connected to SD_CARD_PWR0</description>
+                                    <name>RESERVED5</name>
+                                    <description>Alt function 5 reserved</description>
                                     <value>2</value>
                                 </enumeratedValue>
                                 
@@ -3543,8 +3543,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_CLK</name>
-                                    <description>Pin is connected to SD1_CLK</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3612,8 +3612,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_CMD</name>
-                                    <description>Pin is connected to SD1_CMD</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3690,8 +3690,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT0</name>
-                                    <description>Pin is connected to SD1_DAT0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3759,8 +3759,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT1</name>
-                                    <description>Pin is connected to SD1_DAT1</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3828,8 +3828,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SD1_DAT2</name>
-                                    <description>Pin is connected to SD1_DAT2</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -3857,282 +3857,6 @@
                             <name>FSEL53</name>
                             <description>Function Select 53</description>
                             <bitRange>[11:9]</bitRange>
-                            <access>read-write</access>
-                            <enumeratedValues>
-                                <usage>read-write</usage>
-                                <enumeratedValue>
-                                    <name>INPUT</name>
-                                    <description>Pin is an input</description>
-                                    <value>0</value>
-                                </enumeratedValue>
-                                <enumeratedValue>
-                                    <name>OUTPUT</name>
-                                    <description>Pin is an output</description>
-                                    <value>1</value>
-                                </enumeratedValue>
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED0</name>
-                                    <description>Alt function 0 reserved</description>
-                                    <value>4</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED1</name>
-                                    <description>Alt function 1 reserved</description>
-                                    <value>5</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED2</name>
-                                    <description>Alt function 2 reserved</description>
-                                    <value>6</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>SD1_DAT3</name>
-                                    <description>Pin is connected to SD1_DAT3</description>
-                                    <value>7</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED4</name>
-                                    <description>Alt function 4 reserved</description>
-                                    <value>3</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED5</name>
-                                    <description>Alt function 5 reserved</description>
-                                    <value>2</value>
-                                </enumeratedValue>
-                                
-                                
-                            </enumeratedValues>
-                        </field>
-                        
-                        <field>
-                            <name>FSEL54</name>
-                            <description>Function Select 54</description>
-                            <bitRange>[14:12]</bitRange>
-                            <access>read-write</access>
-                            <enumeratedValues>
-                                <usage>read-write</usage>
-                                <enumeratedValue>
-                                    <name>INPUT</name>
-                                    <description>Pin is an input</description>
-                                    <value>0</value>
-                                </enumeratedValue>
-                                <enumeratedValue>
-                                    <name>OUTPUT</name>
-                                    <description>Pin is an output</description>
-                                    <value>1</value>
-                                </enumeratedValue>
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED0</name>
-                                    <description>Alt function 0 reserved</description>
-                                    <value>4</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED1</name>
-                                    <description>Alt function 1 reserved</description>
-                                    <value>5</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED2</name>
-                                    <description>Alt function 2 reserved</description>
-                                    <value>6</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
-                                    <value>7</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED4</name>
-                                    <description>Alt function 4 reserved</description>
-                                    <value>3</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED5</name>
-                                    <description>Alt function 5 reserved</description>
-                                    <value>2</value>
-                                </enumeratedValue>
-                                
-                                
-                            </enumeratedValues>
-                        </field>
-                        
-                        <field>
-                            <name>FSEL55</name>
-                            <description>Function Select 55</description>
-                            <bitRange>[17:15]</bitRange>
-                            <access>read-write</access>
-                            <enumeratedValues>
-                                <usage>read-write</usage>
-                                <enumeratedValue>
-                                    <name>INPUT</name>
-                                    <description>Pin is an input</description>
-                                    <value>0</value>
-                                </enumeratedValue>
-                                <enumeratedValue>
-                                    <name>OUTPUT</name>
-                                    <description>Pin is an output</description>
-                                    <value>1</value>
-                                </enumeratedValue>
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED0</name>
-                                    <description>Alt function 0 reserved</description>
-                                    <value>4</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED1</name>
-                                    <description>Alt function 1 reserved</description>
-                                    <value>5</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED2</name>
-                                    <description>Alt function 2 reserved</description>
-                                    <value>6</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
-                                    <value>7</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED4</name>
-                                    <description>Alt function 4 reserved</description>
-                                    <value>3</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED5</name>
-                                    <description>Alt function 5 reserved</description>
-                                    <value>2</value>
-                                </enumeratedValue>
-                                
-                                
-                            </enumeratedValues>
-                        </field>
-                        
-                        <field>
-                            <name>FSEL56</name>
-                            <description>Function Select 56</description>
-                            <bitRange>[20:18]</bitRange>
-                            <access>read-write</access>
-                            <enumeratedValues>
-                                <usage>read-write</usage>
-                                <enumeratedValue>
-                                    <name>INPUT</name>
-                                    <description>Pin is an input</description>
-                                    <value>0</value>
-                                </enumeratedValue>
-                                <enumeratedValue>
-                                    <name>OUTPUT</name>
-                                    <description>Pin is an output</description>
-                                    <value>1</value>
-                                </enumeratedValue>
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED0</name>
-                                    <description>Alt function 0 reserved</description>
-                                    <value>4</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED1</name>
-                                    <description>Alt function 1 reserved</description>
-                                    <value>5</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED2</name>
-                                    <description>Alt function 2 reserved</description>
-                                    <value>6</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
-                                    <value>7</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED4</name>
-                                    <description>Alt function 4 reserved</description>
-                                    <value>3</value>
-                                </enumeratedValue>
-                                
-                                
-                                
-                                <enumeratedValue>
-                                    <name>RESERVED5</name>
-                                    <description>Alt function 5 reserved</description>
-                                    <value>2</value>
-                                </enumeratedValue>
-                                
-                                
-                            </enumeratedValues>
-                        </field>
-                        
-                        <field>
-                            <name>FSEL57</name>
-                            <description>Function Select 57</description>
-                            <bitRange>[23:21]</bitRange>
                             <access>read-write</access>
                             <enumeratedValues>
                                 <usage>read-write</usage>
@@ -4597,34 +4321,6 @@
                             <bitWidth>1</bitWidth>
                         </field>
                         
-                        <field>
-                            <name>SET54</name>
-                            <description>Set 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>SET55</name>
-                            <description>Set 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>SET56</name>
-                            <description>Set 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>SET57</name>
-                            <description>Set 57</description>
-                            <bitOffset>25</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
                     </fields>
                 </register>
                 <register>
@@ -5023,34 +4719,6 @@
                             <bitWidth>1</bitWidth>
                         </field>
                         
-                        <field>
-                            <name>CLR54</name>
-                            <description>Clear 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>CLR55</name>
-                            <description>Clear 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>CLR56</name>
-                            <description>Clear 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>CLR57</name>
-                            <description>Clear 57</description>
-                            <bitOffset>25</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
                     </fields>
                 </register>
                 <register>
@@ -5444,34 +5112,6 @@
                             <name>LEV53</name>
                             <description>Level 53</description>
                             <bitOffset>21</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>LEV54</name>
-                            <description>Level 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>LEV55</name>
-                            <description>Level 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>LEV56</name>
-                            <description>Level 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>LEV57</name>
-                            <description>Level 57</description>
-                            <bitOffset>25</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
                         
@@ -5874,34 +5514,6 @@
                             <bitWidth>1</bitWidth>
                         </field>
                         
-                        <field>
-                            <name>EDS54</name>
-                            <description>Event detected 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>EDS55</name>
-                            <description>Event detected 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>EDS56</name>
-                            <description>Event detected 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>EDS57</name>
-                            <description>Event detected 57</description>
-                            <bitOffset>25</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
                     </fields>
                 </register>
                 <register>
@@ -6295,34 +5907,6 @@
                             <name>REN53</name>
                             <description>Rising edge enabled 53</description>
                             <bitOffset>21</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>REN54</name>
-                            <description>Rising edge enabled 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>REN55</name>
-                            <description>Rising edge enabled 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>REN56</name>
-                            <description>Rising edge enabled 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>REN57</name>
-                            <description>Rising edge enabled 57</description>
-                            <bitOffset>25</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
                         
@@ -6723,34 +6307,6 @@
                             <bitWidth>1</bitWidth>
                         </field>
                         
-                        <field>
-                            <name>FEN54</name>
-                            <description>Falling edge enabled 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>FEN55</name>
-                            <description>Falling edge enabled 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>FEN56</name>
-                            <description>Falling edge enabled 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>FEN57</name>
-                            <description>Falling edge enabled 57</description>
-                            <bitOffset>25</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
                     </fields>
                 </register>
                 <register>
@@ -7144,34 +6700,6 @@
                             <name>HEN53</name>
                             <description>High detect enabled 53</description>
                             <bitOffset>21</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>HEN54</name>
-                            <description>High detect enabled 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>HEN55</name>
-                            <description>High detect enabled 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>HEN56</name>
-                            <description>High detect enabled 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>HEN57</name>
-                            <description>High detect enabled 57</description>
-                            <bitOffset>25</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
                         
@@ -7572,34 +7100,6 @@
                             <bitWidth>1</bitWidth>
                         </field>
                         
-                        <field>
-                            <name>LEN54</name>
-                            <description>Low detect enabled 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>LEN55</name>
-                            <description>Low detect enabled 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>LEN56</name>
-                            <description>Low detect enabled 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>LEN57</name>
-                            <description>Low detect enabled 57</description>
-                            <bitOffset>25</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
                     </fields>
                 </register>
                 <register>
@@ -7996,34 +7496,6 @@
                             <bitWidth>1</bitWidth>
                         </field>
                         
-                        <field>
-                            <name>AREN54</name>
-                            <description>Async rising enabled 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>AREN55</name>
-                            <description>Async rising enabled 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>AREN56</name>
-                            <description>Async rising enabled 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>AREN57</name>
-                            <description>Async rising enabled 57</description>
-                            <bitOffset>25</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
                     </fields>
                 </register>
                 <register>
@@ -8417,34 +7889,6 @@
                             <name>AFEN53</name>
                             <description>Async falling enabled 53</description>
                             <bitOffset>21</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>AFEN54</name>
-                            <description>Async falling enabled 54</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>AFEN55</name>
-                            <description>Async falling enabled 55</description>
-                            <bitOffset>23</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>AFEN56</name>
-                            <description>Async falling enabled 56</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>1</bitWidth>
-                        </field>
-                        
-                        <field>
-                            <name>AFEN57</name>
-                            <description>Async falling enabled 57</description>
-                            <bitOffset>25</bitOffset>
                             <bitWidth>1</bitWidth>
                         </field>
                         
@@ -8957,38 +8401,6 @@
                             <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
                         </field>
                         
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL54</name>
-                            <description>Resistor select for 54</description>
-                            <bitOffset>12</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL55</name>
-                            <description>Resistor select for 55</description>
-                            <bitOffset>14</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL56</name>
-                            <description>Resistor select for 56</description>
-                            <bitOffset>16</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL57</name>
-                            <description>Resistor select for 57</description>
-                            <bitOffset>18</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
                     </fields>
                 </register>
             </registers>
@@ -9142,13 +8554,6 @@
         <size>0x2c</size>
         <usage>registers</usage>
       </addressBlock>
-      
-      <interrupt>
-          <name>UART</name>
-          <description>OR of all UART interrupts</description>
-          <value>57</value>
-      </interrupt>
-      
       <registers>
         <register>
           <name>DR</name>

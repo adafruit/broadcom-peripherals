@@ -29,13 +29,6 @@
         <size>0x2c</size>
         <usage>registers</usage>
       </addressBlock>
-      {% if name == "UART0" %}
-      <interrupt>
-          <name>UART</name>
-          <description>OR of all UART interrupts</description>
-          <value>{{ interrupt_offset + 57 }}</value>
-      </interrupt>
-      {% endif %}
       <registers>
         <register>
           <name>DR</name>

@@ -654,8 +654,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE1_N</name>
-                                    <description>Pin is connected to SPI0_CE1_N</description>
+                                    <name>RESERVED0</name>
+                                    <description>Alt function 0 reserved</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -723,8 +723,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE0_N</name>
-                                    <description>Pin is connected to SPI0_CE0_N</description>
+                                    <name>SPI0_CE1_N</name>
+                                    <description>Pin is connected to SPI0_CE1_N</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -792,8 +792,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MISO</name>
-                                    <description>Pin is connected to SPI0_MISO</description>
+                                    <name>SPI0_CE0_N</name>
+                                    <description>Pin is connected to SPI0_CE0_N</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -870,8 +870,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MOSI</name>
-                                    <description>Pin is connected to SPI0_MOSI</description>
+                                    <name>SPI0_MISO</name>
+                                    <description>Pin is connected to SPI0_MISO</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -939,8 +939,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_SCLK</name>
-                                    <description>Pin is connected to SPI0_SCLK</description>
+                                    <name>SPI0_MOSI</name>
+                                    <description>Pin is connected to SPI0_MOSI</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -1170,8 +1170,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI5_MOSI</name>
-                                    <description>Pin is connected to SPI5_MOSI</description>
+                                    <name>CTS0</name>
+                                    <description>Pin is connected to CTS0</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1239,8 +1239,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI5_SCLK</name>
-                                    <description>Pin is connected to SPI5_SCLK</description>
+                                    <name>RTS0</name>
+                                    <description>Pin is connected to RTS0</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1308,8 +1308,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>CTS0</name>
-                                    <description>Pin is connected to CTS0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1377,8 +1377,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RTS0</name>
-                                    <description>Pin is connected to RTS0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -2999,8 +2999,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MISO</name>
-                                    <description>Pin is connected to SPI0_MISO</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3068,8 +3068,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MOSI</name>
-                                    <description>Pin is connected to SPI0_MOSI</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3137,8 +3137,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_SCLK</name>
-                                    <description>Pin is connected to SPI0_SCLK</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3206,8 +3206,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE0_N</name>
-                                    <description>Pin is connected to SPI0_CE0_N</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3275,8 +3275,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE1_N</name>
-                                    <description>Pin is connected to SPI0_CE1_N</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -3344,8 +3344,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE2_N</name>
-                                    <description>Pin is connected to SPI0_CE2_N</description>
+                                    <name>RESERVED4</name>
+                                    <description>Alt function 4 reserved</description>
                                     <value>3</value>
                                 </enumeratedValue>
                                 
@@ -9142,13 +9142,6 @@
         <size>0x2c</size>
         <usage>registers</usage>
       </addressBlock>
-      
-      <interrupt>
-          <name>UART</name>
-          <description>OR of all UART interrupts</description>
-          <value>153</value>
-      </interrupt>
-      
       <registers>
         <register>
           <name>DR</name>
@@ -10236,6 +10229,186 @@
             <name>SPI6</name>
             <baseAddress>0xfe204c00</baseAddress>
         </peripheral>
+        <peripheral>
+            <name>PACTL</name>
+            <description>Interrupt status of new peripherals</description>
+            <baseAddress>0xfe204e00</baseAddress>
+            <addressBlock>
+                <offset>0</offset>
+                <size>0x40</size>
+                <usage>registers</usage>
+            </addressBlock>
+            <interrupt>
+                <name>I2C</name>
+                <description>OR of all I2C interrupts</description>
+                <value>149</value>
+            </interrupt>
+            <interrupt>
+                <name>SPI</name>
+                <description>OR of all SPI interrupts except 1 and 2</description>
+                <value>150</value>
+            </interrupt>
+            <interrupt>
+                <name>UART</name>
+                <description>OR of all UART interrupts except 1</description>
+                <value>153</value>
+            </interrupt>
+            <registers>
+                <register>
+                  <name>CS</name>
+                  <description>Interrupt status</description>
+                  <addressOffset>0x00</addressOffset>
+                  <size>32</size>
+                  <access>read-write</access>
+                  <resetValue>0x00000000</resetValue>
+                  <fields>
+                    
+                    <field>
+                        <name>SPI_0</name>
+                        <description>SPI0 interrupt active</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>SPI_1</name>
+                        <description>SPI1 interrupt active</description>
+                        <bitOffset>1</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>SPI_2</name>
+                        <description>SPI2 interrupt active</description>
+                        <bitOffset>2</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>SPI_3</name>
+                        <description>SPI3 interrupt active</description>
+                        <bitOffset>3</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>SPI_4</name>
+                        <description>SPI4 interrupt active</description>
+                        <bitOffset>4</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>SPI_5</name>
+                        <description>SPI5 interrupt active</description>
+                        <bitOffset>5</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>SPI_6</name>
+                        <description>SPI6 interrupt active</description>
+                        <bitOffset>6</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    
+                    <field>
+                        <name>I2C_0</name>
+                        <description>I2C0 interrupt active</description>
+                        <bitOffset>8</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>I2C_1</name>
+                        <description>I2C1 interrupt active</description>
+                        <bitOffset>9</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>I2C_2</name>
+                        <description>I2C2 interrupt active</description>
+                        <bitOffset>10</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>I2C_3</name>
+                        <description>I2C3 interrupt active</description>
+                        <bitOffset>11</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>I2C_4</name>
+                        <description>I2C4 interrupt active</description>
+                        <bitOffset>12</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>I2C_5</name>
+                        <description>I2C5 interrupt active</description>
+                        <bitOffset>13</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>I2C_6</name>
+                        <description>I2C6 interrupt active</description>
+                        <bitOffset>14</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>I2C_7</name>
+                        <description>I2C7 interrupt active</description>
+                        <bitOffset>15</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    
+                    <field>
+                        <name>UART_5</name>
+                        <description>UART5 interrupt active</description>
+                        <bitOffset>16</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>UART_4</name>
+                        <description>UART4 interrupt active</description>
+                        <bitOffset>17</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>UART_3</name>
+                        <description>UART3 interrupt active</description>
+                        <bitOffset>18</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>UART_2</name>
+                        <description>UART2 interrupt active</description>
+                        <bitOffset>19</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                    
+                    <field>
+                        <name>UART_0</name>
+                        <description>UART0 interrupt active</description>
+                        <bitOffset>20</bitOffset>
+                        <bitWidth>1</bitWidth>
+                    </field>
+                </fields>
+                </register>
+            </registers>
+        </peripheral>
+
         <peripheral>
       <name>BSC0</name>
       <description>Broadcom Serial Controller (I2C compatible)</description>

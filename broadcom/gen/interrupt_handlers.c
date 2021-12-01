@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "broadcom/cpu.h"
 #include "broadcom/defines.h"
 
 // This catches non-interrupt exceptions that are similar to Cortex-M hard faults.
@@ -9,8 +10,71 @@ __attribute__((weak)) void HardFault_IRQHandler(void) {
     while (true) {}
 }
 
-// TODO: Route I2C, SPI and UART based on AUX_IRQ and PACTL_CS
-
+#if BCM_VERSION == 2711
+__attribute__((weak)) void SPI0_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void SPI1_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void SPI2_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void SPI3_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void SPI4_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void SPI5_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void SPI6_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC0_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC1_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC2_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC3_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC4_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC5_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC6_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC7_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void UART0_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void UART1_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void UART2_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void UART3_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void UART4_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void UART5_IRQHandler(void) {
+    while(true) {}
+}
+#else
 __attribute__((weak)) void UART1_IRQHandler(void) {
     while(true) {}
 }
@@ -20,6 +84,7 @@ __attribute__((weak)) void SPI1_IRQHandler(void) {
 __attribute__((weak)) void SPI2_IRQHandler(void) {
     while(true) {}
 }
+#endif
 
 // 64: ARMC Timer
 __attribute__((weak)) void TIMER_IRQHandler(void) {
@@ -392,12 +457,84 @@ __attribute__((weak)) void GPIO_3_IRQHandler(void) {
 
 // 149: OR of all I2C
 __attribute__((weak)) void I2C_IRQHandler(void) {
-    while(true) {}
+    #if BCM_VERSION == 2711
+    uint32_t status = PACTL->CS;
+    while ((status & 0xff00) != 0) {
+        if ((status & PACTL_CS_I2C_0_Msk) != 0) {
+            BSC0_IRQHandler();
+        } else if ((status & PACTL_CS_I2C_1_Msk) != 0) {
+            BSC1_IRQHandler();
+        } else if ((status & PACTL_CS_I2C_2_Msk) != 0) {
+            BSC2_IRQHandler();
+        } else if ((status & PACTL_CS_I2C_3_Msk) != 0) {
+            BSC3_IRQHandler();
+        } else if ((status & PACTL_CS_I2C_4_Msk) != 0) {
+            BSC4_IRQHandler();
+        } else if ((status & PACTL_CS_I2C_5_Msk) != 0) {
+            BSC5_IRQHandler();
+        } else if ((status & PACTL_CS_I2C_6_Msk) != 0) {
+            BSC6_IRQHandler();
+        } else if ((status & PACTL_CS_I2C_7_Msk) != 0) {
+            BSC7_IRQHandler();
+        }
+        COMPLETE_MEMORY_READS;
+        status = PACTL->CS;
+    }
+    #else
+    uint32_t status;
+    uint32_t control;
+    status = BSC0->S;
+    control = BSC0->C;
+    COMPLETE_MEMORY_READS;
+    if (((control & BSC0_C_INTR_Msk) != 0 && (status & BSC0_S_RXR_Msk) != 0) ||
+        ((control & BSC0_C_INTT_Msk) != 0 && (status & BSC0_S_TXW_Msk) != 0) ||
+        ((control & BSC0_C_INTD_Msk) != 0 && (status & BSC0_S_DONE_Msk) != 0)) {
+        BSC0_IRQHandler();
+        COMPLETE_MEMORY_READS;
+    }
+    status = BSC1->S;
+    control = BSC1->C;
+    COMPLETE_MEMORY_READS;
+    if (((control & BSC0_C_INTR_Msk) != 0 && (status & BSC0_S_RXR_Msk) != 0) ||
+        ((control & BSC0_C_INTT_Msk) != 0 && (status & BSC0_S_TXW_Msk) != 0) ||
+        ((control & BSC0_C_INTD_Msk) != 0 && (status & BSC0_S_DONE_Msk) != 0)) {
+        BSC1_IRQHandler();
+        COMPLETE_MEMORY_READS;
+    }
+    status = BSC2->S;
+    control = BSC2->C;
+    COMPLETE_MEMORY_READS;
+    if (((control & BSC0_C_INTR_Msk) != 0 && (status & BSC0_S_RXR_Msk) != 0) ||
+        ((control & BSC0_C_INTT_Msk) != 0 && (status & BSC0_S_TXW_Msk) != 0) ||
+        ((control & BSC0_C_INTD_Msk) != 0 && (status & BSC0_S_DONE_Msk) != 0)) {
+        BSC2_IRQHandler();
+        COMPLETE_MEMORY_READS;
+    }
+    #endif
 }
 
 // 150: OR of all SPI
 __attribute__((weak)) void SPI_IRQHandler(void) {
-    while(true) {}
+    #if BCM_VERSION == 2711
+    uint32_t status = PACTL->CS;
+    while ((PACTL->CS & 0x79) != 0) {
+        if ((status & PACTL_CS_SPI_0_Msk) != 0) {
+            SPI0_IRQHandler();
+        } else if ((status & PACTL_CS_SPI_3_Msk) != 0) {
+            SPI3_IRQHandler();
+        } else if ((status & PACTL_CS_SPI_4_Msk) != 0) {
+            SPI4_IRQHandler();
+        } else if ((status & PACTL_CS_SPI_5_Msk) != 0) {
+            SPI5_IRQHandler();
+        } else if ((status & PACTL_CS_SPI_6_Msk) != 0) {
+            SPI6_IRQHandler();
+        }
+        COMPLETE_MEMORY_READS;
+        status = PACTL->CS;
+    }
+    #else
+    SPI0_IRQHandler();
+    #endif
 }
 
 // 151: PCM/I2S
@@ -412,7 +549,26 @@ __attribute__((weak)) void SDHOST_IRQHandler(void) {
 
 // 153: OR of all PL011 UARTs
 __attribute__((weak)) void UART_IRQHandler(void) {
-    while(true) {}
+    #if BCM_VERSION == 2711
+    uint32_t status = PACTL->CS;
+    while ((status & 0x1f0000) != 0) {
+        if ((status & PACTL_CS_UART_0_Msk) != 0) {
+            UART0_IRQHandler();
+        } else if ((status & PACTL_CS_UART_2_Msk) != 0) {
+            UART2_IRQHandler();
+        } else if ((status & PACTL_CS_UART_3_Msk) != 0) {
+            UART3_IRQHandler();
+        } else if ((status & PACTL_CS_UART_4_Msk) != 0) {
+            UART4_IRQHandler();
+        } else if ((status & PACTL_CS_UART_5_Msk) != 0) {
+            UART5_IRQHandler();
+        }
+        COMPLETE_MEMORY_READS;
+        status = PACTL->CS;
+    }
+    #else
+    UART0_IRQHandler();
+    #endif
 }
 
 // 154: OR of all ETH_PCIe L2
