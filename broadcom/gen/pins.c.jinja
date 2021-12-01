@@ -2,16 +2,26 @@
 
 #if BCM_VERSION != 2711
 {% for functions in bcm2837_altfunc %}
-const mcu_pin_obj_t pin_GPIO{{ loop.index }} = {
+const mcu_pin_obj_t pin_GPIO{{ loop.index0 }} = {
     PIN_PREFIX_VALUES
-    .number = {{ loop.index }},
+    .number = {{ loop.index0 }},
     .functions = {
     {%- for function, index, pin in functions %}
-        { .type = PIN_FUNCTION_{{ function }}, .index = {{ index }}, .function = {{function}}_FUNCTION_{{ pin }} },
+        { .type = PIN_FUNCTION_{{ function }}{% if pin %}, .index = {{ index }}, .function = {{function}}_FUNCTION_{{ pin }}{% endif %} },
     {%- endfor %}
     }
 };
 {% endfor %}
 #else
-
+{% for functions in bcm2711_altfunc %}
+const mcu_pin_obj_t pin_GPIO{{ loop.index0 }} = {
+    PIN_PREFIX_VALUES
+    .number = {{ loop.index0 }},
+    .functions = {
+    {%- for function, index, pin in functions %}
+        { .type = PIN_FUNCTION_{{ function }}{% if pin %}, .index = {{ index }}, .function = {{function}}_FUNCTION_{{ pin }}{% endif %} },
+    {%- endfor %}
+    }
+};
+{% endfor %}
 #endif

@@ -42,6 +42,9 @@
         {{ svd.derived_peripheral("SPI5", peripheral_base + 0x204A00, "SPI0") }}
         {{ svd.derived_peripheral("SPI6", peripheral_base + 0x204C00, "SPI0") }}
 
+        {%- import "peripherals/bcm_pactl.svd.jinja" as bcm_pactl %}
+        {{ bcm_pactl.peripheral("PACTL", peripheral_base + 0x204E00, interrupt_offset=96)}}
+
         {%- import "peripherals/bcm_serial_controller.svd.jinja" as bcm_serial_controller %}
         {{ bcm_serial_controller.peripheral("BSC0", peripheral_base + 0x205000)}}
 

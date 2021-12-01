@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "broadcom/cpu.h"
 #include "broadcom/defines.h"
 
 // This catches non-interrupt exceptions that are similar to Cortex-M hard faults.
@@ -9,13 +10,29 @@ __attribute__((weak)) void HardFault_IRQHandler(void) {
     while (true) {}
 }
 
-// TODO: Route I2C, SPI and UART based on AUX_IRQ and PACTL_CS
-
+#if BCM_VERSION == 2711
+{% for i in range(7) %}
+__attribute__((weak)) void SPI{{ i }}_IRQHandler(void) {
+    while(true) {}
+}
+{% endfor %}
+{% for i in range(8) %}
+__attribute__((weak)) void BSC{{ i }}_IRQHandler(void) {
+    while(true) {}
+}
+{% endfor %}
+{% for i in range(6) %}
+__attribute__((weak)) void UART{{ i }}_IRQHandler(void) {
+    while(true) {}
+}
+{% endfor %}
+#else
 {% for aux in ("UART1", "SPI1", "SPI2") %}
 __attribute__((weak)) void {{ aux }}_IRQHandler(void) {
     while(true) {}
 }
 {% endfor %}
+#endif
 
 {% for i in range(interrupt_count) %}
 {% if i in bcm2711_interrupt_names %}
@@ -35,6 +52,69 @@ __attribute__((weak)) void {{ name }}_IRQHandler(void) {
             SPI2_IRQHandler();
         }
     }
+{% elif name == "SPI" %}
+    #if BCM_VERSION == 2711
+    uint32_t status = PACTL->CS;
+    while ((PACTL->CS & 0x79) != 0) {
+        if ((status & PACTL_CS_SPI_0_Msk) != 0) {
+            SPI0_IRQHandler();
+        {% for j in range(3, 7) -%}
+        } else if ((status & PACTL_CS_SPI_{{ j }}_Msk) != 0) {
+            SPI{{ j }}_IRQHandler();
+        {% endfor -%}
+        }
+        COMPLETE_MEMORY_READS;
+        status = PACTL->CS;
+    }
+    #else
+    SPI0_IRQHandler();
+    #endif
+{% elif name == "I2C" %}
+    #if BCM_VERSION == 2711
+    uint32_t status = PACTL->CS;
+    while ((status & 0xff00) != 0) {
+        if ((status & PACTL_CS_I2C_0_Msk) != 0) {
+            BSC0_IRQHandler();
+        {% for j in range(1, 8) -%}
+        } else if ((status & PACTL_CS_I2C_{{ j }}_Msk) != 0) {
+            BSC{{ j }}_IRQHandler();
+        {% endfor -%}
+        }
+        COMPLETE_MEMORY_READS;
+        status = PACTL->CS;
+    }
+    #else
+    uint32_t status;
+    uint32_t control;
+    {% for j in range(0, 3) -%}
+    status = BSC{{ j }}->S;
+    control = BSC{{ j }}->C;
+    COMPLETE_MEMORY_READS;
+    if (((control & BSC0_C_INTR_Msk) != 0 && (status & BSC0_S_RXR_Msk) != 0) ||
+        ((control & BSC0_C_INTT_Msk) != 0 && (status & BSC0_S_TXW_Msk) != 0) ||
+        ((control & BSC0_C_INTD_Msk) != 0 && (status & BSC0_S_DONE_Msk) != 0)) {
+        BSC{{ j }}_IRQHandler();
+        COMPLETE_MEMORY_READS;
+    }
+    {% endfor -%}
+    #endif
+{% elif name == "UART" %}
+    #if BCM_VERSION == 2711
+    uint32_t status = PACTL->CS;
+    while ((status & 0x1f0000) != 0) {
+        if ((status & PACTL_CS_UART_0_Msk) != 0) {
+            UART0_IRQHandler();
+        {% for j in range(2, 6) -%}
+        } else if ((status & PACTL_CS_UART_{{ j }}_Msk) != 0) {
+            UART{{ j }}_IRQHandler();
+        {% endfor -%}
+        }
+        COMPLETE_MEMORY_READS;
+        status = PACTL->CS;
+    }
+    #else
+    UART0_IRQHandler();
+    #endif
 {% else %}
     while(true) {}
 {% endif %}

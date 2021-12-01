@@ -103,7 +103,7 @@
                     <name>GPFSEL5</name>
                     <description>GPIO Function Select 5</description>
                     <addressOffset>0x14</addressOffset>
-                    {{ fsel_fields(50, 8) }}
+                    {{ fsel_fields(50, (altfunc | length - 50)) }}
                 </register>
                 <register>
                     <name>GPSET0</name>
@@ -129,7 +129,7 @@
                     <access>write-only</access>
                     <modifiedWriteValues>oneToSet</modifiedWriteValues>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>SET{{ 32 + i }}</name>
                             <description>Set {{ 32 + i }}</description>
@@ -163,7 +163,7 @@
                     <access>write-only</access>
                     <modifiedWriteValues>oneToClear</modifiedWriteValues>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>CLR{{ 32 + i }}</name>
                             <description>Clear {{ 32 + i }}</description>
@@ -195,7 +195,7 @@
                     <addressOffset>0x38</addressOffset>
                     <access>read-only</access>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>LEV{{ 32 + i }}</name>
                             <description>Level {{ 32 + i }}</description>
@@ -230,7 +230,7 @@
                     <access>read-write</access>
                     <modifiedWriteValues>oneToClear</modifiedWriteValues>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>EDS{{ 32 + i }}</name>
                             <description>Event detected {{ 32 + i }}</description>
@@ -262,7 +262,7 @@
                     <addressOffset>0x50</addressOffset>
                     <access>read-write</access>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>REN{{ 32 + i }}</name>
                             <description>Rising edge enabled {{ 32 + i }}</description>
@@ -295,7 +295,7 @@
                     <addressOffset>0x5c</addressOffset>
                     <access>read-write</access>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>FEN{{ 32 + i }}</name>
                             <description>Falling edge enabled {{ 32 + i }}</description>
@@ -327,7 +327,7 @@
                     <addressOffset>0x68</addressOffset>
                     <access>read-write</access>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>HEN{{ 32 + i }}</name>
                             <description>High detect enabled {{ 32 + i }}</description>
@@ -360,7 +360,7 @@
                     <addressOffset>0x74</addressOffset>
                     <access>read-write</access>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>LEN{{ 32 + i }}</name>
                             <description>Low detect enabled {{ 32 + i }}</description>
@@ -392,7 +392,7 @@
                     <addressOffset>0x80</addressOffset>
                     <access>read-write</access>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>AREN{{ 32 + i }}</name>
                             <description>Async rising enabled {{ 32 + i }}</description>
@@ -424,7 +424,7 @@
                     <addressOffset>0x8c</addressOffset>
                     <access>read-write</access>
                     <fields>
-                        {% for i in range(0, 26) %}
+                        {% for i in range(0, (altfunc | length - 32)) %}
                         <field>
                             <name>AFEN{{ 32 + i }}</name>
                             <description>Async falling enabled {{ 32 + i }}</description>
@@ -540,7 +540,7 @@
                     <description>GPIO Pull-up / Pull-down Register 3</description>
                     <addressOffset>0xf0</addressOffset>
                     <fields>
-                        {% for i in range(0, 10) %}
+                        {% for i in range(0, (altfunc | length - 48)) %}
                         <field>
                             <name>GPIO_PUP_PDN_CNTRL{{ 16 * 3 + i }}</name>
                             <description>Resistor select for {{ 16 * 3 + i }}</description>
