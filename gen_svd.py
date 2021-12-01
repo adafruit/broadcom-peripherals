@@ -1,13 +1,17 @@
 from jinja2 import Environment, FileSystemLoader
 import pathlib
 
-env = Environment(loader=FileSystemLoader(searchpath=["svd"]))
+svd = Environment(loader=FileSystemLoader(searchpath=["svd"]))
 
-bcm2711 = env.get_template("chips/bcm2711.svd.jinja")
-bcm2837 = env.get_template("chips/bcm2837.svd.jinja")
+bcm2711 = svd.get_template("chips/bcm2711.svd.jinja")
+bcm2837 = svd.get_template("chips/bcm2837.svd.jinja")
+
+broadcom = Environment(loader=FileSystemLoader(searchpath=["broadcom"]))
+pins = broadcom.get_template("gen/pins.c.jinja")
 
 chips = pathlib.Path("svd/chips")
 gen = pathlib.Path("svd/gen")
+bcm_gen = pathlib.Path("broadcom/gen")
 
 bcm2711_altfunc = [[None] * 6 for i in range(58)]
 
@@ -121,8 +125,38 @@ for i, name in enumerate(("CTS", "RTS", "TXD", "RXD")):
 uart(36, 2, 0)
 uart(40, 5, 1)
 
-# for i, row in enumerate(bcm2711_altfunc):
-#     print(i, repr(row))
+functions = {
+    "I2C": ["SCL", "SDA"],
+    "UART": ["TXD", "RXD", "CTS", "RTS"]
+}
+
+pin_info = []
+for pin_number, row in enumerate(bcm2711_altfunc):
+    print(pin_number)
+    function_info = []
+    for alt in range(6):
+        altfun = row[alt]
+        if not altfun:
+            function_info.append(("NONE", 0, 0))
+            continue
+        for f in functions:
+            for pin in functions[f]:
+                if altfun.startswith(pin):
+                    index = int(altfun[len(pin):])
+                    print(pin_number, f, index, pin)
+                    function_info.append((f, index, pin))
+                    continue
+        if altfun.startswith("SPI"):
+            f = "SPI"
+            index = int(altfun[3:4])
+            pin = altfun.split("_")[1]
+            print(pin_number, f, index, pin)
+            function_info.append((f, index, pin))
+            continue
+        function_info.append(("NONE", 0, 0))
+
+        #print(alt, row[alt])
+    pin_info.append(function_info)
 
 videocore_interrupts = [
     "Timer 0",
@@ -239,5 +273,12 @@ legacy_basic_irqs = [(i, 64 + i) for i in range(8)] + list(enumerate((7, 9, 10, 
         name="bcm2837_lpa",
         interrupt_names=bcm2837_interrupt_names,
         basic_irq=legacy_basic_irqs
+    )
+)
+
+(bcm_gen / "pins.c").write_text(
+    pins.render(
+        bcm2711_altfunc=pin_info,
+        bcm2837_altfunc=pin_info
     )
 )

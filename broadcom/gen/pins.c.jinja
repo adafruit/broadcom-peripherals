@@ -1,0 +1,17 @@
+#include "broadcom/pins.h"
+
+#if BCM_VERSION != 2711
+{% for functions in bcm2837_altfunc %}
+const mcu_pin_obj_t pin_GPIO{{ loop.index }} = {
+    PIN_PREFIX_VALUES
+    .number = {{ loop.index }},
+    .functions = {
+    {%- for function, index, pin in functions %}
+        { .type = PIN_FUNCTION_{{ function }}, .index = {{ index }}, .function = {{function}}_FUNCTION_{{ pin }} },
+    {%- endfor %}
+    }
+};
+{% endfor %}
+#else
+
+#endif
