@@ -75,13 +75,28 @@ __attribute__((weak)) void UART5_IRQHandler(void) {
     while(true) {}
 }
 #else
+__attribute__((weak)) void UART0_IRQHandler(void) {
+    while(true) {}
+}
 __attribute__((weak)) void UART1_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void SPI0_IRQHandler(void) {
     while(true) {}
 }
 __attribute__((weak)) void SPI1_IRQHandler(void) {
     while(true) {}
 }
 __attribute__((weak)) void SPI2_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC0_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC1_IRQHandler(void) {
+    while(true) {}
+}
+__attribute__((weak)) void BSC2_IRQHandler(void) {
     while(true) {}
 }
 #endif

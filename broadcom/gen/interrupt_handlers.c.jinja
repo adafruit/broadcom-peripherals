@@ -27,8 +27,13 @@ __attribute__((weak)) void UART{{ i }}_IRQHandler(void) {
 }
 {% endfor %}
 #else
-{% for aux in ("UART1", "SPI1", "SPI2") %}
+{% for aux in ("UART0", "UART1", "SPI0", "SPI1", "SPI2") %}
 __attribute__((weak)) void {{ aux }}_IRQHandler(void) {
+    while(true) {}
+}
+{% endfor %}
+{% for i in range(3) %}
+__attribute__((weak)) void BSC{{ i }}_IRQHandler(void) {
     while(true) {}
 }
 {% endfor %}
