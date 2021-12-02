@@ -105,8 +105,8 @@ bcm2711_altfunc[45][0] = "PWM0_1"
 bcm2837_altfunc[44][0] = "GPCLK1"
 bcm2837_altfunc[45][0] = "PWM0_1"
 in_order(44, 5, "SD_CARD_", ("VOLT", "PWR0"))
-in_order(48, 3, "SD1_", ("CLK", "CMD"))
-in_order(50, 3, "SD1_DAT", range(4))
+in_order(48, 3, "SD1_", ("CLK", "CMD"), bcm2837=True)
+in_order(50, 3, "SD1_DAT", range(4), bcm2837=True)
 
 def uart(start_pin, altfunc, instance_number, bcm2837=False):
     bcm2711_altfunc[start_pin][altfunc] = f"TXD{instance_number}"
