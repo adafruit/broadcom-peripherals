@@ -2,8 +2,19 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "broadcom/gpio.h"
+
 #include "broadcom/defines.h"
 
+// Map the alt number to the actual value.
+BP_Function_Enum FSEL_VALUES[6] = {
+    GPIO_FUNCTION_ALT0,
+    GPIO_FUNCTION_ALT1,
+    GPIO_FUNCTION_ALT2,
+    GPIO_FUNCTION_ALT3,
+    GPIO_FUNCTION_ALT4,
+    GPIO_FUNCTION_ALT5
+};
 
 void gpio_set_pull(uint8_t pin_number, BP_PULL_Enum pull) {
     volatile uint32_t* pupd = &GPIO->GPIO_PUP_PDN_CNTRL_REG0;
@@ -18,7 +29,7 @@ BP_PULL_Enum gpio_get_pull(uint8_t pin_number) {
     return (pupd[pin_number / 16] >> ((pin_number % 16) * 2)) & 0x3;
 }
 
-void gpio_set_function(uint8_t pin_number, uint8_t function) {
+void gpio_set_function(uint8_t pin_number, BP_Function_Enum function) {
     volatile uint32_t* fsel = &GPIO->GPFSEL0;
     uint32_t start = fsel[pin_number / 10];
     size_t shift = (pin_number % 10) * 3;
