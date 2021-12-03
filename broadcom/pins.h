@@ -28,6 +28,8 @@
 
 #include "broadcom_peripherals_config.h"
 
+#include "broadcom/gpio.h"
+
 typedef enum {
     PIN_FUNCTION_NONE = 0,
     PIN_FUNCTION_I2C = 1,
@@ -69,6 +71,14 @@ typedef struct {
     uint8_t number;
     pin_function_t functions[6];
 } mcu_pin_obj_t;
+
+#define NUM_ALT_FUNC (6)
+
+bool pin_find_alt(const mcu_pin_obj_t* pin,
+                  pin_function_type_t type,
+                  uint8_t index,
+                  uint8_t function,
+                  BP_Function_Enum* alt);
 
 #if BCM_VERSION == 2711
 #define BCM_PIN_COUNT (58)
