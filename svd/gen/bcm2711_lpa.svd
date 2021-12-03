@@ -9342,7 +9342,7 @@
           </fields>
         </register>
         <register>
-          <name>IBDR</name>
+          <name>IBRD</name>
           <description>Integer Baud Rate Register</description>
           <addressOffset>0x0024</addressOffset>
           <size>32</size>
@@ -9360,7 +9360,7 @@
           </fields>
         </register>
         <register>
-          <name>FBDR</name>
+          <name>FBRD</name>
           <description>Fractional Baud Rate Register</description>
           <addressOffset>0x0028</addressOffset>
           <size>32</size>

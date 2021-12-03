@@ -1,5 +1,22 @@
 #include "broadcom/pins.h"
 
+bool pin_find_alt(const mcu_pin_obj_t* pin,
+                  pin_function_type_t type,
+                  uint8_t index,
+                  uint8_t function,
+                  BP_Function_Enum* alt) {
+    for (size_t i = 0; i < NUM_ALT_FUNC; i++) {
+        const pin_function_t* f = &pin->functions[i];
+        if (f->type == type &&
+            f->index == index &&
+            f->function == function) {
+            *alt = FSEL_VALUES[i];
+            return true;
+        }
+    }
+    return false;
+}
+
 #if BCM_VERSION != 2711
 
 const mcu_pin_obj_t pin_GPIO0 = {
