@@ -1,4 +1,4 @@
-{% macro peripheral(name, base_address) -%}
+{% macro peripheral(name, base_address, direct_irq=False, interrupt_offset=0) -%}
     <peripheral>
       <name>{{ name }}</name>
       <description>Broadcom SPI Controller</description>
@@ -8,6 +8,13 @@
         <size>0x200</size>
         <usage>registers</usage>
       </addressBlock>
+      {% if direct_irq %}
+      <interrupt>
+          <name>SPI</name>
+          <description>OR of all SPI interrupts except 1 and 2</description>
+          <value>{{ interrupt_offset + 54 }}</value>
+      </interrupt>
+      {% endif %}
       <registers>
         <register>
           <name>CS</name>

@@ -27,13 +27,13 @@
         {{ bcm_system_timer.peripheral("SYSTMR", peripheral_base + 0x3000)}}
 
         {%- import "peripherals/arm_uart_pl011.svd.jinja" as arm_uart_pl011 %}
-        {{ arm_uart_pl011.peripheral("UART0", peripheral_base + 0x201000)}}
+        {{ arm_uart_pl011.peripheral("UART0", peripheral_base + 0x201000, direct_irq=True)}}
 
         {%- import "peripherals/bcm_spi.svd.jinja" as bcm_spi %}
-        {{ bcm_spi.peripheral("SPI0", peripheral_base + 0x204000)}}
+        {{ bcm_spi.peripheral("SPI0", peripheral_base + 0x204000, direct_irq=True)}}
 
         {%- import "peripherals/bcm_serial_controller.svd.jinja" as bcm_serial_controller %}
-        {{ bcm_serial_controller.peripheral("BSC0", peripheral_base + 0x205000)}}
+        {{ bcm_serial_controller.peripheral("BSC0", peripheral_base + 0x205000, direct_irq=True)}}
 
         {%- import "svd.jinja" as svd %}
         {{ svd.derived_peripheral("BSC1", peripheral_base + 0x804000, "BSC0") }}
