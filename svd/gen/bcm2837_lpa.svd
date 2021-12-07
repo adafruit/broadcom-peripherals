@@ -8554,6 +8554,13 @@
         <size>0x2c</size>
         <usage>registers</usage>
       </addressBlock>
+      
+      <interrupt>
+          <name>UART</name>
+          <description>OR of all UART interrupts except 1</description>
+          <value>57</value>
+      </interrupt>
+      
       <registers>
         <register>
           <name>DR</name>
@@ -9343,6 +9350,13 @@
         <size>0x200</size>
         <usage>registers</usage>
       </addressBlock>
+      
+      <interrupt>
+          <name>SPI</name>
+          <description>OR of all SPI interrupts except 1 and 2</description>
+          <value>54</value>
+      </interrupt>
+      
       <registers>
         <register>
           <name>CS</name>
@@ -9618,6 +9632,13 @@
         <size>0x200</size>
         <usage>registers</usage>
       </addressBlock>
+      
+      <interrupt>
+          <name>I2C</name>
+          <description>OR of all I2C interrupts</description>
+          <value>53</value>
+      </interrupt>
+      
       <registers>
         <register>
           <name>C</name>

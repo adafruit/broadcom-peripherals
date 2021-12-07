@@ -1,4 +1,4 @@
-{% macro peripheral(name, base_address, interrupt_offset=0) -%}
+{% macro peripheral(name, base_address, direct_irq=False, interrupt_offset=0) -%}
     <peripheral>
       <name>{{ name }}</name>
       <description>ARM Prime Cell PL011</description>
@@ -29,6 +29,13 @@
         <size>0x2c</size>
         <usage>registers</usage>
       </addressBlock>
+      {% if direct_irq %}
+      <interrupt>
+          <name>UART</name>
+          <description>OR of all UART interrupts except 1</description>
+          <value>{{ interrupt_offset + 57 }}</value>
+      </interrupt>
+      {% endif %}
       <registers>
         <register>
           <name>DR</name>

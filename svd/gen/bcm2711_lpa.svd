@@ -9142,6 +9142,7 @@
         <size>0x2c</size>
         <usage>registers</usage>
       </addressBlock>
+      
       <registers>
         <register>
           <name>DR</name>
@@ -9947,6 +9948,7 @@
         <size>0x200</size>
         <usage>registers</usage>
       </addressBlock>
+      
       <registers>
         <register>
           <name>CS</name>
@@ -10418,6 +10420,7 @@
         <size>0x200</size>
         <usage>registers</usage>
       </addressBlock>
+      
       <registers>
         <register>
           <name>C</name>
