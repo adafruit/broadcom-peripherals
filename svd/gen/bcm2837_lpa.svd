@@ -1170,8 +1170,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>CTS0</name>
-                                    <description>Pin is connected to CTS0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1239,8 +1239,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RTS0</name>
-                                    <description>Pin is connected to RTS0</description>
+                                    <name>RESERVED3</name>
+                                    <description>Alt function 3 reserved</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1308,8 +1308,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>CTS0</name>
+                                    <description>Pin is connected to CTS0</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 
@@ -1377,8 +1377,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED3</name>
-                                    <description>Alt function 3 reserved</description>
+                                    <name>RTS0</name>
+                                    <description>Pin is connected to RTS0</description>
                                     <value>7</value>
                                 </enumeratedValue>
                                 

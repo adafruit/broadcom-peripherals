@@ -208,7 +208,7 @@ const mcu_pin_obj_t pin_GPIO14 = {
         { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_TXD },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_CTS },
+        { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_TXD },
     }
@@ -221,7 +221,7 @@ const mcu_pin_obj_t pin_GPIO15 = {
         { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_RXD },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_RTS },
+        { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RXD },
     }
@@ -234,7 +234,7 @@ const mcu_pin_obj_t pin_GPIO16 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_CTS },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_CE2 },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_CTS },
     }
@@ -247,7 +247,7 @@ const mcu_pin_obj_t pin_GPIO17 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_RTS },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_CE1 },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RTS },
     }
@@ -912,7 +912,7 @@ const mcu_pin_obj_t pin_GPIO14 = {
         { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_TXD },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_CTS },
+        { .type = PIN_FUNCTION_SPI, .index = 5, .function = SPI_FUNCTION_MOSI },
         { .type = PIN_FUNCTION_UART, .index = 5, .function = UART_FUNCTION_CTS },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_TXD },
     }
@@ -925,7 +925,7 @@ const mcu_pin_obj_t pin_GPIO15 = {
         { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_RXD },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_RTS },
+        { .type = PIN_FUNCTION_SPI, .index = 5, .function = SPI_FUNCTION_SCLK },
         { .type = PIN_FUNCTION_UART, .index = 5, .function = UART_FUNCTION_RTS },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RXD },
     }
@@ -938,7 +938,7 @@ const mcu_pin_obj_t pin_GPIO16 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_CTS },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_CE2 },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_CTS },
     }
@@ -951,7 +951,7 @@ const mcu_pin_obj_t pin_GPIO17 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_UART, .index = 0, .function = UART_FUNCTION_RTS },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_CE1 },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RTS },
     }
