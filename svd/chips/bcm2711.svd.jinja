@@ -54,6 +54,10 @@
         {{ svd.derived_peripheral("BSC5", peripheral_base + 0x205a00, "BSC0") }}
         {{ svd.derived_peripheral("BSC6", peripheral_base + 0x205c00, "BSC0") }}
 
+        {%- import "peripherals/bcm_pwm.svd.jinja" as bcm_pwm %}
+        {{ bcm_pwm.peripheral("PWM0", peripheral_base + 0x20C000)}}
+        {{ svd.derived_peripheral("PWM1", peripheral_base + 0x20C800, "PWM0") }}
+
         {%- import "peripherals/bcm_aux.svd.jinja" as bcm_aux %}
         {{ bcm_aux.peripheral(peripheral_base + 0x215000, interrupt_offset=96)}}
 
