@@ -98,7 +98,9 @@ bcm2837_altfunc[34][0] = "GPCLK0"
 bcm2711_altfunc[34][5] = "RGMII_IRQ"
 in_order(35, 4, "RGMII_", ("START_STOP", "RX_OK", "MDIO", "MDC", "IRQ"))
 in_order(36, 5, "MII_A_", ("RX_ERR", "TX_ERR", "CRS", "COL"))
-in_order(40, 0, "PWM1_", range(2), bcm2837=True)
+in_order(40, 0, "PWM0_", range(2), bcm2837=True)
+# BCM2711 has a second PWM1 that takes the place of PWM0 in these two spots.
+in_order(40, 0, "PWM1_", range(2), bcm2837=False)
 in_order(42, 0, "GPCLK", range(1, 3), bcm2837=True)
 bcm2711_altfunc[44][0] = "GPCLK1"
 bcm2711_altfunc[45][0] = "PWM0_1"
