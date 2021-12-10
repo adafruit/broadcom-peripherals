@@ -114,7 +114,7 @@ const mcu_pin_obj_t pin_GPIO7 = {
     PIN_PREFIX_VALUES
     .number = 7,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE1 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -127,7 +127,7 @@ const mcu_pin_obj_t pin_GPIO8 = {
     PIN_PREFIX_VALUES
     .number = 8,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE1 },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE0 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -140,7 +140,7 @@ const mcu_pin_obj_t pin_GPIO9 = {
     PIN_PREFIX_VALUES
     .number = 9,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE0 },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MISO },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -153,7 +153,7 @@ const mcu_pin_obj_t pin_GPIO10 = {
     PIN_PREFIX_VALUES
     .number = 10,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MISO },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MOSI },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -166,7 +166,7 @@ const mcu_pin_obj_t pin_GPIO11 = {
     PIN_PREFIX_VALUES
     .number = 11,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MOSI },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_SCLK },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -818,7 +818,7 @@ const mcu_pin_obj_t pin_GPIO7 = {
     PIN_PREFIX_VALUES
     .number = 7,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE1 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_SPI, .index = 4, .function = SPI_FUNCTION_SCLK },
@@ -831,7 +831,7 @@ const mcu_pin_obj_t pin_GPIO8 = {
     PIN_PREFIX_VALUES
     .number = 8,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE1 },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE0 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -844,7 +844,7 @@ const mcu_pin_obj_t pin_GPIO9 = {
     PIN_PREFIX_VALUES
     .number = 9,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE0 },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MISO },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -857,7 +857,7 @@ const mcu_pin_obj_t pin_GPIO10 = {
     PIN_PREFIX_VALUES
     .number = 10,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MISO },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MOSI },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -870,7 +870,7 @@ const mcu_pin_obj_t pin_GPIO11 = {
     PIN_PREFIX_VALUES
     .number = 11,
     .functions = {
-        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MOSI },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_SCLK },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },

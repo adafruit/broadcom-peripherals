@@ -654,8 +654,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>RESERVED0</name>
-                                    <description>Alt function 0 reserved</description>
+                                    <name>SPI0_CE1_N</name>
+                                    <description>Pin is connected to SPI0_CE1_N</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -723,8 +723,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE1_N</name>
-                                    <description>Pin is connected to SPI0_CE1_N</description>
+                                    <name>SPI0_CE0_N</name>
+                                    <description>Pin is connected to SPI0_CE0_N</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -792,8 +792,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_CE0_N</name>
-                                    <description>Pin is connected to SPI0_CE0_N</description>
+                                    <name>SPI0_MISO</name>
+                                    <description>Pin is connected to SPI0_MISO</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -870,8 +870,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MISO</name>
-                                    <description>Pin is connected to SPI0_MISO</description>
+                                    <name>SPI0_MOSI</name>
+                                    <description>Pin is connected to SPI0_MOSI</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
@@ -939,8 +939,8 @@
                                 
                                 
                                 <enumeratedValue>
-                                    <name>SPI0_MOSI</name>
-                                    <description>Pin is connected to SPI0_MOSI</description>
+                                    <name>SPI0_SCLK</name>
+                                    <description>Pin is connected to SPI0_SCLK</description>
                                     <value>4</value>
                                 </enumeratedValue>
                                 
