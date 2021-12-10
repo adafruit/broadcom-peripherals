@@ -3,14 +3,14 @@
 #include "broadcom/defines.h"
 
 typedef enum {
-    GPIO_FUNCTION_INPUT,
-    GPIO_FUNCTION_OUTPUT,
-    GPIO_FUNCTION_ALT5,
-    GPIO_FUNCTION_ALT4,
-    GPIO_FUNCTION_ALT0,
-    GPIO_FUNCTION_ALT1,
-    GPIO_FUNCTION_ALT2,
-    GPIO_FUNCTION_ALT3,
+    GPIO_FUNCTION_INPUT  = 0,
+    GPIO_FUNCTION_OUTPUT = 1,
+    GPIO_FUNCTION_ALT5   = 2,
+    GPIO_FUNCTION_ALT4   = 3,
+    GPIO_FUNCTION_ALT0   = 4,
+    GPIO_FUNCTION_ALT1   = 5,
+    GPIO_FUNCTION_ALT2   = 6,
+    GPIO_FUNCTION_ALT3   = 7,
 } BP_Function_Enum;
 
 // Map the alt number to the actual value.
