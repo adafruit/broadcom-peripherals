@@ -1,14 +1,14 @@
 
 MEMORY
 {
-    /* Kernel load address for ARM11 is 0x8000 */
-    READONLY (rx): ORIGIN = 0x8000, LENGTH = 2016K
-    RAM (rw): ORIGIN = 0x200000, LENGTH = 254M 
+    /* Kernel load address for AArch64 is 0x80000 */
+    READONLY (rx): ORIGIN = 0x80000, LENGTH = 1536K
+    RAM (rw): ORIGIN = 0x200000, LENGTH = 1022M 
 }
 
 SECTIONS
 {
-    . = 0x8000;     
+    . = 0x80000;     
     .text : {
         KEEP(*(.text.boot))
         *(.text .text.* .gnu.linkonce.t*)

@@ -5,6 +5,7 @@ import copy
 svd = Environment(loader=FileSystemLoader(searchpath=["svd"]))
 
 bcm2711 = svd.get_template("chips/bcm2711.svd.jinja")
+bcm2835 = svd.get_template("chips/bcm2835.svd.jinja")
 bcm2837 = svd.get_template("chips/bcm2837.svd.jinja")
 
 broadcom = Environment(loader=FileSystemLoader(searchpath=["broadcom"]))
@@ -284,6 +285,17 @@ legacy_basic_irqs = [(i, 64 + i) for i in range(8)] + list(enumerate((7, 9, 10, 
         arm_local_base=0x3F000000,
         altfunc=bcm2837_altfunc,
         name="bcm2837_lpa",
+        interrupt_names=bcm2837_interrupt_names,
+        basic_irq=legacy_basic_irqs
+    )
+)
+
+(gen / "bcm2835_lpa.svd").write_text(
+    bcm2835.render(
+        peripheral_base=0x20000000,
+        arm_local_base=0x20000000,
+        altfunc=bcm2837_altfunc,
+        name="bcm2835_lpa",
         interrupt_names=bcm2837_interrupt_names,
         basic_irq=legacy_basic_irqs
     )
