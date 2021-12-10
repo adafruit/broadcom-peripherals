@@ -3,4 +3,8 @@
 // To ensure we loaded the correct data, we must have the CPU wait for pending
 // reads before moving onto reads from other peripherals. This is done with a
 // memory barrier instruction.
+#if defined(__ARM_ARCH) && (__ARM_ARCH >= 8)
 #define COMPLETE_MEMORY_READS __asm__ volatile ("dsb sy")
+#else
+#define COMPLETE_MEMORY_READS
+#endif

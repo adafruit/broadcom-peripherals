@@ -28,6 +28,7 @@ static IRQn_Type _current_interrupt;
 void BP_EnableIRQs(void) {
     // We only turn on the distributor. Turning it off later may break other CPUs.
     // GIC_DIST->GICD_CTLR_b.ENABLE_GROUP0 = true;
+    #if defined(__ARM_ARCH) && (__ARM_ARCH >= 8)
     #if BCM_VERSION == 2711
     GIC_CPU->GICC_CTLR_b.ENABLE_GROUP_0 = true;
     #else
@@ -35,11 +36,18 @@ void BP_EnableIRQs(void) {
     #endif
     __asm__("msr    daifclr, #2");
     __asm__("isb");
+    #else
+    __asm__ volatile ("cpsie i" : : : "memory");
+    #endif
 }
 
 void BP_DisableIRQs(void) {
+    #if defined(__ARM_ARCH) && (__ARM_ARCH >= 8)
     __asm__("msr    daifset, #2");
     __asm__("isb");
+    #else
+    __asm__ volatile ("cpsid i" : : : "memory");
+    #endif
 }
 
 __attribute__((weak)) void handle_irq(void) {
