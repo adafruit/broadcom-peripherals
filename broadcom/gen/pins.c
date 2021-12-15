@@ -179,7 +179,7 @@ const mcu_pin_obj_t pin_GPIO12 = {
     PIN_PREFIX_VALUES
     .number = 12,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL1 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -192,7 +192,7 @@ const mcu_pin_obj_t pin_GPIO13 = {
     PIN_PREFIX_VALUES
     .number = 13,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL2 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -262,7 +262,7 @@ const mcu_pin_obj_t pin_GPIO18 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_CE0 },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL1 },
     }
 };
 
@@ -275,7 +275,7 @@ const mcu_pin_obj_t pin_GPIO19 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_MISO },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL2 },
     }
 };
 
@@ -543,7 +543,7 @@ const mcu_pin_obj_t pin_GPIO40 = {
     PIN_PREFIX_VALUES
     .number = 40,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL1 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -556,7 +556,7 @@ const mcu_pin_obj_t pin_GPIO41 = {
     PIN_PREFIX_VALUES
     .number = 41,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL2 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -608,7 +608,7 @@ const mcu_pin_obj_t pin_GPIO45 = {
     PIN_PREFIX_VALUES
     .number = 45,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL2 },
         { .type = PIN_FUNCTION_I2C, .index = 0, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_I2C, .index = 1, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_NONE },
@@ -883,7 +883,7 @@ const mcu_pin_obj_t pin_GPIO12 = {
     PIN_PREFIX_VALUES
     .number = 12,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL1 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_SPI, .index = 5, .function = SPI_FUNCTION_CE0 },
@@ -896,7 +896,7 @@ const mcu_pin_obj_t pin_GPIO13 = {
     PIN_PREFIX_VALUES
     .number = 13,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL2 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_SPI, .index = 5, .function = SPI_FUNCTION_MISO },
@@ -966,7 +966,7 @@ const mcu_pin_obj_t pin_GPIO18 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_SPI, .index = 6, .function = SPI_FUNCTION_CE0 },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_CE0 },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL1 },
     }
 };
 
@@ -979,7 +979,7 @@ const mcu_pin_obj_t pin_GPIO19 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_SPI, .index = 6, .function = SPI_FUNCTION_MISO },
         { .type = PIN_FUNCTION_SPI, .index = 1, .function = SPI_FUNCTION_MISO },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL2 },
     }
 };
 
@@ -1247,7 +1247,7 @@ const mcu_pin_obj_t pin_GPIO40 = {
     PIN_PREFIX_VALUES
     .number = 40,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 1, .function = PWM_FUNCTION_CHANNEL1 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -1260,7 +1260,7 @@ const mcu_pin_obj_t pin_GPIO41 = {
     PIN_PREFIX_VALUES
     .number = 41,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 1, .function = PWM_FUNCTION_CHANNEL2 },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
@@ -1312,7 +1312,7 @@ const mcu_pin_obj_t pin_GPIO45 = {
     PIN_PREFIX_VALUES
     .number = 45,
     .functions = {
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_PWM, .index = 0, .function = PWM_FUNCTION_CHANNEL2 },
         { .type = PIN_FUNCTION_I2C, .index = 0, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_I2C, .index = 1, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_NONE },
