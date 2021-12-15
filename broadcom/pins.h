@@ -34,7 +34,8 @@ typedef enum {
     PIN_FUNCTION_NONE = 0,
     PIN_FUNCTION_I2C = 1,
     PIN_FUNCTION_SPI = 2,
-    PIN_FUNCTION_UART = 3
+    PIN_FUNCTION_UART = 3,
+    PIN_FUNCTION_PWM = 4
 } pin_function_type_t;
 
 typedef enum {
@@ -57,6 +58,12 @@ typedef enum {
     UART_FUNCTION_CTS = 2,
     UART_FUNCTION_RTS = 3
 } pin_uart_function_t;
+
+
+typedef enum {
+    PWM_FUNCTION_CHANNEL1 = 0,
+    PWM_FUNCTION_CHANNEL2 = 1
+} pin_pwm_function_t;
 
 #define NONE_FUNCTION_0
 

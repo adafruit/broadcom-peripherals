@@ -24,7 +24,7 @@ const mcu_pin_obj_t pin_GPIO{{ loop.index0 }} = {
     .number = {{ loop.index0 }},
     .functions = {
     {%- for function, index, pin in functions %}
-        { .type = PIN_FUNCTION_{{ function }}{% if pin %}, .index = {{ index }}, .function = {{function}}_FUNCTION_{{ pin }}{% endif %} },
+        { .type = PIN_FUNCTION_{{ function }}{% if function != "NONE" %}, .index = {{ index }}, .function = {{function}}_FUNCTION_{{ pin }}{% endif %} },
     {%- endfor %}
     }
 };

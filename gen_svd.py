@@ -168,6 +168,13 @@ def convert_to_pin_info(altfunc):
                 pin = altfun.split("_")[1]
                 function_info.append((f, index, pin))
                 continue
+            elif altfun.startswith("PWM"):
+                f = "PWM"
+                index = int(altfun[3:4])
+                pin = int(altfun[-1:]) + 1
+                function_info.append((f, index, "CHANNEL" + str(pin)))
+                continue
+
             function_info.append(("NONE", 0, ""))
         pin_info.append(function_info)
     return pin_info
