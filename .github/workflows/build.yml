@@ -38,6 +38,7 @@ jobs:
         python3 gen_svd.py
         ./SVDConv svd/gen/bcm2711_lpa.svd -o broadcom/gen/ --generate=header --fields=struct --fields=macro --fields=enum --debug-headerfile -x INFO
         ./SVDConv svd/gen/bcm2837_lpa.svd -o broadcom/gen/ --generate=header --fields=struct --fields=macro --fields=enum --debug-headerfile -x INFO
+        ./SVDConv svd/gen/bcm2835_lpa.svd -o broadcom/gen/ --generate=header --fields=struct --fields=macro --fields=enum --debug-headerfile -x INFO
         
     - name: Build headers
       run: |
