@@ -17507,14 +17507,26 @@
               <bitWidth>4</bitWidth>
             </field>
             <field>
-              <name>READ_TRANSFER</name>
+              <name>BUFFER_READ_ENABLE</name>
               <description>New data is available to read</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>BUFFER_WRITE_ENABLE</name>
+              <description>The buffer has space for new data</description>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>READ_TRANSFER</name>
+              <description>Read transfer is active</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>WRITE_TRANSFER</name>
-              <description>New data can be written</description>
+              <description>Write transfer is active</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
