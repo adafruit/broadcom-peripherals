@@ -16,7 +16,9 @@ typedef enum {
 // Map the alt number to the actual value.
 extern BP_Function_Enum FSEL_VALUES[6];
 
+BP_Function_Enum gpio_get_function(uint8_t pin_number);
 void gpio_set_function(uint8_t pin_number, BP_Function_Enum function);
+BP_PULL_Enum gpio_get_pull(uint8_t pin_number);
 void gpio_set_pull(uint8_t pin_number, BP_PULL_Enum pull);
 BP_PULL_Enum gpio_get_pull(uint8_t pin_number);
 

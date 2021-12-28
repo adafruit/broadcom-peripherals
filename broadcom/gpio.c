@@ -16,6 +16,11 @@ BP_Function_Enum FSEL_VALUES[6] = {
     GPIO_FUNCTION_ALT5
 };
 
+BP_PULL_Enum gpio_get_pull(uint8_t pin_number) {
+    volatile uint32_t* pupd = &GPIO->GPIO_PUP_PDN_CNTRL_REG0;
+    return (pupd[pin_number / 16] >> ((pin_number % 16) * 2)) & 0x3;
+}
+
 void gpio_set_pull(uint8_t pin_number, BP_PULL_Enum pull) {
     volatile uint32_t* pupd = &GPIO->GPIO_PUP_PDN_CNTRL_REG0;
     uint32_t shift = (pin_number % 16) * 2;
@@ -24,9 +29,10 @@ void gpio_set_pull(uint8_t pin_number, BP_PULL_Enum pull) {
     pupd[pin_number / 16] = (current & ~mask) | (pull & 0x3) << shift;
 }
 
-BP_PULL_Enum gpio_get_pull(uint8_t pin_number) {
-    volatile uint32_t* pupd = &GPIO->GPIO_PUP_PDN_CNTRL_REG0;
-    return (pupd[pin_number / 16] >> ((pin_number % 16) * 2)) & 0x3;
+BP_Function_Enum gpio_get_function(uint8_t pin_number) {
+    volatile uint32_t* fsel = &GPIO->GPFSEL0;
+    size_t shift = (pin_number % 10) * 3;
+    return (fsel[pin_number / 10] >> shift) & 0x7;
 }
 
 void gpio_set_function(uint8_t pin_number, BP_Function_Enum function) {
