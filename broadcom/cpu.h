@@ -5,6 +5,8 @@
 // memory barrier instruction.
 #if defined(__ARM_ARCH) && (__ARM_ARCH >= 8)
 #define COMPLETE_MEMORY_READS __asm__ volatile ("dsb sy")
+#define STRICT_ALIGN __attribute__((target("strict-align")))
 #else
 #define COMPLETE_MEMORY_READS
+#define STRICT_ALIGN
 #endif

@@ -1,8 +1,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "broadcom/mmu.h"
 
-#include "mmu.h"
+#include "broadcom/cpu.h"
 
 // Each entry is a gig.
 uint64_t level_1_table[512] __attribute__((aligned(4096)));
@@ -15,7 +16,7 @@ uint64_t level_2_0x0_0000_0000_to_0x0_4000_0000[512] __attribute__((aligned(4096
 uint64_t level_2_0x0_c000_0000_to_0x1_0000_0000[512] __attribute__((aligned(4096)));
 #endif
 
-__attribute__((target("strict-align"))) void setup_mmu_flat_map(void) {
+STRICT_ALIGN void setup_mmu_flat_map(void) {
     #if BCM_VERSION == 2837
     // First two MB 0x0000_0000 to 0x0020_0000
     level_2_0x0_0000_0000_to_0x0_4000_0000[0] = 0x0000000000000000 | 
@@ -101,6 +102,7 @@ __attribute__((target("strict-align"))) void setup_mmu_flat_map(void) {
                        MM_DESCRIPTOR_TABLE |
                        MM_DESCRIPTOR_VALID;
     #endif
+    #ifdef __aarch64__
     uint64_t mair = MAIR_VALUE;
     uint64_t tcr = TCR_VALUE;
     uint64_t ttbr0 = ((uint64_t) level_1_table) | MM_TTBR_CNP;
@@ -133,4 +135,5 @@ __attribute__((target("strict-align"))) void setup_mmu_flat_map(void) {
           [ttbr0] "r" (ttbr0),
           [sctlr] "r" (sctlr)
     );
+    #endif
 }

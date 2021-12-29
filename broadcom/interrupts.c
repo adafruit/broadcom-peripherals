@@ -13,11 +13,14 @@ void Default_Handler(void) {
 }
 
 uint8_t CPU_Index(void) {
+    #ifdef __aarch64__
     uint32_t mpidr = 0;
     __asm__("mrs     %[mpidr], mpidr_el1"
             : /* No outputs. */
             : [mpidr] "r" (mpidr));
     return mpidr & 0xff;
+    #endif
+    return 0;
 }
 
 #if BCM_VERSION != 2711
