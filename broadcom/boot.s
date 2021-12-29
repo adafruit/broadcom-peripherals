@@ -10,6 +10,8 @@
 ;@
 ;@-------------------------------------------------------------------------
 
+.section ".text.boot"  // Make sure the linker puts this at the start of the kernel image
+
 .globl _start
 _start:
     ldr pc,reset_handler
@@ -41,24 +43,40 @@ reset:
     cpsid aif 
 
     ;@ Set the stack pointer for the different modes
+    ;@ Switch to FIQ mode
+    cps #0x12
+    mov sp,#0x7000
+
     ;@ Switch to IRQ mode
-    cps #18
+    cps #0x12
     mov sp,#0x8000
 
-    ;@ Switch to supervisor mode and set the stack pointer to 240MB. This
+    ;@ Switch to abort mode
+    cps #0x17
+    mov sp,#0x6000
+
+    ;@ Switch to undefined mode
+    cps #0x18
+    mov sp,#0x5000
+
+    ;@ Switch to system mode and set the stack pointer to 240MB. This
     ;@ assumes 256MB total ram and 16MB for the GPU.
-    cps #19
+    cps #0x1f
     mov sp,#0xf000000
 
     ;@ Clear the BSS section
     ldr     r1, =__bss_start     // Start address
-    ldr     r2, =__bss_size      // Size of the section
-continue_loop:  cbz     r2, loop_done               // Quit loop if zero
-    str     xzr, [r1], #8
-    sub     r2, r2, #1
-    cbnz    r2, continue_loop               // Loop if non-zero
+    ldr     r2, =__bss_end       // End of bss
+    movs    r0, #0
+    subs    r2, r2, r1              // r2 is now size
+    ble     loop_done               // Skip loop if zero
+continue_loop:
+    subs    r2, r2, #4
+    str     r0, [r1, r2]
+    bgt continue_loop               // Loop if non-zero
 
-done_loop:  bl main
+loop_done:
+    bl main
 
 err_hang: b err_hang
 

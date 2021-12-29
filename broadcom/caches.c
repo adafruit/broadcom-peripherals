@@ -4,6 +4,8 @@
 
 #include "broadcom/caches.h"
 
+#include "broadcom/cpu.h"
+
 uint64_t clidr;
 uint64_t cache_type;
 uint64_t pmu_id0 = 0;
@@ -12,6 +14,7 @@ uint64_t pmu_id1 = 0;
 static uint64_t bytes_per_data_line;
 
 void init_caches(void) {
+    #ifdef __aarch64__
     uint64_t ctr;
     uint64_t sctlr = 0;
     __asm__ volatile (
@@ -34,9 +37,12 @@ void init_caches(void) {
     );
     // Convert the power of two cache line size in words to bytes.
     bytes_per_data_line = (1 << ((ctr >> 16) & 0xf)) * sizeof(uint32_t);
+    #endif
+    bytes_per_data_line = 0;
 }
 
 static bool _data_cache_on(void) {
+    #ifdef __aarch64__
     uint64_t sctlr = 0;
     __asm__ volatile (
         // The ISB forces these changes to be seen before the MMU is enabled.
@@ -48,41 +54,49 @@ static bool _data_cache_on(void) {
         : [sctlr] "=r" (sctlr)
     );
     return (sctlr & 0x4) != 0;
+    #endif
+    return false;
 }
 
 // Writes values from the cache back into memory but keep a copy in the cache.
-__attribute__((target("strict-align"))) void data_clean(volatile void* starting_address, size_t size) {
+STRICT_ALIGN void data_clean(volatile void* starting_address, size_t size) {
     if (!_data_cache_on()) {
         return;
     }
+    #ifdef __aarch64__
     for (size_t offset = 0; offset < size + bytes_per_data_line; offset += bytes_per_data_line) {
         volatile void* ptr = starting_address + offset;
         __asm__ volatile("dc cvac, %[ptr]" : : [ptr] "r" (ptr));
     }
     __asm__ volatile("isb");
     __asm__ volatile("dsb sy");
+    #endif
 }
 
 // Writes values from the cache back into memory and remove it from the cache.
-__attribute__((target("strict-align"))) void data_clean_and_invalidate(volatile void* starting_address, size_t size) {
+STRICT_ALIGN void data_clean_and_invalidate(volatile void* starting_address, size_t size) {
     if (!_data_cache_on()) {
         return;
     }
+    #ifdef __aarch64__
     for (size_t offset = 0; offset < size; offset += bytes_per_data_line) {
         __asm__ volatile("dc civac, %[ptr]" : : [ptr] "r" (starting_address + offset));
     }
     __asm__ volatile("isb");
     __asm__ volatile("dsb sy");
+    #endif
 }
 
 // Remove values from the cache because the value in memory may have changed.
-__attribute__((target("strict-align"))) void data_invalidate(volatile void* starting_address, size_t size) {
+STRICT_ALIGN void data_invalidate(volatile void* starting_address, size_t size) {
     if (!_data_cache_on()) {
         return;
     }
+    #ifdef __aarch64__
     for (size_t offset = 0; offset < size + bytes_per_data_line; offset += bytes_per_data_line) {
         __asm__ volatile("dc ivac, %[ptr]" : : [ptr] "r" (starting_address + offset): "memory");
     }
     __asm__ volatile("isb");
     __asm__ volatile("dsb sy" : : : "memory");
+    #endif
 }

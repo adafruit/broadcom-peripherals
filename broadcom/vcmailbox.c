@@ -6,7 +6,7 @@
 #include "broadcom/defines.h"
 #include "broadcom/gen/vcmailbox.h"
 
-__attribute__((target("strict-align"))) bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
+STRICT_ALIGN bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     size_t buffer_size = buffer->buffer_size;
     buffer->code = VCMAILBOX_CODE_PROCESS_REQUEST;
     while (VCMAILBOX->STATUS0_b.FULL) {}
@@ -33,7 +33,7 @@ __attribute__((target("strict-align"))) bool vcmailbox_request(volatile vcmailbo
     return buffer->code == VCMAILBOX_CODE_REQUEST_SUCCESSFUL;
 }
 
-__attribute__((target("strict-align"))) uint32_t compute_size(uint32_t tag_size) {
+STRICT_ALIGN uint32_t compute_size(uint32_t tag_size) {
     uint32_t size = VCMAILBOX_HEADER_SIZE + tag_size + sizeof(uint32_t);
     if (size % 16 != 0) {
         size += 16 - (size % 16);
@@ -113,6 +113,7 @@ uint32_t* vcmailbox_get_framebuffer(uint32_t* virtual_width, uint32_t* virtual_h
 
     #pragma GCC diagnostic push
     #pragma GCC diagnostic ignored "-Waddress-of-packed-member"
+    #pragma GCC diagnostic ignored "-Wcast-align"
     bool ok = vcmailbox_request((vcmailbox_buffer_t*) buf);
     #pragma GCC diagnostic pop
     if (!ok) {
@@ -128,7 +129,7 @@ uint32_t* vcmailbox_get_framebuffer(uint32_t* virtual_width, uint32_t* virtual_h
     *physical_height = buf->physical_size.response.height;
     *pitch = buf->pitch.response.bytes_per_line;
     *bits_per_pixel = buf->depth.response.bits_per_pixel;
-    return (uint32_t*) (uint64_t) (buf->buf.response.frame_buffer_base_address & 0x3fffffff);
+    return (uint32_t*) (size_t) (buf->buf.response.frame_buffer_base_address & 0x3fffffff);
 }
 
 bool vcmailbox_release_framebuffer(void) {
@@ -163,7 +164,7 @@ uint32_t vcmailbox_get_board_model(void) {
     return tag->response.board_model;
 }
 
-__attribute__((target("strict-align"))) uint32_t vcmailbox_get_board_revision(void) {
+STRICT_ALIGN uint32_t vcmailbox_get_board_revision(void) {
     int size = compute_size(sizeof(vcmailbox_get_board_revision_t));
     vcmailbox_buffer_t* buf = (vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
     memset(buf, 0, size);
