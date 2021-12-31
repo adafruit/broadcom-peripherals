@@ -26,7 +26,7 @@ reset_handler:      .word reset
 undefined_handler:  .word hard_fault
 swi_handler:        .word hard_fault
 prefetch_handler:   .word hard_fault
-data_handler:       .word hard_fault
+data_handler:       .word data_fault
 unused_handler:     .word hard_fault
 irq_handler:        .word irq
 fiq_handler:        .word hard_fault
@@ -45,24 +45,33 @@ reset:
     ;@ Set the stack pointer for the different modes
     ;@ Switch to FIQ mode
     cps #0x12
-    mov sp,#0x7000
+    ldr sp, =_fiq_stack
+    sub sp, sp, #8
 
     ;@ Switch to IRQ mode
     cps #0x12
-    mov sp,#0x8000
+    ldr sp, =_irq_stack
+    sub sp, sp, #8
 
     ;@ Switch to abort mode
     cps #0x17
-    mov sp,#0x6000
+    ldr sp, =_abort_stack
+    sub sp, sp, #8
 
     ;@ Switch to undefined mode
     cps #0x18
-    mov sp,#0x5000
+    ldr sp, =_undef_stack
+    sub sp, sp, #8
 
     ;@ Switch to system mode and set the stack pointer to 240MB. This
     ;@ assumes 256MB total ram and 16MB for the GPU.
     cps #0x1f
-    mov sp,#0xf000000
+    ldr sp, =_ld_ram_end
+    sub sp, sp, #8
+
+    ;@ Set VBAR to 0x8000
+    mov r0,#0x8000
+    mcr p15, 0, r0, c12, c0, 0
 
     ;@ Clear the BSS section
     ldr     r1, =__bss_start     // Start address
@@ -77,17 +86,24 @@ continue_loop:
 
 loop_done:
     bl main
+    b err_hang
 
 err_hang: b err_hang
 
 irq:
-    push {r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,lr}
+    push {r0-r3,r12,lr}
     bl  handle_irq
-    pop  {r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,lr}
-    subs pc,lr,#4
+    pop  {r0-r3,r12,lr}
+    subs pc, lr, #4
 
 hard_fault:
-    push {r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,lr}
+    push {r0-r3,r12,lr}
+    bl   HardFault_IRQHandler
+    // Should never return
+    b err_hang
+
+data_fault:
+    push {r0-r3,r12,lr}
     bl   HardFault_IRQHandler
     // Should never return
     b err_hang

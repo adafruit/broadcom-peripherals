@@ -23,6 +23,9 @@
         {%- import "peripherals/vcmailbox.svd.jinja" as vcmailbox %}
         {{ vcmailbox.peripheral("VCMAILBOX", peripheral_base + 0xB880) }}
 
+        {%- import "peripherals/bcm_power_manager.svd.jinja" as bcm_pm %}
+        {{ bcm_pm.peripheral("PM", peripheral_base + 0x100000)}}
+
         {%- import "peripherals/bcm_clock_manager.svd.jinja" as bcm_cm %}
         {{ bcm_cm.peripheral("CM_PCM", peripheral_base + 0x101098)}}
         {{ svd.derived_peripheral("CM_PWM", peripheral_base + 0x1010a0, "CM_PCM") }}
