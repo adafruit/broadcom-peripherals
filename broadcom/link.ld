@@ -20,6 +20,14 @@ SECTIONS
 
     .data : {
         . = ALIGN(4096);
+        . += 4K;
+        _fiq_stack = .;
+        . += 4K;
+        _irq_stack = .;
+        . += 4K;
+        _abort_stack = .;
+        . += 4K;
+        _undef_stack = .;
         _data = .;
         *(.data .data.* .gnu.linkonce.d*)
     } > RAM
@@ -31,6 +39,8 @@ SECTIONS
         _end = .;
         end = .;
     } > RAM
+
+    _ld_ram_end = ORIGIN(RAM) + LENGTH(RAM);
 
    /DISCARD/ : { *(.comment) *(.gnu*) *(.note*) *(.eh_frame*) }
 }

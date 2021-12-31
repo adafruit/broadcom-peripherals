@@ -6,11 +6,6 @@
 
 #include "broadcom/cpu.h"
 
-uint64_t clidr;
-uint64_t cache_type;
-uint64_t pmu_id0 = 0;
-uint64_t pmu_id1 = 0;
-
 static uint64_t bytes_per_data_line;
 
 void init_caches(void) {
@@ -39,23 +34,46 @@ void init_caches(void) {
     bytes_per_data_line = (1 << ((ctr >> 16) & 0xf)) * sizeof(uint32_t);
     #endif
     bytes_per_data_line = 0;
+    #if BCM_VERSION == 2835
+    uint64_t sctlr = 0;
+    __asm__ volatile (
+        // Flush the prefetch buffer.
+        "MCR p15, 0, %[zero], c7, c5,  4\n\t"
+        // Read System Control Register configuration data
+        "MRC p15, 0, %[sctlr], c1, c0, 0\n\t"
+        // Turn on the instruction cache
+        "ORR %[sctlr], %[sctlr], #0x1000\n\t"
+        // Turn on branch prediction
+        "ORR %[sctlr], %[sctlr], #0x800\n\t"
+        // Turn on the data cache
+        "ORR %[sctlr], %[sctlr], #0x4\n\t"
+        "MCR p15, 0, %[sctlr], c1, c0, 0\n\t"
+        // Flush the prefetch buffer.
+        "MCR p15, 0, %[zero], c7, c5,  4\n\t"
+        :
+        : [sctlr] "r" (sctlr), [zero] "r" (0)
+        : "memory"
+    );
+    bytes_per_data_line = 32;
+    #endif
 }
 
 static bool _data_cache_on(void) {
+    size_t sctlr = 0;
     #ifdef __aarch64__
-    uint64_t sctlr = 0;
     __asm__ volatile (
-        // The ISB forces these changes to be seen before the MMU is enabled.
-        "ISB\n\t"
         // Read System Control Register configuration data
         "MRS %[sctlr], SCTLR_EL1\n\t"
-        // The ISB forces these changes to be seen by the next instruction
-        "ISB\n\t"
         : [sctlr] "=r" (sctlr)
     );
-    return (sctlr & 0x4) != 0;
+    #else
+    __asm__ volatile (
+        // Read System Control Register configuration data
+        "MRC p15, 0, %[sctlr], c1, c0, 0\n\t"
+        : [sctlr] "=r" (sctlr)
+    );
     #endif
-    return false;
+    return (sctlr & 0x4) != 0;
 }
 
 // Writes values from the cache back into memory but keep a copy in the cache.
@@ -70,6 +88,11 @@ STRICT_ALIGN void data_clean(volatile void* starting_address, size_t size) {
     }
     __asm__ volatile("isb");
     __asm__ volatile("dsb sy");
+    #else
+    uint32_t mask = ~(bytes_per_data_line - 1);
+    size_t start = ((size_t) starting_address) & mask;
+    size_t end = (((size_t) starting_address) + size + bytes_per_data_line) & mask;
+    __asm__ volatile("mcrr p15,0,%[end],%[start],c12" : : [end] "r" (end), [start] "r" (start) : "memory");
     #endif
 }
 
@@ -84,6 +107,11 @@ STRICT_ALIGN void data_clean_and_invalidate(volatile void* starting_address, siz
     }
     __asm__ volatile("isb");
     __asm__ volatile("dsb sy");
+    #else
+    uint32_t mask = ~(bytes_per_data_line - 1);
+    size_t start = ((size_t) starting_address) & mask;
+    size_t end = (((size_t) starting_address) + size + bytes_per_data_line) & mask;
+    __asm__ volatile("mcrr p15,0,%[end],%[start],c14" : : [end] "r" (end), [start] "r" (start) : "memory");
     #endif
 }
 
@@ -98,5 +126,10 @@ STRICT_ALIGN void data_invalidate(volatile void* starting_address, size_t size) 
     }
     __asm__ volatile("isb");
     __asm__ volatile("dsb sy" : : : "memory");
+    #else
+    uint32_t mask = ~(bytes_per_data_line - 1);
+    size_t start = ((size_t) starting_address) & mask;
+    size_t end = (((size_t) starting_address) + size + bytes_per_data_line) & mask;
+    __asm__ volatile("mcrr p15,0,%[end],%[start],c6" : : [end] "r" (end), [start] "r" (start) : "memory");
     #endif
 }
