@@ -160,7 +160,6 @@ STRICT_ALIGN void setup_mmu_flat_map(void) {
     uint64_t mair = MAIR_VALUE;
     uint64_t tcr = TCR_VALUE;
     uint64_t ttbr0 = ((uint64_t) level_1_table) | MM_TTBR_CNP;
-    uint64_t ttbcr = 2 /* N */
     uint64_t sctlr = 0;
     __asm__ volatile (
         // The ISB forces these changes to be seen before any other registers are changed
