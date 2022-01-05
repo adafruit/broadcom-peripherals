@@ -9,6 +9,7 @@
 STRICT_ALIGN bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     size_t buffer_size = buffer->buffer_size;
     buffer->code = VCMAILBOX_CODE_PROCESS_REQUEST;
+    COMPLETE_MEMORY_READS;
     while (VCMAILBOX->STATUS0_b.FULL) {}
     while (!VCMAILBOX->STATUS0_b.EMPTY) {
         VCMAILBOX->READ;
@@ -19,7 +20,6 @@ STRICT_ALIGN bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     #pragma GCC diagnostic pop
     data_clean(buffer, buffer_size);
     
-    COMPLETE_MEMORY_READS;
     VCMAILBOX->WRITE = buffer_address;
     size_t count = 0;
     while (VCMAILBOX->STATUS0_b.EMPTY || VCMAILBOX->READ != buffer_address) {

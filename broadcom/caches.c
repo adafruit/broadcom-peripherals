@@ -9,6 +9,7 @@
 static uint64_t bytes_per_data_line;
 
 void init_caches(void) {
+    bytes_per_data_line = 0;
     #ifdef __aarch64__
     uint64_t ctr;
     uint64_t sctlr = 0;
@@ -33,7 +34,6 @@ void init_caches(void) {
     // Convert the power of two cache line size in words to bytes.
     bytes_per_data_line = (1 << ((ctr >> 16) & 0xf)) * sizeof(uint32_t);
     #endif
-    bytes_per_data_line = 0;
     #if BCM_VERSION == 2835
     uint64_t sctlr = 0;
     __asm__ volatile (
