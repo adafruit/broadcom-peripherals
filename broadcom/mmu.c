@@ -210,6 +210,8 @@ STRICT_ALIGN void setup_mmu_flat_map(void) {
         "MRC p15, 0, %[sctlr], c1, c0, 0\n\t"
         // Set [XP] bit to enable the ARMv6 format page tables.
         "ORR %[sctlr], %[sctlr], #0x800000\n\t"
+        // Set [U] bit to allow unaligned accesses
+        "ORR %[sctlr], %[sctlr], #0x400000\n\t"
         // Set [M] bit to enable the MMU
         "ORR %[sctlr], %[sctlr], #0x1\n\t"
         // Enable the MMU
