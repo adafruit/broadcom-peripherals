@@ -164,3 +164,28 @@ class ExceptionUnwinder(Unwinder):
         #return None
 
 gdb.unwinder.register_unwinder(None, ExceptionUnwinder(), replace=True)
+
+class DumpStack(gdb.Command):
+    def __init__ (self):
+        super (DumpStack, self).__init__ ("dump-stack", gdb.COMMAND_USER)
+
+    def invoke (self, arg, from_tty):
+        frame = gdb.selected_frame()
+        sp = int(frame.read_register("sp"))
+        i = gdb.selected_inferior()
+        print("current stack @", hex(sp))
+        for ptr in range(0x202000 - 4, sp, -4):
+            v = struct.unpack("<I", i.read_memory(ptr, 4))[0]
+            s = gdb.find_pc_line(v)
+            if s.symtab:
+                print("{:04x} {:016x} {}".format(ptr, v, s))
+            else:
+                print("{:04x} {:016x}".format(ptr, v))
+        print("old stack")
+        for ptr in range(sp, sp - 0x400, -4):
+            v = struct.unpack("<I", i.read_memory(ptr, 4))[0]
+            s = gdb.find_pc_line(v)
+            if s.symtab:
+                print("{:04x} {:016x} {}".format(ptr, v, s))
+
+DumpStack()

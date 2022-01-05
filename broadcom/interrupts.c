@@ -40,6 +40,14 @@ void BP_EnableIRQs(void) {
     __asm__("msr    daifclr, #2");
     __asm__("isb");
     #else
+    uint32_t psr;
+    __asm__ volatile ("mrs %[psr], CPSR": [psr] "=r" (psr));
+    psr = psr & 0x1f;
+    // Don't enable interrupts if we're not in user or system mode.
+    if (psr != 0x1f && psr != 0x10) {
+        return;
+    }
+    _current_interrupt = INTERRUPT_COUNT;
     __asm__ volatile ("cpsie i" : : : "memory");
     #endif
 }
