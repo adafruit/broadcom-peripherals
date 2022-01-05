@@ -166,6 +166,8 @@ __attribute__((weak)) void handle_irq(void) {
 void BP_SetMinPriority(uint8_t priority) {
     #if BCM_VERSION == 2711
     GIC_CPU->GICC_PMR_b.PRIORITY = priority;
+    #else
+    (void) priority;
     #endif
 }
 
@@ -246,9 +248,11 @@ void BP_SetPendingIRQ(IRQn_Type IRQn) {
     volatile uint32_t* set_pending = (volatile uint32_t*) &GIC_DIST->GICD_ISPENDR;
     set_pending[IRQn / 32] = 1 << (IRQn % 32);
     COMPLETE_MEMORY_READS;
-    #endif
+    #else
     // The legacy interrupt controller cannot set interrupts pending. The interrupt
     // state is directly tied to the source peripheral.
+    (void) IRQn;
+    #endif
 }
 
 void BP_ClearPendingIRQ(IRQn_Type IRQn)  {
@@ -257,9 +261,11 @@ void BP_ClearPendingIRQ(IRQn_Type IRQn)  {
     volatile uint32_t* clear_pending = (volatile uint32_t*) &GIC_DIST->GICD_ICPENDR;
     clear_pending[IRQn / 32] = 1 << (IRQn % 32);
     COMPLETE_MEMORY_READS;
-    #endif
+    #else
     // The legacy interrupt controller cannot clear interrupts. They must be done
     // on the peripheral.
+    (void) IRQn;
+    #endif
 }
 
 bool BP_GetActive(IRQn_Type IRQn) {
@@ -290,6 +296,7 @@ uint8_t BP_GetPriority(IRQn_Type IRQn) {
     volatile uint8_t* irq_priority = (volatile uint8_t*) &GIC_DIST->GICD_IPRIORITYR;
     return irq_priority[IRQn];
     #else
+    (void) IRQn;
     return 0;
     #endif
 }
