@@ -211,3 +211,15 @@ uint32_t vcmailbox_get_clock_rate_measured(vcmailbox_clock_id_t clock_id) {
     vcmailbox_request(buf);
     return tag->response.rate_in_hz;
 }
+
+uint32_t vcmailbox_get_clock_rate(vcmailbox_clock_id_t clock_id) {
+    int size = compute_size(sizeof(vcmailbox_get_clock_rate_t));
+    volatile vcmailbox_buffer_t* buf = (volatile vcmailbox_buffer_t*) __builtin_alloca_with_align(size, 16 * 8);
+    memset((uint32_t*) buf, 0, size);
+    buf->buffer_size = size;
+    vcmailbox_get_clock_rate_t* tag = (vcmailbox_get_clock_rate_t*) &buf->data;
+    *tag = VCMAILBOX_GET_CLOCK_RATE_DEFAULTS;
+    tag->request.clock_id = clock_id;
+    vcmailbox_request(buf);
+    return tag->response.rate_in_hz;
+}
