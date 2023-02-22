@@ -17,3 +17,4 @@ uint32_t vcmailbox_get_board_revision(void);
 uint32_t vcmailbox_get_firmware_revision(void);
 uint32_t vcmailbox_get_temperature(void);
 uint32_t vcmailbox_get_clock_rate_measured(vcmailbox_clock_id_t clock_id);
+uint32_t vcmailbox_get_clock_rate(vcmailbox_clock_id_t clock_id);
