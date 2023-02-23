@@ -8,10 +8,16 @@
 
 STRICT_ALIGN bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     size_t buffer_size = buffer->buffer_size;
+    size_t count = 0;
     buffer->code = VCMAILBOX_CODE_PROCESS_REQUEST;
     COMPLETE_MEMORY_READS;
-    while (VCMAILBOX->STATUS0_b.FULL) {}
+    while (VCMAILBOX->STATUS0_b.FULL && count++ < 10000000) {}
+    count = 0;
     while (!VCMAILBOX->STATUS0_b.EMPTY) {
+        count++;
+        if (count > 10000000) {
+            return false;
+        }
         VCMAILBOX->READ;
     }
     #pragma GCC diagnostic push
@@ -21,7 +27,7 @@ STRICT_ALIGN bool vcmailbox_request(volatile vcmailbox_buffer_t* buffer) {
     data_clean(buffer, buffer_size);
     
     VCMAILBOX->WRITE = buffer_address;
-    size_t count = 0;
+    count = 0;
     while (VCMAILBOX->STATUS0_b.EMPTY || VCMAILBOX->READ != buffer_address) {
         count++;
         if (count > 10000000) {

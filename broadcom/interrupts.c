@@ -136,7 +136,7 @@ __attribute__((weak)) void handle_irq(void) {
         // all at once. We need the full value to pass back to EOIR later.
         uint32_t current_interrupt = GIC_CPU->GICC_IAR;
 
-        uint32_t interrupt_id = current_interrupt & GIC_CPU_GICC_IAR_INTERRUPT_ID_Msk;
+        uint32_t interrupt_id = current_interrupt & ARM_GIC400_CPU_GICC_IAR_INTERRUPT_ID_Msk;
         if (interrupt_id >= INTERRUPT_COUNT) {
             break;
         }
