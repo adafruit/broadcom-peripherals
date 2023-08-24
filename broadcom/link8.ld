@@ -1,14 +1,13 @@
 
 MEMORY
 {
-    /* Kernel load address for AArch64 is 0x80000 */
-    READONLY (rx): ORIGIN = 0x80000, LENGTH = 1536K
+    /* Kernel load address set in ports/broadcom/config.txt */
+    READONLY (rx): ORIGIN = 0x100000, LENGTH = 1536K
     RAM (rw): ORIGIN = 0x200000, LENGTH = 1022M 
 }
 
 SECTIONS
 {
-    . = 0x80000;     
     .text : {
         KEEP(*(.text.boot))
         *(.text .text.* .gnu.linkonce.t*)
