@@ -1,14 +1,13 @@
 
 MEMORY
 {
-    /* Kernel load address for ARM11 is 0x8000 */
-    READONLY (rx): ORIGIN = 0x8000, LENGTH = 2016K
-    RAM (rw): ORIGIN = 0x200000, LENGTH = 254M 
+    /* Kernel load address set in ports/broadcom/config.txt */
+    READONLY (rx): ORIGIN = 0x100000, LENGTH = 2016K
+    RAM (rw): ORIGIN = 0x300000, LENGTH = 200M
 }
 
 SECTIONS
 {
-    . = 0x8000;     
     .text : {
         KEEP(*(.text.boot))
         *(.text .text.* .gnu.linkonce.t*)
