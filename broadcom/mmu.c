@@ -43,14 +43,11 @@ STRICT_ALIGN void setup_mmu_flat_map(void) {
                       MM_DESCRIPTOR_SHARED_DEVICE |
                       MM_DESCRIPTOR_ACCESS_READ_WRITE |
                       MM_DESCRIPTOR_EXECUTE_NEVER;
-    level_1_table[0] = 0x00000000 | 
-                       code;
-    level_1_table[1] = (1 << 20) | 
-                       code;
+    level_1_table[0] = 0x00000000 | data;
+    level_1_table[1] = (1 << 20) | code;
     // TODO: Adjust for 256MB vs 512MB ram.
     for (size_t i = 2; i < 16; i++) {
-        level_1_table[i] = (i << 20) |
-                            data;
+        level_1_table[i] = (i << 20) | data;
     }
     // Supersections take up 16 entries in the table but in the cached TLB they
     // only take one entry.

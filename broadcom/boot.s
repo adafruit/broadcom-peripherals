@@ -40,7 +40,7 @@ reset:
     stmia r1!,{r2,r3,r4,r5,r6,r7,r8,r9}
 
     ;@ Disable interrupts
-    cpsid aif 
+    cpsid aif
 
     ;@ Set the stack pointer for the different modes
     ;@ Switch to FIQ mode
@@ -63,14 +63,14 @@ reset:
     ldr sp, =_undef_stack
     sub sp, sp, #8
 
-    ;@ Switch to system mode and set the stack pointer to 240MB. This
-    ;@ assumes 256MB total ram and 16MB for the GPU.
+    ;@ Switch to system mode and set the stack pointer to 1MB. This
+    ;@ assumes kernel_address=0x100000 in config.txt and link.ld agreeing
     cps #0x1f
-    ldr sp, =_ld_ram_end
+    ldr sp, =_start
     sub sp, sp, #8
 
-    ;@ Set VBAR to 0x8000
-    mov r0,#0x8000
+    ;@ Set VBAR to _start
+    ldr r0, =_start
     mcr p15, 0, r0, c12, c0, 0
 
     ;@ Clear the BSS section
