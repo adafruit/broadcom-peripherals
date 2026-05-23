@@ -15,6 +15,8 @@ chips = pathlib.Path("svd/chips")
 gen = pathlib.Path("svd/gen")
 bcm_gen = pathlib.Path("broadcom/gen")
 
+gen.mkdir()
+
 bcm2711_altfunc = [[None] * 6 for i in range(58)]
 bcm2837_altfunc = [[None] * 6 for i in range(54)]
 
