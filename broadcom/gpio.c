@@ -16,6 +16,7 @@ BP_Function_Enum FSEL_VALUES[6] = {
     GPIO_FUNCTION_ALT5
 };
 
+#if BCM_VERSION == 2711
 BP_PULL_Enum gpio_get_pull(uint8_t pin_number) {
     volatile uint32_t* pupd = &GPIO->GPIO_PUP_PDN_CNTRL_REG0;
     return (pupd[pin_number / 16] >> ((pin_number % 16) * 2)) & 0x3;
@@ -28,6 +29,7 @@ void gpio_set_pull(uint8_t pin_number, BP_PULL_Enum pull) {
     uint32_t current = pupd[pin_number / 16];
     pupd[pin_number / 16] = (current & ~mask) | (pull & 0x3) << shift;
 }
+#endif
 
 BP_Function_Enum gpio_get_function(uint8_t pin_number) {
     volatile uint32_t* fsel = &GPIO->GPFSEL0;
