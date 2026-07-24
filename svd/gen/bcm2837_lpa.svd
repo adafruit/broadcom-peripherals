@@ -8037,14 +8037,14 @@
                     </fields>
                 </register>
                 <register>
-                    <name>GPIO_PUP_PDN_CNTRL_REG0</name>
-                    <description>GPIO Pull-up / Pull-down Register 0</description>
-                    <addressOffset>0xe4</addressOffset>
+                    <name>GPPUD</name>
+                    <description>GPIO Pin Pull-up/down Enable</description>
+                    <addressOffset>0x94</addressOffset>
                     <access>read-write</access>
                     <fields>
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL0</name>
-                            <description>Resistor select for 0</description>
+                            <name>PUD</name>
+                            <description>GPIO Pin Pull-up/down</description>
                             <bitOffset>0</bitOffset>
                             <bitWidth>2</bitWidth>
                             <enumeratedValues>
@@ -8057,464 +8057,411 @@
                                     <value>0</value>
                                 </enumeratedValue>
                                 <enumeratedValue>
-                                    <name>UP</name>
-                                    <description>Pull up</description>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
                                     <value>1</value>
                                 </enumeratedValue>
                                 <enumeratedValue>
-                                    <name>DOWN</name>
-                                    <description>Pull down</description>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
                                     <value>2</value>
                                 </enumeratedValue>
                             </enumeratedValues>
                         </field>
+                    </fields>
+                </register>
+                <register>
+                    <name>GPPUDCLK0</name>
+                    <description>GPIO Pin Pull-up/down Enable Clock 0</description>
+                    <addressOffset>0x98</addressOffset>
+                    <access>read-write</access>
+                    <fields>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL1</name>
-                            <description>Resistor select for 1</description>
+                            <name>PUDCLK0</name>
+                            <description>Assert Clock on line 0</description>
+                            <bitOffset>0</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK1</name>
+                            <description>Assert Clock on line 1</description>
+                            <bitOffset>1</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK2</name>
+                            <description>Assert Clock on line 2</description>
                             <bitOffset>2</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL2</name>
-                            <description>Resistor select for 2</description>
+                            <name>PUDCLK3</name>
+                            <description>Assert Clock on line 3</description>
+                            <bitOffset>3</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK4</name>
+                            <description>Assert Clock on line 4</description>
                             <bitOffset>4</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL3</name>
-                            <description>Resistor select for 3</description>
+                            <name>PUDCLK5</name>
+                            <description>Assert Clock on line 5</description>
+                            <bitOffset>5</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK6</name>
+                            <description>Assert Clock on line 6</description>
                             <bitOffset>6</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL4</name>
-                            <description>Resistor select for 4</description>
+                            <name>PUDCLK7</name>
+                            <description>Assert Clock on line 7</description>
+                            <bitOffset>7</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK8</name>
+                            <description>Assert Clock on line 8</description>
                             <bitOffset>8</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL5</name>
-                            <description>Resistor select for 5</description>
+                            <name>PUDCLK9</name>
+                            <description>Assert Clock on line 9</description>
+                            <bitOffset>9</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK10</name>
+                            <description>Assert Clock on line 10</description>
                             <bitOffset>10</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL6</name>
-                            <description>Resistor select for 6</description>
+                            <name>PUDCLK11</name>
+                            <description>Assert Clock on line 11</description>
+                            <bitOffset>11</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK12</name>
+                            <description>Assert Clock on line 12</description>
                             <bitOffset>12</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL7</name>
-                            <description>Resistor select for 7</description>
+                            <name>PUDCLK13</name>
+                            <description>Assert Clock on line 13</description>
+                            <bitOffset>13</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK14</name>
+                            <description>Assert Clock on line 14</description>
                             <bitOffset>14</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL8</name>
-                            <description>Resistor select for 8</description>
+                            <name>PUDCLK15</name>
+                            <description>Assert Clock on line 15</description>
+                            <bitOffset>15</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK16</name>
+                            <description>Assert Clock on line 16</description>
                             <bitOffset>16</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL9</name>
-                            <description>Resistor select for 9</description>
+                            <name>PUDCLK17</name>
+                            <description>Assert Clock on line 17</description>
+                            <bitOffset>17</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK18</name>
+                            <description>Assert Clock on line 18</description>
                             <bitOffset>18</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL10</name>
-                            <description>Resistor select for 10</description>
+                            <name>PUDCLK19</name>
+                            <description>Assert Clock on line 19</description>
+                            <bitOffset>19</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK20</name>
+                            <description>Assert Clock on line 20</description>
                             <bitOffset>20</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL11</name>
-                            <description>Resistor select for 11</description>
+                            <name>PUDCLK21</name>
+                            <description>Assert Clock on line 21</description>
+                            <bitOffset>21</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK22</name>
+                            <description>Assert Clock on line 22</description>
                             <bitOffset>22</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL12</name>
-                            <description>Resistor select for 12</description>
+                            <name>PUDCLK23</name>
+                            <description>Assert Clock on line 23</description>
+                            <bitOffset>23</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK24</name>
+                            <description>Assert Clock on line 24</description>
                             <bitOffset>24</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL13</name>
-                            <description>Resistor select for 13</description>
+                            <name>PUDCLK25</name>
+                            <description>Assert Clock on line 25</description>
+                            <bitOffset>25</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK26</name>
+                            <description>Assert Clock on line 26</description>
                             <bitOffset>26</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL14</name>
-                            <description>Resistor select for 14</description>
+                            <name>PUDCLK27</name>
+                            <description>Assert Clock on line 27</description>
+                            <bitOffset>27</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK28</name>
+                            <description>Assert Clock on line 28</description>
                             <bitOffset>28</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL15</name>
-                            <description>Resistor select for 15</description>
+                            <name>PUDCLK29</name>
+                            <description>Assert Clock on line 29</description>
+                            <bitOffset>29</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK30</name>
+                            <description>Assert Clock on line 30</description>
                             <bitOffset>30</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK31</name>
+                            <description>Assert Clock on line 31</description>
+                            <bitOffset>31</bitOffset>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                     </fields>
                 </register>
                 <register>
-                    <name>GPIO_PUP_PDN_CNTRL_REG1</name>
-                    <description>GPIO Pull-up / Pull-down Register 1</description>
-                    <addressOffset>0xe8</addressOffset>
+                    <name>GPPUDCLK1</name>
+                    <description>GPIO Pin Pull-up/down Enable Clock 1</description>
+                    <addressOffset>0x9c</addressOffset>
+                    <access>read-write</access>
                     <fields>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL16</name>
-                            <description>Resistor select for 16</description>
+                            <name>PUDCLK32</name>
+                            <description>Assert Clock on line 32</description>
                             <bitOffset>0</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL17</name>
-                            <description>Resistor select for 17</description>
+                            <name>PUDCLK33</name>
+                            <description>Assert Clock on line 33</description>
+                            <bitOffset>1</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK34</name>
+                            <description>Assert Clock on line 34</description>
                             <bitOffset>2</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL18</name>
-                            <description>Resistor select for 18</description>
+                            <name>PUDCLK35</name>
+                            <description>Assert Clock on line 35</description>
+                            <bitOffset>3</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK36</name>
+                            <description>Assert Clock on line 36</description>
                             <bitOffset>4</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL19</name>
-                            <description>Resistor select for 19</description>
+                            <name>PUDCLK37</name>
+                            <description>Assert Clock on line 37</description>
+                            <bitOffset>5</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK38</name>
+                            <description>Assert Clock on line 38</description>
                             <bitOffset>6</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL20</name>
-                            <description>Resistor select for 20</description>
+                            <name>PUDCLK39</name>
+                            <description>Assert Clock on line 39</description>
+                            <bitOffset>7</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK40</name>
+                            <description>Assert Clock on line 40</description>
                             <bitOffset>8</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL21</name>
-                            <description>Resistor select for 21</description>
+                            <name>PUDCLK41</name>
+                            <description>Assert Clock on line 41</description>
+                            <bitOffset>9</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK42</name>
+                            <description>Assert Clock on line 42</description>
                             <bitOffset>10</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL22</name>
-                            <description>Resistor select for 22</description>
+                            <name>PUDCLK43</name>
+                            <description>Assert Clock on line 43</description>
+                            <bitOffset>11</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK44</name>
+                            <description>Assert Clock on line 44</description>
                             <bitOffset>12</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL23</name>
-                            <description>Resistor select for 23</description>
+                            <name>PUDCLK45</name>
+                            <description>Assert Clock on line 45</description>
+                            <bitOffset>13</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK46</name>
+                            <description>Assert Clock on line 46</description>
                             <bitOffset>14</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL24</name>
-                            <description>Resistor select for 24</description>
+                            <name>PUDCLK47</name>
+                            <description>Assert Clock on line 47</description>
+                            <bitOffset>15</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK48</name>
+                            <description>Assert Clock on line 48</description>
                             <bitOffset>16</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL25</name>
-                            <description>Resistor select for 25</description>
+                            <name>PUDCLK49</name>
+                            <description>Assert Clock on line 49</description>
+                            <bitOffset>17</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK50</name>
+                            <description>Assert Clock on line 50</description>
                             <bitOffset>18</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL26</name>
-                            <description>Resistor select for 26</description>
+                            <name>PUDCLK51</name>
+                            <description>Assert Clock on line 51</description>
+                            <bitOffset>19</bitOffset>
+                            <bitWidth>1</bitWidth>
+                        </field>
+                        
+                        <field>
+                            <name>PUDCLK52</name>
+                            <description>Assert Clock on line 52</description>
                             <bitOffset>20</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                         <field>
-                            <name>GPIO_PUP_PDN_CNTRL27</name>
-                            <description>Resistor select for 27</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL28</name>
-                            <description>Resistor select for 28</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL29</name>
-                            <description>Resistor select for 29</description>
-                            <bitOffset>26</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL30</name>
-                            <description>Resistor select for 30</description>
-                            <bitOffset>28</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL31</name>
-                            <description>Resistor select for 31</description>
-                            <bitOffset>30</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                    </fields>
-                </register>
-                <register>
-                    <name>GPIO_PUP_PDN_CNTRL_REG2</name>
-                    <description>GPIO Pull-up / Pull-down Register 2</description>
-                    <addressOffset>0xec</addressOffset>
-                    <fields>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL32</name>
-                            <description>Resistor select for 32</description>
-                            <bitOffset>0</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL33</name>
-                            <description>Resistor select for 33</description>
-                            <bitOffset>2</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL34</name>
-                            <description>Resistor select for 34</description>
-                            <bitOffset>4</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL35</name>
-                            <description>Resistor select for 35</description>
-                            <bitOffset>6</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL36</name>
-                            <description>Resistor select for 36</description>
-                            <bitOffset>8</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL37</name>
-                            <description>Resistor select for 37</description>
-                            <bitOffset>10</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL38</name>
-                            <description>Resistor select for 38</description>
-                            <bitOffset>12</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL39</name>
-                            <description>Resistor select for 39</description>
-                            <bitOffset>14</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL40</name>
-                            <description>Resistor select for 40</description>
-                            <bitOffset>16</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL41</name>
-                            <description>Resistor select for 41</description>
-                            <bitOffset>18</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL42</name>
-                            <description>Resistor select for 42</description>
-                            <bitOffset>20</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL43</name>
-                            <description>Resistor select for 43</description>
-                            <bitOffset>22</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL44</name>
-                            <description>Resistor select for 44</description>
-                            <bitOffset>24</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL45</name>
-                            <description>Resistor select for 45</description>
-                            <bitOffset>26</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL46</name>
-                            <description>Resistor select for 46</description>
-                            <bitOffset>28</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL47</name>
-                            <description>Resistor select for 47</description>
-                            <bitOffset>30</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                    </fields>
-                </register>
-                <register>
-                    <name>GPIO_PUP_PDN_CNTRL_REG3</name>
-                    <description>GPIO Pull-up / Pull-down Register 3</description>
-                    <addressOffset>0xf0</addressOffset>
-                    <fields>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL48</name>
-                            <description>Resistor select for 48</description>
-                            <bitOffset>0</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL49</name>
-                            <description>Resistor select for 49</description>
-                            <bitOffset>2</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL50</name>
-                            <description>Resistor select for 50</description>
-                            <bitOffset>4</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL51</name>
-                            <description>Resistor select for 51</description>
-                            <bitOffset>6</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL52</name>
-                            <description>Resistor select for 52</description>
-                            <bitOffset>8</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
-                        </field>
-                        
-                        <field>
-                            <name>GPIO_PUP_PDN_CNTRL53</name>
-                            <description>Resistor select for 53</description>
-                            <bitOffset>10</bitOffset>
-                            <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <name>PUDCLK53</name>
+                            <description>Assert Clock on line 53</description>
+                            <bitOffset>21</bitOffset>
+                            <bitWidth>1</bitWidth>
                         </field>
                         
                     </fields>

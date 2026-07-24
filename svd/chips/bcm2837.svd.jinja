@@ -26,7 +26,7 @@
         {{ bcm_cm.peripheral("CM_PCM", peripheral_base + 0x101098)}}
         {{ svd.derived_peripheral("CM_PWM", peripheral_base + 0x1010a0, "CM_PCM") }}
 
-        {%- import "peripherals/gpio.svd.jinja" as gpio %}
+        {%- import "peripherals/bcm283x_gpio.svd.jinja" as gpio %}
         {{ gpio.peripheral("GPIO", peripheral_base + 0x200000, altfunc)}}
 
         {%- import "peripherals/bcm_system_timer.svd.jinja" as bcm_system_timer %}
