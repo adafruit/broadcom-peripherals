@@ -547,7 +547,7 @@ const mcu_pin_obj_t pin_GPIO40 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 2, .function = SPI_FUNCTION_MISO },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_TXD },
     }
 };
@@ -560,7 +560,7 @@ const mcu_pin_obj_t pin_GPIO41 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 2, .function = SPI_FUNCTION_MOSI },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RXD },
     }
 };
@@ -573,7 +573,7 @@ const mcu_pin_obj_t pin_GPIO42 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 2, .function = SPI_FUNCTION_SCLK },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_CTS },
     }
 };
@@ -586,7 +586,7 @@ const mcu_pin_obj_t pin_GPIO43 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 2, .function = SPI_FUNCTION_CE0 },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RTS },
     }
 };
@@ -599,7 +599,7 @@ const mcu_pin_obj_t pin_GPIO44 = {
         { .type = PIN_FUNCTION_I2C, .index = 0, .function = I2C_FUNCTION_SDA },
         { .type = PIN_FUNCTION_I2C, .index = 1, .function = I2C_FUNCTION_SDA },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 2, .function = SPI_FUNCTION_CE1 },
         { .type = PIN_FUNCTION_NONE },
     }
 };
@@ -612,7 +612,7 @@ const mcu_pin_obj_t pin_GPIO45 = {
         { .type = PIN_FUNCTION_I2C, .index = 0, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_I2C, .index = 1, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 2, .function = SPI_FUNCTION_CE2 },
         { .type = PIN_FUNCTION_NONE },
     }
 };
@@ -1251,7 +1251,7 @@ const mcu_pin_obj_t pin_GPIO40 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MISO },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_TXD },
     }
 };
@@ -1264,7 +1264,7 @@ const mcu_pin_obj_t pin_GPIO41 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_MOSI },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RXD },
     }
 };
@@ -1277,7 +1277,7 @@ const mcu_pin_obj_t pin_GPIO42 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_SCLK },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_CTS },
     }
 };
@@ -1290,7 +1290,7 @@ const mcu_pin_obj_t pin_GPIO43 = {
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE0 },
         { .type = PIN_FUNCTION_UART, .index = 1, .function = UART_FUNCTION_RTS },
     }
 };
@@ -1303,7 +1303,7 @@ const mcu_pin_obj_t pin_GPIO44 = {
         { .type = PIN_FUNCTION_I2C, .index = 0, .function = I2C_FUNCTION_SDA },
         { .type = PIN_FUNCTION_I2C, .index = 1, .function = I2C_FUNCTION_SDA },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE1 },
         { .type = PIN_FUNCTION_NONE },
     }
 };
@@ -1316,7 +1316,7 @@ const mcu_pin_obj_t pin_GPIO45 = {
         { .type = PIN_FUNCTION_I2C, .index = 0, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_I2C, .index = 1, .function = I2C_FUNCTION_SCL },
         { .type = PIN_FUNCTION_NONE },
-        { .type = PIN_FUNCTION_NONE },
+        { .type = PIN_FUNCTION_SPI, .index = 0, .function = SPI_FUNCTION_CE2 },
         { .type = PIN_FUNCTION_NONE },
     }
 };

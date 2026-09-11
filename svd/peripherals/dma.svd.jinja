@@ -1,0 +1,625 @@
+{% macro peripheral(base_address) -%}
+<peripheral>
+    <name>DMA</name>
+    <description></description>
+    <baseAddress>{{ "0x{:x}".format(base_address) }}</baseAddress>
+    <addressBlock>
+        <offset>0x0</offset>
+        <size>0xFF4</size>
+        <usage>registers</usage>
+    </addressBlock>
+    <registers>
+        {% macro dma_channel(idx) -%}
+        <register>
+            <name>CS_{{ idx }}</name>
+            <description>DMA {{ idx }} Control And Status register</description>
+            <addressOffset>{{ "0x%x" | format(idx * 256 + 0) }}</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>ACTIVE</name>
+                    <description>Activate the DMA</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>END</name>
+                    <description>DMA End Flag</description>
+                    <bitOffset>1</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                    <modifiedWriteValues>oneToClear</modifiedWriteValues>
+                </field>
+                <field>
+                    <name>INT</name>
+                    <description>Interrupt Status</description>
+                    <bitOffset>2</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                    <modifiedWriteValues>oneToClear</modifiedWriteValues>
+                </field>
+                <field>
+                    <name>DREQ</name>
+                    <description>DREQ State</description>
+                    <bitOffset>3</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>PAUSED</name>
+                    <description>DMA Paused State</description>
+                    <bitOffset>4</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>DREQ_STOPS_DMA</name>
+                    <description>DMA Paused by DREQ State</description>
+                    <bitOffset>5</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>WAITING_FOR_OUTSTANDING_WRITES</name>
+                    <description>DMA is Waiting for the Last Write to be Received</description>
+                    <bitOffset>6</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>ERROR</name>
+                    <description>DMA Error</description>
+                    <bitOffset>8</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>PRIORITY</name>
+                    <description>AXI Priority Level</description>
+                    <bitOffset>16</bitOffset>
+                    <bitWidth>4</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>PANIC_PRIORITY</name>
+                    <description>AXI Panic Priority Level</description>
+                    <bitOffset>20</bitOffset>
+                    <bitWidth>4</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>WAIT_FOR_OUTSTANDING_WRITES</name>
+                    <description>Wait for outstanding writes</description>
+                    <bitOffset>28</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>DISDEBUG</name>
+                    <description>Disable debug pause signal</description>
+                    <bitOffset>29</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>ABORT</name>
+                    <description>Abort DMA</description>
+                    <bitOffset>30</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>write-only</access>
+                </field>
+                <field>
+                    <name>RESET</name>
+                    <description>DMA Channel Reset</description>
+                    <bitOffset>31</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>write-only</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>CONBLK_AD_{{ idx }}</name>
+            <description>DMA Control Block Address register</description>
+            <addressOffset>{{ "0x%x" | format(idx * 256 + 4) }}</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>SCB_ADDR</name>
+                    <description>Control Block Address</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>32</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>SOURCE_AD_{{ idx }}</name>
+            <description>DMA Source Address</description>
+            <addressOffset>{{ "0x%x" | format(idx * 256 + 12) }}</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>S_ADDR</name>
+                    <description>DMA Source Address</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>32</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>DEST_AD_{{ idx }}</name>
+            <description>DMA Destination Address</description>
+            <addressOffset>{{ "0x%x" | format(idx * 256 + 16) }}</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>D_ADDR</name>
+                    <description>DMA Destination Address</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>32</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>NEXTCONBK_{{ idx }}</name>
+            <description>DMA Next Control Block Address</description>
+            <addressOffset>{{ "0x%x" | format(idx * 256 + 28) }}</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>ADDR</name>
+                    <description>Address of next CB for chained DMA operations</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>32</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        {% if (idx < 7) %} <register>
+            <name>TI_{{ idx }}</name>
+            <description>DMA Transfer Information</description>
+            <addressOffset>{{ "0x%x" | format(idx * 256 + 8) }}</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>INTEN</name>
+                    <description>Interrupt Enable</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>TDMODE</name>
+                    <description>2D Mode</description>
+                    <bitOffset>1</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>WAIT_RESP</name>
+                    <description>Wait for a Write Response</description>
+                    <bitOffset>3</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>DEST_INC</name>
+                    <description>Destination Address Increment</description>
+                    <bitOffset>4</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>DEST_WIDTH</name>
+                    <description>Destination Transfer Width</description>
+                    <bitOffset>5</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>DEST_DREQ</name>
+                    <description>Control Destination Writes with DREQ</description>
+                    <bitOffset>6</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>DEST_IGNORE</name>
+                    <description>Ignore Writes</description>
+                    <bitOffset>7</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>SRC_INC</name>
+                    <description>Source Address Increment</description>
+                    <bitOffset>8</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>SRC_WIDTH</name>
+                    <description>Source Transfer Width</description>
+                    <bitOffset>9</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>SRC_DREQ</name>
+                    <description>Control Source Reads with DREQ</description>
+                    <bitOffset>10</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>SRC_IGNORE</name>
+                    <description>Ignore Reads</description>
+                    <bitOffset>11</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>BURST_LENGTH</name>
+                    <description>Burst Transfer Length</description>
+                    <bitOffset>12</bitOffset>
+                    <bitWidth>4</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>PERMAP</name>
+                    <description>Peripheral Mapping</description>
+                    <bitOffset>16</bitOffset>
+                    <bitWidth>5</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>WAITS</name>
+                    <description>Add Wait Cycles</description>
+                    <bitOffset>21</bitOffset>
+                    <bitWidth>5</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>NO_WIDE_BURSTS</name>
+                    <description>Dont Do wide writes as a 2 beat burst</description>
+                    <bitOffset>26</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+            </register>
+            <register>
+                <name>TXFR_LEN_{{ idx }}</name>
+                <description>DMA Transfer Length.</description>
+                <addressOffset>{{ "0x%x" | format(idx * 256 + 20) }}</addressOffset>
+                <resetValue>0x00000000</resetValue>
+                <fields>
+                    <field>
+                        <name>XLENGTH</name>
+                        <description>Transfer Length in bytes</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>16</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>YLENGTH</name>
+                        <description>When in 2D mode, This is the Y transfer length, indicating how many xlength
+                            transfers
+                            are performed. When in normal linear mode this becomes the top bits of the XLENGTH
+                        </description>
+                        <bitOffset>16</bitOffset>
+                        <bitWidth>14</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                </fields>
+            </register>
+            <register>
+                <name>STRIDE_{{ idx }}</name>
+                <description>DMA 2D Stride</description>
+                <addressOffset>{{ "0x%x" | format(idx * 256 + 24) }}</addressOffset>
+                <resetValue>0x00000000</resetValue>
+                <fields>
+                    <field>
+                        <name>S_STRIDE</name>
+                        <description>Source Stride (2D Mode)</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>16</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>D_STRIDE</name>
+                        <description>Destination Stride (2D Mode)</description>
+                        <bitOffset>16</bitOffset>
+                        <bitWidth>16</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                </fields>
+            </register>
+            <register>
+                <name>DEBUG_{{ idx }}</name>
+                <description>DMA Debug register</description>
+                <addressOffset>{{ "0x%x" | format(idx * 256 + 32) }}</addressOffset>
+                <resetValue>0x04000000</resetValue>
+                <fields>
+                    <field>
+                        <name>READ_LAST_NOT_SET_ERROR</name>
+                        <description>Read Last Not Set Error</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>FIFO_ERROR</name>
+                        <description>Fifo Error</description>
+                        <bitOffset>1</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>READ_ERROR</name>
+                        <description>Slave Read Response Error</description>
+                        <bitOffset>2</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>OUTSTANDING_WRITES</name>
+                        <description>DMA Outstanding Writes Counter</description>
+                        <bitOffset>4</bitOffset>
+                        <bitWidth>4</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>DMA_ID</name>
+                        <description>DMA ID</description>
+                        <bitOffset>8</bitOffset>
+                        <bitWidth>8</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>DMA_STATE</name>
+                        <description>DMA State Machine State</description>
+                        <bitOffset>16</bitOffset>
+                        <bitWidth>9</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>VERSION</name>
+                        <description>DMA Version</description>
+                        <bitOffset>25</bitOffset>
+                        <bitWidth>3</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>LITE</name>
+                        <description>DMA Lite</description>
+                        <bitOffset>28</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                </fields>
+            </register>
+            {% else %}
+            <register>
+                <name>TI_{{ idx }}</name>
+                <description>DMA Transfer Information</description>
+                <addressOffset>{{ "0x%x" | format(idx * 256 + 8) }}</addressOffset>
+                <resetValue>0x00000000</resetValue>
+                <fields>
+                    <field>
+                        <name>INTEN</name>
+                        <description>Interrupt Enable</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>WAIT_RESP</name>
+                        <description>Wait for a Write Response</description>
+                        <bitOffset>3</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>DEST_INC</name>
+                        <description>Destination Address Increment</description>
+                        <bitOffset>4</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>DEST_WIDTH</name>
+                        <description>Destination Transfer Width</description>
+                        <bitOffset>5</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>DEST_DREQ</name>
+                        <description>Control Destination Writes with DREQ</description>
+                        <bitOffset>6</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>DEST_IGNORE</name>
+                        <description>Ignore Writes</description>
+                        <bitOffset>7</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>SRC_INC</name>
+                        <description>Source Address Increment</description>
+                        <bitOffset>8</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>SRC_WIDTH</name>
+                        <description>Source Transfer Width</description>
+                        <bitOffset>9</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>SRC_DREQ</name>
+                        <description>Control Source Reads with DREQ</description>
+                        <bitOffset>10</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>SRC_IGNORE</name>
+                        <description>Ignore Reads</description>
+                        <bitOffset>11</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>BURST_LENGTH</name>
+                        <description>Burst Transfer Length</description>
+                        <bitOffset>12</bitOffset>
+                        <bitWidth>4</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>PERMAP</name>
+                        <description>Peripheral Mapping</description>
+                        <bitOffset>16</bitOffset>
+                        <bitWidth>5</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>WAITS</name>
+                        <description>Add Wait Cycles</description>
+                        <bitOffset>21</bitOffset>
+                        <bitWidth>5</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                </fields>
+            </register>
+            <register>
+                <name>TXFR_LEN_{{ idx }}</name>
+                <description>DMA Transfer Length.</description>
+                <addressOffset>{{ "0x%x" | format(idx * 256 + 20) }}</addressOffset>
+                <resetValue>0x00000000</resetValue>
+                <fields>
+                    <field>
+                        <name>XLENGTH</name>
+                        <description>Transfer Length in bytes</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>16</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                </fields>
+            </register>
+            <register>
+                <name>DEBUG_{{ idx }}</name>
+                <description>DMA lite Debug register</description>
+                <addressOffset>{{ "0x%x" | format(idx * 256 + 32) }}</addressOffset>
+                <resetValue>0x14000000</resetValue>
+                <fields>
+                    <field>
+                        <name>READ_LAST_NOT_SET_ERROR</name>
+                        <description>Read Last Not Set Error</description>
+                        <bitOffset>0</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>FIFO_ERROR</name>
+                        <description>Fifo Error</description>
+                        <bitOffset>1</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>READ_ERROR</name>
+                        <description>Slave Read Response Error</description>
+                        <bitOffset>2</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    <field>
+                        <name>OUTSTANDING_WRITES</name>
+                        <description>DMA Outstanding Writes Counter</description>
+                        <bitOffset>4</bitOffset>
+                        <bitWidth>4</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>DMA_ID</name>
+                        <description>DMA ID</description>
+                        <bitOffset>8</bitOffset>
+                        <bitWidth>8</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>DMA_STATE</name>
+                        <description>DMA State Machine State</description>
+                        <bitOffset>16</bitOffset>
+                        <bitWidth>9</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>VERSION</name>
+                        <description>DMA Version</description>
+                        <bitOffset>25</bitOffset>
+                        <bitWidth>3</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                    <field>
+                        <name>LITE</name>
+                        <description>DMA Lite</description>
+                        <bitOffset>28</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-only</access>
+                    </field>
+                </fields>
+            </register>
+            {% endif %}
+            {% endmacro %}
+            {% for i in range(0, 15)%}
+            {{ dma_channel(i) }}
+            {% endfor %}
+            <register>
+                <name>INT_STATUS</name>
+                <description>Interrupt status of each DMA engine</description>
+                <addressOffset>0xFE0</addressOffset>
+                <resetValue>0x00000000</resetValue>
+                <fields>
+                    {% for i in range(0, 16) %}
+                    <field>
+                        <name>INT{{ i }}</name>
+                        <description>Interrupt status of DMA engine {{ i }}</description>
+                        <bitOffset>{{ i }}</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    {% endfor %}
+                </fields>
+            </register>
+            <register>
+                <name>ENABLE</name>
+                <description>Global enable bits for each channel</description>
+                <addressOffset>0xFF0</addressOffset>
+                <resetValue>0x00007FFF</resetValue>
+                <fields>
+                    {% for i in range(0, 15) %}
+                    <field>
+                        <name>EN{{ i }}</name>
+                        <description>Enable dma engine {{ i }}</description>
+                        <bitOffset>{{ i }}</bitOffset>
+                        <bitWidth>1</bitWidth>
+                        <access>read-write</access>
+                    </field>
+                    {% endfor %}
+                </fields>
+            </register>
+    </registers>
+</peripheral>
+{%- endmacro %}

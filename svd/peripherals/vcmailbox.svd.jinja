@@ -1,4 +1,8 @@
 {% macro peripheral(name, base_address) -%}
+    <!-- Due to being able to find adequate documentation on the VCmailbox
+        access and resetValue blocks for PEEK0, SENDER0, STATUS0, CONFIG0
+        and there 1 counterparts are speculative and may not reflect
+        hardware -->
         <peripheral>
             <name>{{ name }}</name>
             <description>Mailboxes for talking to/from VideoCore</description>
@@ -15,24 +19,31 @@
                     <addressOffset>0</addressOffset>
                     <access>read-only</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
                 <register>
                     <name>PEEK0</name>
                     <description></description>
                     <addressOffset>0x10</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
                 <register>
                     <name>SENDER0</name>
                     <description></description>
                     <addressOffset>0x14</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
                 <register>
                     <name>STATUS0</name>
                     <description></description>
                     <addressOffset>0x18</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                     <fields>
                         <field>
                             <name>FULL</name>
@@ -52,7 +63,9 @@
                     <name>CONFIG0</name>
                     <description></description>
                     <addressOffset>0x1c</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                     <fields>
                         <field>
                             <name>IRQEN</name>
@@ -69,30 +82,39 @@
                     <addressOffset>0x20</addressOffset>
                     <access>write-only</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
                 <register>
                     <name>PEEK1</name>
                     <description></description>
                     <addressOffset>0x30</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
                 <register>
                     <name>SENDER1</name>
                     <description></description>
                     <addressOffset>0x34</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
                 <register>
                     <name>STATUS1</name>
                     <description></description>
                     <addressOffset>0x38</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
                 <register>
                     <name>CONFIG1</name>
                     <description></description>
                     <addressOffset>0x3c</addressOffset>
+                    <access>read-write</access>
                     <size>32</size>
+                    <resetValue>0x00000000</resetValue>
                 </register>
             </registers>
         </peripheral>

@@ -68,8 +68,8 @@ in_order(35, 0, "SPI0", ("_CE1_N",) + SPI_SUFFIXES, bcm2837=True)
 
 # This SPI has a unique pin order. It is also a different instance on the 2711.
 # So we set it twice, once to set both and once to correct 2711.
-in_order(40, 0, "SPI2", ("_MISO", "_MOSI", "_SCLK", "_CE0_N", "_CE1_N", "_CE2_N"), bcm2837=True)
-in_order(40, 0, "SPI0", ("_MISO", "_MOSI", "_SCLK", "_CE0_N", "_CE1_N", "_CE2_N"))
+in_order(40, 4, "SPI2", ("_MISO", "_MOSI", "_SCLK", "_CE0_N", "_CE1_N", "_CE2_N"), bcm2837=True)
+in_order(40, 4, "SPI0", ("_MISO", "_MOSI", "_SCLK", "_CE0_N", "_CE1_N", "_CE2_N"))
 
 in_order(4, 2, "DPI_D", range(0, 24))
 in_order(8, 1, "SD", range(18), bcm2837=True)

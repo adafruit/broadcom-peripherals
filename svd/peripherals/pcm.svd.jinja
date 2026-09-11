@@ -1,0 +1,491 @@
+{% macro peripheral(base_address, bcm2711=false) %}
+<peripheral>
+    <name>PCM</name>
+    <description></description>
+    <baseAddress>{{ "0x{:x}".format(base_address) }}</baseAddress>
+    <addressBlock>
+        <offset>0x0</offset>
+        <size>0x24</size>
+        <usage>registers</usage>
+    </addressBlock>
+    <registers>
+        <register>
+            <name>CS_A</name>
+            <description>PCM Control and Status</description>
+            <addressOffset>0x0</addressOffset>
+            <resetValue>0x002A0000</resetValue>
+            <fields>
+                <field>
+                    <name>EN</name>
+                    <description>Enable the PCM Audio Interface</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RXON</name>
+                    <description>Enable reception</description>
+                    <bitOffset>1</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>TXON</name>
+                    <description>Enable transmission</description>
+                    <bitOffset>2</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>TXCLR</name>
+                    <description>Clear the TX FIFO</description>
+                    <bitOffset>3</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>write-only</access>
+                    <modifiedWriteValues>oneToClear</modifiedWriteValues>
+                </field>
+                <field>
+                    <name>RXCLR</name>
+                    <description>Clear the RX FIFO</description>
+                    <bitOffset>4</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>write-only</access>
+                    <modifiedWriteValues>oneToClear</modifiedWriteValues>
+                </field>
+                <field>
+                    <name>TXTHR</name>
+                    <description>Sets the TX FIFO threshold at which point the TXW flag is set</description>
+                    <bitOffset>5</bitOffset>
+                    <bitWidth>2</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RXTHR</name>
+                    <description>Sets the RX FIFO threshold at which point the RXR flag is set</description>
+                    <bitOffset>7</bitOffset>
+                    <bitWidth>2</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>DMAEN</name>
+                    <description>DMA DREQ Enable</description>
+                    <bitOffset>9</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>TXSYNC</name>
+                    <description>TX FIFO Sync</description>
+                    <bitOffset>13</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>RXSYNC</name>
+                    <description>RX FIFO Sync</description>
+                    <bitOffset>14</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>TXERR</name>
+                    <description>TX FIFO Error</description>
+                    <bitOffset>15</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                    <modifiedWriteValues>oneToClear</modifiedWriteValues>
+                </field>
+                <field>
+                    <name>RXERR</name>
+                    <description>RX FIFO Error</description>
+                    <bitOffset>16</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                    <modifiedWriteValues>oneToClear</modifiedWriteValues>
+                </field>
+                <field>
+                    <name>TXW</name>
+                    <description>Indicates that the TX FIFO needs Writing</description>
+                    <bitOffset>17</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>RXR</name>
+                    <description>Indicates that the RX FIFO needs Reading</description>
+                    <bitOffset>18</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>TXD</name>
+                    <description>Indicates that the TX FIFO can accept data</description>
+                    <bitOffset>19</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>RXD</name>
+                    <description>Indicates that the RX FIFO contains data</description>
+                    <bitOffset>20</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>TXE</name>
+                    <description>TX FIFO is Empty</description>
+                    <bitOffset>21</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>RXF</name>
+                    <description>RX FIFO is Full</description>
+                    <bitOffset>22</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>RXSEX</name>
+                    <description>RX Sign Extend</description>
+                    <bitOffset>23</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>SYNC</name>
+                    <description>PCM Clock sync helper</description>
+                    <bitOffset>24</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                {% if (not bcm2711) %}
+                <field>
+                    <name>STBY</name>
+                    <description>RAM Standby</description>
+                    <bitOffset>25</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                {% endif %}
+            </fields>
+        </register>
+        <register>
+            <name>FIFO_A</name>
+            <description>This is the FIFO port of the PCM</description>
+            <addressOffset>0x4</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>FIFO</name>
+                    <description>FIFO</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>32</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>MODE_A</name>
+            <description>This register defines the basic PCM Operating Mode</description>
+            <addressOffset>0x8</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>FSLEN</name>
+                    <description>Frame Sync Length</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>10</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>FLEN</name>
+                    <description>Frame Length</description>
+                    <bitOffset>10</bitOffset>
+                    <bitWidth>10</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>FSI</name>
+                    <description>Frame Sync Invert This logically inverts the frame sync signal</description>
+                    <bitOffset>20</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>FSM</name>
+                    <description>Frame Sync Mode</description>
+                    <bitOffset>21</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>CLKI</name>
+                    <description>Clock Invert this logically inverts the PCM_CLK signal</description>
+                    <bitOffset>22</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>CLKM</name>
+                    <description>PCM Clock Mode</description>
+                    <bitOffset>23</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>FTXP</name>
+                    <description>Transmit Frame Packed Mode</description>
+                    <bitOffset>24</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>FRXP</name>
+                    <description>Receive Frame Packed Mode</description>
+                    <bitOffset>25</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>PDME</name>
+                    <description>PDM Input Mode Enable</description>
+                    <bitOffset>26</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>PDMN</name>
+                    <description>PDM Decimation Factor (N)</description>
+                    <bitOffset>27</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>CLK_DIS</name>
+                    <description>PCM Clock Disable</description>
+                    <bitOffset>28</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>RXC_A</name>
+            <description>Sets the Channel configurations for Receiving</description>
+            <addressOffset>0xc</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                {% macro channel(offset, num)%}
+                <field>
+                    <name>CH{{ num }}WID</name>
+                    <description>Channel {{ num }} Width</description>
+                    <bitOffset>{{ offset }}</bitOffset>
+                    <bitWidth>4</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>CH{{ num }}POS</name>
+                    <description>Channel {{ num }} Position</description>
+                    <bitOffset>{{ offset + 4}}</bitOffset>
+                    <bitWidth>10</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>CH{{ num }}EN</name>
+                    <description>Channel {{ num }} Enable</description>
+                    <bitOffset>{{ offset + 14 }}</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>CH{{ num }}WEX</name>
+                    <description>Channel {{ num }} Width Extension Bit</description>
+                    <bitOffset>{{ offset + 15 }}</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                {% endmacro %}
+                {{ channel(0, 2) }}
+                {{ channel(16, 1) }}
+            </fields>
+        </register>
+        <register>
+            <name>TXC_A</name>
+            <description>Sets the Channel configurations for Transmitting</description>
+            <addressOffset>0x10</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                {{ channel(0, 2) }}
+                {{ channel(16, 1) }}
+            </fields>
+        </register>
+        <register>
+            <name>DREQ_A</name>
+            <description>Set the DMA DREQ and Panic thresholds</description>
+            <addressOffset>0x14</addressOffset>
+            <resetValue>0x10303020</resetValue>
+            <fields>
+                <field>
+                    {% if (bcm2711) %}
+                    <name>RX_REQ</name>
+                    {% else %}
+                    <name>RX</name>
+                    {% endif %}
+                    <description>RX Request Level</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>7</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    {% if (bcm2711) %}
+                    <name>TX_REQ</name>
+                    {% else %}
+                    <name>TX</name>
+                    {% endif %}
+                    <description>TX Request Level</description>
+                    <bitOffset>8</bitOffset>
+                    <bitWidth>7</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RX_PANIC</name>
+                    <description>RX Panic Level</description>
+                    <bitOffset>16</bitOffset>
+                    <bitWidth>7</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>TX_PANIC</name>
+                    <description>TX Panic Level</description>
+                    <bitOffset>24</bitOffset>
+                    <bitWidth>7</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>INTEN_A</name>
+            <description>Set the reasons for generating an Interrupt</description>
+            <addressOffset>0x18</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>TXW</name>
+                    <description>TX Write Interrupt Enable</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RXR</name>
+                    <description>RX Read Interrupt Enable</description>
+                    <bitOffset>1</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>TXERR</name>
+                    <description>TX Error Interrupt</description>
+                    <bitOffset>2</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RXERR</name>
+                    <description>RX Error Interrupt</description>
+                    <bitOffset>3</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>INTSTC_A</name>
+            <description>This register is used to read and clear the PCM interrupt status</description>
+            <addressOffset>0x1c</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>TXW</name>
+                    <description>TX Write Interrupt Status / Clear</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RXR</name>
+                    <description>RX Read Interrupt Status / Clear</description>
+                    <bitOffset>1</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>TXERR</name>
+                    <description>TX Error Interrupt Status / Clear</description>
+                    <bitOffset>2</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RXERR</name>
+                    <description>RX Error Interrupt Status / Clear</description>
+                    <bitOffset>3</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+            </fields>
+        </register>
+        <register>
+            <name>GRAY</name>
+            <description>This register is used to control the gray mode generation</description>
+            <addressOffset>0x20</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <fields>
+                <field>
+                    <name>EN</name>
+                    <description>Enable GRAY Mode</description>
+                    <bitOffset>0</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>CLR</name>
+                    <description>Clear the GRAY Mode Logic</description>
+                    <bitOffset>1</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>FLUSH</name>
+                    <description>Flush the RX Buffer into the RX FIFO </description>
+                    <bitOffset>2</bitOffset>
+                    <bitWidth>1</bitWidth>
+                    <access>read-write</access>
+                </field>
+                <field>
+                    <name>RXLEVEL</name>
+                    <description>The Current fill level of the RX Buffer</description>
+                    <bitOffset>4</bitOffset>
+                    <bitWidth>6</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>FLUSHED</name>
+                    <description>The Number of bits that were flushed into the RXFIFO</description>
+                    <bitOffset>10</bitOffset>
+                    <bitWidth>6</bitWidth>
+                    <access>read-only</access>
+                </field>
+                <field>
+                    <name>RXFIFOLEVEL</name>
+                    <description>The Current level of the RXFIFO</description>
+                    <bitOffset>16</bitOffset>
+                    <bitWidth>6</bitWidth>
+                    <access>read-only</access>
+                </field>
+            </fields>
+        </register>
+    </registers>
+</peripheral>
+{% endmacro %}
