@@ -11,6 +11,9 @@
         <revision>r0p0</revision>
         <endian>little</endian>
         <nvicPrioBits>2</nvicPrioBits>
+        <mpuPresent>true</mpuPresent>
+        <fpuPresent>true</fpuPresent>
+        <vendorSystickConfig>false</vendorSystickConfig>
     </cpu>
     <headerSystemFilename>system_bcm2711</headerSystemFilename>
     <addressUnitBits>8</addressUnitBits>
@@ -8680,7 +8683,23 @@
                             <description>Resistor select for 1</description>
                             <bitOffset>2</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8688,7 +8707,23 @@
                             <description>Resistor select for 2</description>
                             <bitOffset>4</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8696,7 +8731,23 @@
                             <description>Resistor select for 3</description>
                             <bitOffset>6</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8704,7 +8755,23 @@
                             <description>Resistor select for 4</description>
                             <bitOffset>8</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8712,7 +8779,23 @@
                             <description>Resistor select for 5</description>
                             <bitOffset>10</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8720,7 +8803,23 @@
                             <description>Resistor select for 6</description>
                             <bitOffset>12</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8728,7 +8827,23 @@
                             <description>Resistor select for 7</description>
                             <bitOffset>14</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8736,7 +8851,23 @@
                             <description>Resistor select for 8</description>
                             <bitOffset>16</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8744,7 +8875,23 @@
                             <description>Resistor select for 9</description>
                             <bitOffset>18</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8752,7 +8899,23 @@
                             <description>Resistor select for 10</description>
                             <bitOffset>20</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8760,7 +8923,23 @@
                             <description>Resistor select for 11</description>
                             <bitOffset>22</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8768,7 +8947,23 @@
                             <description>Resistor select for 12</description>
                             <bitOffset>24</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8776,7 +8971,23 @@
                             <description>Resistor select for 13</description>
                             <bitOffset>26</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8784,7 +8995,23 @@
                             <description>Resistor select for 14</description>
                             <bitOffset>28</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8792,7 +9019,23 @@
                             <description>Resistor select for 15</description>
                             <bitOffset>30</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                     </fields>
@@ -8809,7 +9052,23 @@
                             <description>Resistor select for 16</description>
                             <bitOffset>0</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8817,7 +9076,23 @@
                             <description>Resistor select for 17</description>
                             <bitOffset>2</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8825,7 +9100,23 @@
                             <description>Resistor select for 18</description>
                             <bitOffset>4</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8833,7 +9124,23 @@
                             <description>Resistor select for 19</description>
                             <bitOffset>6</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8841,7 +9148,23 @@
                             <description>Resistor select for 20</description>
                             <bitOffset>8</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8849,7 +9172,23 @@
                             <description>Resistor select for 21</description>
                             <bitOffset>10</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8857,7 +9196,23 @@
                             <description>Resistor select for 22</description>
                             <bitOffset>12</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8865,7 +9220,23 @@
                             <description>Resistor select for 23</description>
                             <bitOffset>14</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8873,7 +9244,23 @@
                             <description>Resistor select for 24</description>
                             <bitOffset>16</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8881,7 +9268,23 @@
                             <description>Resistor select for 25</description>
                             <bitOffset>18</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8889,7 +9292,23 @@
                             <description>Resistor select for 26</description>
                             <bitOffset>20</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8897,7 +9316,23 @@
                             <description>Resistor select for 27</description>
                             <bitOffset>22</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8905,7 +9340,23 @@
                             <description>Resistor select for 28</description>
                             <bitOffset>24</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8913,7 +9364,23 @@
                             <description>Resistor select for 29</description>
                             <bitOffset>26</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8921,7 +9388,23 @@
                             <description>Resistor select for 30</description>
                             <bitOffset>28</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8929,7 +9412,23 @@
                             <description>Resistor select for 31</description>
                             <bitOffset>30</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                     </fields>
@@ -8946,7 +9445,23 @@
                             <description>Resistor select for 32</description>
                             <bitOffset>0</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8954,7 +9469,23 @@
                             <description>Resistor select for 33</description>
                             <bitOffset>2</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8962,7 +9493,23 @@
                             <description>Resistor select for 34</description>
                             <bitOffset>4</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8970,7 +9517,23 @@
                             <description>Resistor select for 35</description>
                             <bitOffset>6</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8978,7 +9541,23 @@
                             <description>Resistor select for 36</description>
                             <bitOffset>8</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8986,7 +9565,23 @@
                             <description>Resistor select for 37</description>
                             <bitOffset>10</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -8994,7 +9589,23 @@
                             <description>Resistor select for 38</description>
                             <bitOffset>12</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9002,7 +9613,23 @@
                             <description>Resistor select for 39</description>
                             <bitOffset>14</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9010,7 +9637,23 @@
                             <description>Resistor select for 40</description>
                             <bitOffset>16</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9018,7 +9661,23 @@
                             <description>Resistor select for 41</description>
                             <bitOffset>18</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9026,7 +9685,23 @@
                             <description>Resistor select for 42</description>
                             <bitOffset>20</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9034,7 +9709,23 @@
                             <description>Resistor select for 43</description>
                             <bitOffset>22</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9042,7 +9733,23 @@
                             <description>Resistor select for 44</description>
                             <bitOffset>24</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9050,7 +9757,23 @@
                             <description>Resistor select for 45</description>
                             <bitOffset>26</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9058,7 +9781,23 @@
                             <description>Resistor select for 46</description>
                             <bitOffset>28</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9066,7 +9805,23 @@
                             <description>Resistor select for 47</description>
                             <bitOffset>30</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                     </fields>
@@ -9083,7 +9838,23 @@
                             <description>Resistor select for 48</description>
                             <bitOffset>0</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9091,7 +9862,23 @@
                             <description>Resistor select for 49</description>
                             <bitOffset>2</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9099,7 +9886,23 @@
                             <description>Resistor select for 50</description>
                             <bitOffset>4</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9107,7 +9910,23 @@
                             <description>Resistor select for 51</description>
                             <bitOffset>6</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9115,7 +9934,23 @@
                             <description>Resistor select for 52</description>
                             <bitOffset>8</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9123,7 +9958,23 @@
                             <description>Resistor select for 53</description>
                             <bitOffset>10</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9131,7 +9982,23 @@
                             <description>Resistor select for 54</description>
                             <bitOffset>12</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9139,7 +10006,23 @@
                             <description>Resistor select for 55</description>
                             <bitOffset>14</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9147,7 +10030,23 @@
                             <description>Resistor select for 56</description>
                             <bitOffset>16</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                         <field>
@@ -9155,7 +10054,23 @@
                             <description>Resistor select for 57</description>
                             <bitOffset>18</bitOffset>
                             <bitWidth>2</bitWidth>
-                            <enumeratedValues derivedFrom="GPIO.GPIO_PUP_PDN_CNTRL_REG0.GPIO_PUP_PDN_CNTRL0.BP_PULL"/>
+                            <enumeratedValues>
+                                <enumeratedValue>
+                                    <name>NONE</name>
+                                    <description>No pull</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>UP</name>
+                                    <description>Pull up</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>DOWN</name>
+                                    <description>Pull down</description>
+                                    <value>2</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         
                     </fields>
@@ -11448,7 +12363,19 @@
                             <description>RTS assert level</description>
                             <bitOffset>6</bitOffset>
                             <bitWidth>1</bitWidth>
-                            <enumeratedValues derivedFrom="UART1.CNTL.CTS_ASSERT.ASSERT_LEVEL"></enumeratedValues>
+                            <enumeratedValues>
+                                <name>ASSERT_LEVEL</name>
+                                <enumeratedValue>
+                                    <name>HIGH</name>
+                                    <description>Assert high</description>
+                                    <value>0</value>
+                                </enumeratedValue>
+                                <enumeratedValue>
+                                    <name>LOW</name>
+                                    <description>Assert low</description>
+                                    <value>1</value>
+                                </enumeratedValue>
+                            </enumeratedValues>
                         </field>
                         <field>
                             <name>RTS_FIFO_LEVEL</name>
